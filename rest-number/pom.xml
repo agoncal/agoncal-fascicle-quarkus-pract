@@ -9,9 +9,9 @@
   </parent>
 
   <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
-  <artifactId>numbers</artifactId>
+  <artifactId>number</artifactId>
   <version>1.0</version>
-  <name>Practicing Quarkus :: Numbers</name>
+  <name>Practicing Quarkus :: Numbers REST Microservice</name>
 
   <dependencies>
     <dependency>
