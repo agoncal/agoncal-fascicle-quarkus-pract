@@ -18,6 +18,26 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
+    <!-- tag::adocDependencyOpenAPI[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+    <!-- end::adocDependencyOpenAPI[] -->
+    <!-- tag::adocDependencyHealth[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
+    </dependency>
+    <!-- end::adocDependencyHealth[] -->
+    <!-- tag::adocDependencyMetrics[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-metrics</artifactId>
+    </dependency>
+    <!-- end::adocDependencyMetrics[] -->
+
+    <!-- tag::adocDependencyTest[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -28,7 +48,9 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- end::adocDependencyTest[] -->
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
