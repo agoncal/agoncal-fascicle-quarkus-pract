@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -9,15 +9,35 @@
   </parent>
 
   <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
-  <artifactId>numbers</artifactId>
+  <artifactId>number</artifactId>
   <version>1.0</version>
-  <name>Practicing Quarkus :: Numbers</name>
+  <name>Practicing Quarkus :: Numbers REST Microservice</name>
 
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
+    <!-- tag::adocDependencyOpenAPI[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+    <!-- end::adocDependencyOpenAPI[] -->
+    <!-- tag::adocDependencyHealth[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
+    </dependency>
+    <!-- end::adocDependencyHealth[] -->
+    <!-- tag::adocDependencyMetrics[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-metrics</artifactId>
+    </dependency>
+    <!-- end::adocDependencyMetrics[] -->
+
+    <!-- tag::adocDependencyTest[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -28,7 +48,9 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- end::adocDependencyTest[] -->
   </dependencies>
+
   <build>
     <plugins>
       <plugin>

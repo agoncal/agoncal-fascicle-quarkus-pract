@@ -1,28 +1,18 @@
-package org.agoncal.fascicle.quarkus.number;
+package org.agoncal.fascicle.quarkus.book;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.startsWith;
 
 @QuarkusTest
-public class NumberResourceTest {
-
-  @Test
-  public void shouldGenerateBookNumber() {
-    given()
-      .when().get("/numbers/book")
-      .then()
-      .statusCode(200)
-      .body(startsWith("BK-"));
-  }
+public class BookResourceTest {
 
   @Test
   public void shouldSayPing() {
     given()
-      .when().get("/numbers/ping")
+      .when().get("/books/ping")
       .then()
       .statusCode(200)
       .body(is("ping"));
@@ -31,7 +21,7 @@ public class NumberResourceTest {
   @Test
   public void shouldNotFindDummy() {
     given()
-      .when().get("/numbers/dummy")
+      .when().get("/books/dummy")
       .then()
       .statusCode(404);
   }
