@@ -29,7 +29,7 @@ public class NumberResourceTest {
   }
 
   @Test
-  public void shouldnotFindDummy() {
+  public void shouldNotFindDummy() {
     given()
       .when().get("/numbers/dummy")
       .then()

@@ -19,7 +19,7 @@ public class BookResourceTest {
   }
 
   @Test
-  public void shouldnotFindDummy() {
+  public void shouldNotFindDummy() {
     given()
       .when().get("/books/dummy")
       .then()
