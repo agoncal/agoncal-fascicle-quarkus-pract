@@ -25,7 +25,7 @@ public class NumberResource {
   private static final Logger LOGGER = Logger.getLogger(NumberResource.class);
 
   // tag::adocConfigProperty[]
-  @ConfigProperty(name = "seconds.sleep", defaultValue="0")
+  @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
   int sleep = 0;
 
   // end::adocConfigProperty[]
@@ -51,8 +51,8 @@ public class NumberResource {
 
   @GET
   @Produces(TEXT_PLAIN)
-  @Path("/hello")
-  public String hello() {
-    return "hello";
+  @Path("/ping")
+  public String ping() {
+    return "ping";
   }
 }
