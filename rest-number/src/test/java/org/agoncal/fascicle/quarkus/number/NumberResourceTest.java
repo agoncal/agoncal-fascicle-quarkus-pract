@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.startsWith;
 public class NumberResourceTest {
 
   @Test
-  public void shouldBenerateBookNumber() {
+  public void shouldGenerateBookNumber() {
     given()
       .when().get("/numbers/book")
       .then()
