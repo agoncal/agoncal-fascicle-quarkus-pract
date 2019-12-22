@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
-@Path("/numbers")
+@Path("/api/numbers")
 @Produces(TEXT_PLAIN)
 public class NumberResource {
 
