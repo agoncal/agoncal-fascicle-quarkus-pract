@@ -1,23 +1,39 @@
 package org.agoncal.fascicle.quarkus.book;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.common.mapper.TypeRef;
+import org.hamcrest.core.Is;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Random;
 
+import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
+import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
+import static javax.ws.rs.core.Response.Status.CREATED;
+import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// tag::adocResourceTest[]
 @QuarkusTest
 @Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -120,4 +136,159 @@ public class BookResourceTest {
       .then()
       .statusCode(404);
   }
+
+  @Test
+  void shouldNotGetUnknownBook() {
+    Long randomId = new Random().nextLong();
+    given()
+      .pathParam("id", randomId)
+      .when().get("/api/books/{id}")
+      .then()
+      .statusCode(NO_CONTENT.getStatusCode());
+  }
+
+  @Test
+  void shouldGetRandomBook() {
+    given()
+      .when().get("/api/books/random")
+      .then()
+      .statusCode(OK.getStatusCode())
+      .header(CONTENT_TYPE, APPLICATION_JSON);
+  }
+
+  @Test
+  void shouldNotAddInvalidItem() {
+    Book book = new Book();
+    book.title = null;
+    book.isbn = DEFAULT_ISBN;
+    book.author = DEFAULT_AUTHOR;
+    book.yearOfPublication = DEFAULT_YEAR_OF_PUBLICATION;
+    book.genre = DEFAULT_GENRE;
+    book.price = DEFAULT_PRICE;
+
+    given()
+      .body(book)
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .header(ACCEPT, APPLICATION_JSON)
+      .when()
+      .post("/api/books")
+      .then()
+      .statusCode(BAD_REQUEST.getStatusCode());
+  }
+
+  @Test
+  @Order(1)
+  void shouldGetInitialItems() {
+    List<Book> books = get("/api/books").then()
+      .statusCode(OK.getStatusCode())
+      .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+      .extract().body().as(getBookTypeRef());
+    assertEquals(NB_BOOKS, books.size());
+  }
+
+  @Test
+  @Order(2)
+  void shouldAddAnItem() {
+    Book book = new Book();
+    book.title = DEFAULT_TITLE;
+    book.isbn = DEFAULT_ISBN;
+    book.author = DEFAULT_AUTHOR;
+    book.yearOfPublication = DEFAULT_YEAR_OF_PUBLICATION;
+    book.genre = DEFAULT_GENRE;
+    book.price = DEFAULT_PRICE;
+
+    String location = given()
+      .body(book)
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .header(ACCEPT, APPLICATION_JSON)
+      .when()
+      .post("/api/books")
+      .then()
+      .statusCode(CREATED.getStatusCode())
+      .extract().header("Location");
+    assertTrue(location.contains("/api/books"));
+
+    // Stores the id
+    String[] segments = location.split("/");
+    bookId = segments[segments.length - 1];
+    assertNotNull(bookId);
+
+    given()
+      .pathParam("id", bookId)
+      .when().get("/api/books/{id}")
+      .then()
+      .statusCode(OK.getStatusCode())
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .body("title", Is.is(DEFAULT_TITLE))
+      .body("isbn", Is.is(DEFAULT_ISBN))
+      .body("author", Is.is(DEFAULT_AUTHOR))
+      .body("yearOfPublication", Is.is(DEFAULT_YEAR_OF_PUBLICATION))
+      .body("genre", Is.is(DEFAULT_GENRE))
+      .body("price", Is.is(DEFAULT_PRICE));
+
+    List<Book> books = get("/api/books").then()
+      .statusCode(OK.getStatusCode())
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .extract().body().as(getBookTypeRef());
+    assertEquals(NB_BOOKS + 1, books.size());
+  }
+
+  @Test
+  @Order(3)
+  void shouldUpdateAnItem() {
+    Book book = new Book();
+    book.id = Long.valueOf(bookId);
+    book.title = UPDATED_TITLE;
+    book.isbn = UPDATED_ISBN;
+    book.author = UPDATED_AUTHOR;
+    book.yearOfPublication = UPDATED_YEAR_OF_PUBLICATION;
+    book.genre = UPDATED_GENRE;
+    book.price = UPDATED_PRICE;
+
+    given()
+      .body(book)
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .header(ACCEPT, APPLICATION_JSON)
+      .when()
+      .put("/api/books")
+      .then()
+      .statusCode(OK.getStatusCode())
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .body("title", Is.is(UPDATED_TITLE))
+      .body("isbn", Is.is(UPDATED_ISBN))
+      .body("author", Is.is(UPDATED_AUTHOR))
+      .body("yearOfPublication", Is.is(UPDATED_YEAR_OF_PUBLICATION))
+      .body("genre", Is.is(UPDATED_GENRE))
+      .body("price", Is.is(UPDATED_PRICE));
+
+
+    List<Book> books = get("/api/books").then()
+      .statusCode(OK.getStatusCode())
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .extract().body().as(getBookTypeRef());
+    assertEquals(NB_BOOKS + 1, books.size());
+  }
+
+  @Test
+  @Order(4)
+  void shouldRemoveAnItem() {
+    given()
+      .pathParam("id", bookId)
+      .when().delete("/api/books/{id}")
+      .then()
+      .statusCode(NO_CONTENT.getStatusCode());
+
+    List<Book> books = get("/api/books").then()
+      .statusCode(OK.getStatusCode())
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .extract().body().as(getBookTypeRef());
+    assertEquals(NB_BOOKS, books.size());
+  }
+
+  private TypeRef<List<Book>> getBookTypeRef() {
+    return new TypeRef<List<Book>>() {
+      // Kept empty on purpose
+    };
+  }
 }
+// end::adocResourceTest[]
