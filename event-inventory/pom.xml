@@ -9,7 +9,7 @@
   </parent>
 
   <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
-  <artifactId>inventory</artifactId>
+  <artifactId>event-inventory</artifactId>
   <version>1.0</version>
   <name>Practicing Quarkus :: Inventory Event Microservice</name>
 
