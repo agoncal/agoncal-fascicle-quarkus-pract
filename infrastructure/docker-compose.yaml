@@ -1,12 +1,12 @@
 version: "3"
 services:
-    database:
-        image: "postgres:12.1"
-        container_name: "books-database"
-        ports:
-            - "5432:5432"
-        volumes:
-            - ./db-init/initialize-databases.sql:/docker-entrypoint-initdb.d/init.sql
+  database:
+    image: "postgres:12.1"
+    container_name: "books-database"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db-init/initialize-databases.sql:/docker-entrypoint-initdb.d/init.sql
 
 #    monitoring:
 #        image: "prom/prometheus"

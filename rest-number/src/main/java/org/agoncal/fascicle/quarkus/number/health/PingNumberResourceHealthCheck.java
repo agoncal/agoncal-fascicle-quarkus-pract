@@ -13,13 +13,13 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class PingNumberResourceHealthCheck implements HealthCheck {
 
-    @Inject
-    NumberResource numberResource;
+  @Inject
+  NumberResource numberResource;
 
-    @Override
-    public HealthCheckResponse call() {
-        numberResource.ping();
-        return HealthCheckResponse.named("Ping Number REST Endpoint").up().build();
-    }
+  @Override
+  public HealthCheckResponse call() {
+    numberResource.ping();
+    return HealthCheckResponse.named("Ping Number REST Endpoint").up().build();
+  }
 }
 // end::adocPingHero[]
