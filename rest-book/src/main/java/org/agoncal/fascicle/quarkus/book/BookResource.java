@@ -59,9 +59,9 @@ public class BookResource {
   // end::adocMetricsMethods[]
 
   // tag::adocOpenAPI[]
-  @Operation(summary = "Returns all the heroes from the database")
+  @Operation(summary = "Returns all the books from the database")
   @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, type = SchemaType.ARRAY)))
-  @APIResponse(responseCode = "204", description = "No heroes")
+  @APIResponse(responseCode = "204", description = "No books")
   // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countGetAllBooks", description = "Counts how many times the getAllBooks method has been invoked")
@@ -69,9 +69,9 @@ public class BookResource {
   // end::adocMetrics[]
   @GET
   public Response getAllBooks() {
-    List<Book> heroes = service.findAllBooks();
-    LOGGER.debug("Total number of heroes " + heroes);
-    return Response.ok(heroes).build();
+    List<Book> books = service.findAllBooks();
+    LOGGER.debug("Total number of books " + books);
+    return Response.ok(books).build();
   }
 
   // tag::adocOpenAPI[]

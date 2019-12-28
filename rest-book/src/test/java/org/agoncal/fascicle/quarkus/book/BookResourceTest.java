@@ -70,7 +70,7 @@ public class BookResourceTest {
     }
   }
 
-  private static final int NB_BOOKS = 951;
+  private static final int NB_BOOKS = 100;
   private static String bookId;
 
   @Container
