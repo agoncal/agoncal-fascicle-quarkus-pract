@@ -16,6 +16,8 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import java.math.BigDecimal;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.Random;
 
@@ -47,10 +49,26 @@ public class BookResourceTest {
   private static final String UPDATED_AUTHOR = "Author (updated)";
   private static final Integer DEFAULT_YEAR_OF_PUBLICATION = 1111;
   private static final Integer UPDATED_YEAR_OF_PUBLICATION = 2222;
-  private static final String DEFAULT_GENRE = "Genre";
-  private static final String UPDATED_GENRE = "Genre (updated)";
-  private static final BigDecimal DEFAULT_PRICE = new BigDecimal(11);
-  private static final BigDecimal UPDATED_PRICE = new BigDecimal(22);
+  private static final Integer DEFAULT_NB_OF_PAGES = 111;
+  private static final Integer UPDATED_NB_OF_PAGES = 222;
+  private static final Integer DEFAULT_RANK = 1;
+  private static final Integer UPDATED_RANK = 2;
+  private static final BigDecimal DEFAULT_PRICE = new BigDecimal(11.0);
+  private static final BigDecimal UPDATED_PRICE = new BigDecimal(22.0);
+  private static final URL DEFAULT_SMALL_IMAGE_URL = makeUrl("http://www.url.com");
+  private static final URL UPDATED_SMALL_IMAGE_URL = makeUrl("http://www.updatedurl.com");
+  private static final URL DEFAULT_MEDIUM_IMAGE_URL = makeUrl("http://www.url.com");
+  private static final URL UPDATED_MEDIUM_IMAGE_URL = makeUrl("http://www.updatedurl.com");
+  private static final String DEFAULT_DESCRIPTION = "Description";
+  private static final String UPDATED_DESCRIPTION = "Description (updated)";
+
+  private static URL makeUrl(String urlString) {
+    try {
+      return new URL(urlString);
+    } catch (MalformedURLException e) {
+      return null;
+    }
+  }
 
   private static final int NB_BOOKS = 951;
   private static String bookId;
@@ -163,8 +181,12 @@ public class BookResourceTest {
     book.isbn = DEFAULT_ISBN;
     book.author = DEFAULT_AUTHOR;
     book.yearOfPublication = DEFAULT_YEAR_OF_PUBLICATION;
-    book.genre = DEFAULT_GENRE;
+    book.nbOfPages = DEFAULT_NB_OF_PAGES;
+    book.rank = DEFAULT_RANK;
     book.price = DEFAULT_PRICE;
+    book.smallImageUrl = DEFAULT_SMALL_IMAGE_URL;
+    book.mediumImageUrl = DEFAULT_MEDIUM_IMAGE_URL;
+    book.description = DEFAULT_DESCRIPTION;
 
     given()
       .body(book)
@@ -194,8 +216,12 @@ public class BookResourceTest {
     book.isbn = DEFAULT_ISBN;
     book.author = DEFAULT_AUTHOR;
     book.yearOfPublication = DEFAULT_YEAR_OF_PUBLICATION;
-    book.genre = DEFAULT_GENRE;
+    book.nbOfPages = DEFAULT_NB_OF_PAGES;
+    book.rank = DEFAULT_RANK;
     book.price = DEFAULT_PRICE;
+    book.smallImageUrl = DEFAULT_SMALL_IMAGE_URL;
+    book.mediumImageUrl = DEFAULT_MEDIUM_IMAGE_URL;
+    book.description = DEFAULT_DESCRIPTION;
 
     String location = given()
       .body(book)
@@ -223,8 +249,12 @@ public class BookResourceTest {
       .body("isbn", Is.is(DEFAULT_ISBN))
       .body("author", Is.is(DEFAULT_AUTHOR))
       .body("yearOfPublication", Is.is(DEFAULT_YEAR_OF_PUBLICATION))
-      .body("genre", Is.is(DEFAULT_GENRE))
-      .body("price", Is.is(DEFAULT_PRICE));
+      .body("nbOfPages", Is.is(DEFAULT_NB_OF_PAGES))
+      .body("rank", Is.is(DEFAULT_RANK))
+      .body("price", Is.is(DEFAULT_PRICE))
+      .body("smallImageUrl", Is.is(DEFAULT_SMALL_IMAGE_URL))
+      .body("mediumImageUrl", Is.is(DEFAULT_MEDIUM_IMAGE_URL))
+      .body("description", Is.is(DEFAULT_DESCRIPTION));
 
     List<Book> books = get("/api/books").then()
       .statusCode(OK.getStatusCode())
@@ -242,8 +272,12 @@ public class BookResourceTest {
     book.isbn = UPDATED_ISBN;
     book.author = UPDATED_AUTHOR;
     book.yearOfPublication = UPDATED_YEAR_OF_PUBLICATION;
-    book.genre = UPDATED_GENRE;
+    book.nbOfPages = UPDATED_NB_OF_PAGES;
+    book.rank = UPDATED_RANK;
     book.price = UPDATED_PRICE;
+    book.smallImageUrl = UPDATED_SMALL_IMAGE_URL;
+    book.mediumImageUrl = UPDATED_MEDIUM_IMAGE_URL;
+    book.description = UPDATED_DESCRIPTION;
 
     given()
       .body(book)
@@ -258,8 +292,12 @@ public class BookResourceTest {
       .body("isbn", Is.is(UPDATED_ISBN))
       .body("author", Is.is(UPDATED_AUTHOR))
       .body("yearOfPublication", Is.is(UPDATED_YEAR_OF_PUBLICATION))
-      .body("genre", Is.is(UPDATED_GENRE))
-      .body("price", Is.is(UPDATED_PRICE));
+      .body("nbOfPages", Is.is(UPDATED_NB_OF_PAGES))
+      .body("rank", Is.is(UPDATED_RANK))
+      .body("price", Is.is(UPDATED_PRICE))
+      .body("smallImageUrl", Is.is(UPDATED_SMALL_IMAGE_URL))
+      .body("mediumImageUrl", Is.is(UPDATED_MEDIUM_IMAGE_URL))
+      .body("description", Is.is(UPDATED_DESCRIPTION));
 
 
     List<Book> books = get("/api/books").then()

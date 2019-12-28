@@ -56,12 +56,16 @@ public class BookService {
 
   public Book updateBook(@Valid Book book) {
     Book entity = Book.findById(book.id);
-    entity.price = book.price;
-    entity.author = book.author;
-    entity.genre = book.genre;
-    entity.isbn = book.isbn;
     entity.title = book.title;
+    entity.isbn = book.isbn;
+    entity.author = book.author;
     entity.yearOfPublication = book.yearOfPublication;
+    entity.nbOfPages = book.nbOfPages;
+    entity.rank = book.rank;
+    entity.price = book.price;
+    entity.smallImageUrl = book.smallImageUrl;
+    entity.mediumImageUrl = book.mediumImageUrl;
+    entity.description = book.description;
     return entity;
   }
 
