@@ -10,6 +10,7 @@
 
   <modules>
     <module>event-inventory</module>
+    <module>first-step</module>
     <module>infrastructure</module>
     <module>load-bookstore</module>
     <module>rest-book</module>
