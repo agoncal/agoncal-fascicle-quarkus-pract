@@ -13,13 +13,13 @@ import org.jboss.logging.Logger;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.concurrent.TimeUnit;
 
-import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
-
+// tag::adocSnippet[]
 @Path("/api/numbers")
-@Produces(TEXT_PLAIN)
+@Produces(MediaType.TEXT_PLAIN)
 public class NumberResource {
 
   private static final Logger LOGGER = Logger.getLogger(NumberResource.class);
@@ -32,7 +32,7 @@ public class NumberResource {
   // tag::adocMetricsMethods[]
   // tag::adocOpenAPI[]
   @Operation(summary = "Generates a book number.")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = TEXT_PLAIN, schema = @Schema(implementation = String.class, required = true)))
+  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.TEXT_PLAIN, schema = @Schema(implementation = String.class, required = true)))
   // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countGenerateBookNumber", description = "Counts how many times the generateBookNumber method has been invoked")
@@ -48,11 +48,13 @@ public class NumberResource {
     LOGGER.info("Generating a book number");
     return Response.ok("BK-" + Math.random()).build();
   }
+  // tag::adocPing[]
 
   @GET
-  @Produces(TEXT_PLAIN)
   @Path("/ping")
   public String ping() {
     return "ping";
   }
+  // end::adocPing[]
 }
+// end::adocSnippet[]
