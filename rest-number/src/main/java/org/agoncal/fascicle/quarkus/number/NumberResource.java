@@ -29,7 +29,6 @@ public class NumberResource {
   int sleep = 0;
 
   // end::adocConfigProperty[]
-  // tag::adocMetricsMethods[]
   // tag::adocOpenAPI[]
   @Operation(summary = "Generates a book number.")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.TEXT_PLAIN, schema = @Schema(implementation = String.class, required = true)))
