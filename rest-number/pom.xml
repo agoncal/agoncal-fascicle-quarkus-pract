@@ -1,3 +1,4 @@
+<!-- tag::adocHeader[] -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -12,20 +13,18 @@
   <artifactId>rest-number</artifactId>
   <version>1.0</version>
   <name>Practicing Quarkus :: Numbers REST Microservice</name>
+  <!-- end::adocHeader[] -->
 
+  <!-- tag::adocDependency[] -->
   <dependencies>
-    <!-- tag::adocDependencyResteasy[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
-    <!-- end::adocDependencyResteasy[] -->
-    <!-- tag::adocDependencyOpenAPI[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
-    <!-- end::adocDependencyOpenAPI[] -->
     <!-- tag::adocDependencyHealth[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -39,7 +38,6 @@
     </dependency>
     <!-- end::adocDependencyMetrics[] -->
 
-    <!-- tag::adocDependencyTest[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -50,9 +48,10 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- end::adocDependencyTest[] -->
   </dependencies>
+  <!-- end::adocDependency[] -->
 
+  <!-- tag::adocBuild[] -->
   <build>
     <plugins>
       <plugin>
@@ -82,6 +81,8 @@
       </plugin>
     </plugins>
   </build>
+  <!-- end::adocBuild[] -->
+  <!-- tag::adocProfile[] -->
   <profiles>
     <profile>
       <id>native</id>
@@ -116,4 +117,5 @@
       </properties>
     </profile>
   </profiles>
+  <!-- end::adocProfile[] -->
 </project>
