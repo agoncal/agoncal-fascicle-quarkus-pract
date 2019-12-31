@@ -10,6 +10,7 @@ import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.startsWith;
 
+// tag::adocSnippet[]
 @QuarkusTest
 public class NumberResourceTest {
 
@@ -22,6 +23,7 @@ public class NumberResourceTest {
       .body(startsWith("BK-"));
   }
 
+  // tag::adocPing[]
   @Test
   public void shouldSayPing() {
     given()
@@ -31,6 +33,7 @@ public class NumberResourceTest {
       .body(is("ping"));
   }
 
+  // end::adocPing[]
   // tag::adocOpenAPI[]
   @Test
   void shouldPingOpenAPI() {
@@ -41,6 +44,8 @@ public class NumberResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
+  // end::adocOpenAPI[]
+  // tag::adocSwagger[]
   @Test
   void shouldPingSwaggerUI() {
     given()
@@ -48,8 +53,8 @@ public class NumberResourceTest {
       .then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocOpenAPI[]
 
+  // end::adocSwagger[]
   // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {
@@ -66,8 +71,8 @@ public class NumberResourceTest {
       .then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocHealth[]
 
+  // end::adocHealth[]
   // tag::adocMetrics[]
   @Test
   void shouldPingMetrics() {
@@ -77,8 +82,8 @@ public class NumberResourceTest {
       .then()
       .statusCode(OK.getStatusCode());
   }
-  // end::adocMetrics[]
 
+  // end::adocMetrics[]
   @Test
   public void shouldNotFindDummy() {
     given()
@@ -87,3 +92,4 @@ public class NumberResourceTest {
       .statusCode(404);
   }
 }
+// end::adocSnippet[]
