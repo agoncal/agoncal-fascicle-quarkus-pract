@@ -80,8 +80,9 @@
       <artifactId>postgresql</artifactId>
       <version>1.12.0</version>
     </dependency>
+    <!-- end::adocDependencyTest[] -->
   </dependencies>
-  <!-- end::adocDependencyTest[] -->
+  <!-- end::adocDependency[] -->
 
   <!-- tag::adocBuild[] -->
   <build>

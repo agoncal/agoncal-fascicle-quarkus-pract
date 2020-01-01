@@ -50,8 +50,9 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- end::adocDependencyTest[] -->
   </dependencies>
-  <!-- end::adocDependencyTest[] -->
+  <!-- end::adocDependency[] -->
 
   <!-- tag::adocBuild[] -->
   <build>
