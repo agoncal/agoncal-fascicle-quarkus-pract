@@ -35,7 +35,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-// tag::adocResourceTest[]
+// tag::adocSnippet[]
 @QuarkusTest
 @Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -329,4 +329,4 @@ public class BookResourceTest {
     };
   }
 }
-// end::adocResourceTest[]
+// end::adocSnippet[]

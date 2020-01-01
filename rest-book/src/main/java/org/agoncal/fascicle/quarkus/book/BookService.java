@@ -1,7 +1,4 @@
-// tag::adocTransactional[]
 package org.agoncal.fascicle.quarkus.book;
-
-// end::adocTransactional[]
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -14,8 +11,7 @@ import java.util.List;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
-// tag::adocTransactional[]
-
+// tag::adocSnippet[]
 @ApplicationScoped
 @Transactional(REQUIRED)
 public class BookService {
@@ -46,9 +42,9 @@ public class BookService {
 
   // tag::adocPersistBook[]
   public Book persistBook(@Valid Book book) {
-    // tag::adocPersistBookLevel[]
+    // tag::adocConfigProperty[]
     book.price = book.price.multiply(discount);
-    // end::adocPersistBookLevel[]
+    // end::adocConfigProperty[]
     Book.persist(book);
     return book;
   }
@@ -74,4 +70,4 @@ public class BookService {
     book.delete();
   }
 }
-// end::adocTransactional[]
+// end::adocSnippet[]

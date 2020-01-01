@@ -1,3 +1,4 @@
+<!-- tag::adocHeader[] -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -12,44 +13,34 @@
   <artifactId>rest-book</artifactId>
   <version>1.0</version>
   <name>Practicing Quarkus :: Books REST Microservice</name>
+  <!-- end::adocHeader[] -->
 
+  <!-- tag::adocDependency[] -->
   <dependencies>
-    <!-- tag::adocDependencyResteasy[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
-    <!-- end::adocDependencyResteasy[] -->
-    <!-- tag::adocDependencyResteasyJsonB[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
-    <!-- end::adocDependencyResteasyJsonB[] -->
-    <!-- tag::adocDependencyHibernate[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm-panache</artifactId>
     </dependency>
-    <!-- end::adocDependencyHibernate[] -->
-    <!-- tag::adocDependencyPostgresql[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-postgresql</artifactId>
     </dependency>
-    <!-- end::adocDependencyPostgresql[] -->
-    <!-- tag::adocDependencyValidator[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-validator</artifactId>
     </dependency>
-    <!-- end::adocDependencyValidator[] -->
-    <!-- tag::adocDependencyOpenAPI[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
-    <!-- end::adocDependencyOpenAPI[] -->
     <!-- tag::adocDependencyHealth[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -75,15 +66,11 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- end::adocDependencyTest[] -->
-    <!-- tag::adocDependencyTestREST[] -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- end::adocDependencyTestREST[] -->
-    <!-- tag::adocDependencyTestContainers[] -->
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -93,8 +80,8 @@
       <artifactId>postgresql</artifactId>
       <version>1.12.0</version>
     </dependency>
-    <!-- end::adocDependencyTestContainers[] -->
   </dependencies>
+  <!-- end::adocDependencyTest[] -->
 
   <!-- tag::adocBuild[] -->
   <build>
@@ -127,7 +114,7 @@
     </plugins>
   </build>
   <!-- end::adocBuild[] -->
-
+  <!-- tag::adocProfile[] -->
   <profiles>
     <profile>
       <id>native</id>
@@ -162,4 +149,5 @@
       </properties>
     </profile>
   </profiles>
+  <!-- end::adocProfile[] -->
 </project>

@@ -31,6 +31,7 @@ import java.util.List;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
+// tag::adocSnippet[]
 @Path("/api/books")
 @Produces(APPLICATION_JSON)
 public class BookResource {
@@ -40,7 +41,6 @@ public class BookResource {
   @Inject
   BookService service;
 
-  // tag::adocMetricsMethods[]
   // tag::adocOpenAPI[]
   @Operation(summary = "Returns a random book")
   @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, required = true)))
@@ -56,7 +56,6 @@ public class BookResource {
     LOGGER.debug("Found random book " + book);
     return Response.ok(book).build();
   }
-  // end::adocMetricsMethods[]
 
   // tag::adocOpenAPI[]
   @Operation(summary = "Returns all the books from the database")
@@ -158,6 +157,7 @@ public class BookResource {
     LOGGER.debug("Book deleted with " + id);
     return Response.noContent().build();
   }
+  // tag::adocPing[]
 
   @GET
   @Produces(TEXT_PLAIN)
@@ -165,4 +165,6 @@ public class BookResource {
   public String ping() {
     return "ping";
   }
+  // end::adocPing[]
 }
+// end::adocSnippet[]

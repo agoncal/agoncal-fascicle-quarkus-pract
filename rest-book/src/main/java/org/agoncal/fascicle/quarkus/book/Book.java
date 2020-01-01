@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Random;
 
 @Schema(description = "Book representation")
-// tag::adocEntity[]
+// tag::adocSnippet[]
 @Entity
 public class Book extends PanacheEntity {
 
@@ -46,6 +46,7 @@ public class Book extends PanacheEntity {
     return Book.findAll().page(randomBook, 1).firstResult();
   }
   // end::adocFindRandom[]
+  // tag::adocSkip[]
 
   // ======================================
   // =   Methods hash, equals, toString   =
@@ -67,4 +68,6 @@ public class Book extends PanacheEntity {
       ", description='" + description + '\'' +
       '}';
   }
+// end::adocSkip[]
 }
+// end::adocSnippet[]

@@ -38,6 +38,8 @@
     </dependency>
     <!-- end::adocDependencyMetrics[] -->
 
+    <!-- Test -->
+    <!-- tag::adocDependencyTest[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -49,7 +51,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <!-- end::adocDependency[] -->
+  <!-- end::adocDependencyTest[] -->
 
   <!-- tag::adocBuild[] -->
   <build>
