@@ -4,6 +4,7 @@ import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import java.time.Instant;
 
+// tag::adocSnippet[]
 public class BookNumbers {
 
   // tag::adocJSonB[]
@@ -28,6 +29,7 @@ public class BookNumbers {
   // end::adocJSonB[]
   private Instant generationDate;
 
+  // tag::adocSkip[]
   public String getIsbn10() {
     return isbn10;
   }
@@ -75,4 +77,6 @@ public class BookNumbers {
   public void setGenerationDate(Instant generationDate) {
     this.generationDate = generationDate;
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
