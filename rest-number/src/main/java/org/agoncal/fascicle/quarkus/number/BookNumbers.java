@@ -6,16 +6,26 @@ import java.time.Instant;
 
 public class BookNumbers {
 
+  // tag::adocJSonB[]
   @JsonbProperty("isbn-10")
+  // end::adocJSonB[]
   private String isbn10;
+  // tag::adocJSonB[]
   @JsonbProperty("isbn-13")
+  // end::adocJSonB[]
   private String isbn13;
   private String asin;
+  // tag::adocJSonB[]
   @JsonbProperty("ean-8")
+  // end::adocJSonB[]
   private String ean8;
+  // tag::adocJSonB[]
   @JsonbProperty("ean-13")
+  // end::adocJSonB[]
   private String ean13;
+  // tag::adocJSonB[]
   @JsonbTransient
+  // end::adocJSonB[]
   private Instant generationDate;
 
   public String getIsbn10() {
