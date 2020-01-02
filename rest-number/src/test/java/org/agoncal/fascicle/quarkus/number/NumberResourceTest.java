@@ -6,9 +6,11 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.Matchers.hasKey;
+import static org.hamcrest.Matchers.not;
 
 // tag::adocSnippet[]
 @QuarkusTest
@@ -17,16 +19,23 @@ public class NumberResourceTest {
   @Test
   public void shouldGenerateBookNumber() {
     given()
-      .when().get("/api/numbers/book")
+      .header(ACCEPT, APPLICATION_JSON)
+      .when().get("/api/numbers")
       .then()
       .statusCode(200)
-      .body(startsWith("BK-"));
+      .body("$", hasKey("isbn-10"))
+      .body("$", hasKey("isbn-13"))
+      .body("$", hasKey("asin"))
+      .body("$", hasKey("ean-8"))
+      .body("$", hasKey("ean-13"))
+      .body("$", not(hasKey("generationDate")));
   }
 
   // tag::adocPing[]
   @Test
   public void shouldSayPing() {
     given()
+      .header(ACCEPT, TEXT_PLAIN)
       .when().get("/api/numbers/ping")
       .then()
       .statusCode(200)

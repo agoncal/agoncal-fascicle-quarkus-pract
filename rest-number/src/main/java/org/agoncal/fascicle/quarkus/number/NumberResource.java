@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.number;
 
+import com.github.javafaker.Faker;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
@@ -15,11 +16,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 // tag::adocSnippet[]
 @Path("/api/numbers")
-@Produces(MediaType.TEXT_PLAIN)
 public class NumberResource {
 
   private static final Logger LOGGER = Logger.getLogger(NumberResource.class);
@@ -38,19 +39,28 @@ public class NumberResource {
   @Timed(name = "timeGenerateBookNumber", description = "Times how long it takes to invoke the generateBookNumber method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   @GET
-  @Path("book")
+  @Produces(MediaType.APPLICATION_JSON)
   public Response generateBookNumber() throws InterruptedException {
     // tag::adocConfigProperty[]
     LOGGER.info("Waiting for " + sleep + " seconds");
     TimeUnit.SECONDS.sleep(sleep);
     // end::adocConfigProperty[]
-    LOGGER.info("Generating a book number");
-    return Response.ok("BK-" + Math.random()).build();
+    LOGGER.info("Generating book numbers");
+    Faker faker = new Faker();
+    BookNumbers bookNumbers = new BookNumbers();
+    bookNumbers.setIsbn10(faker.code().isbn10());
+    bookNumbers.setIsbn13(faker.code().isbn13());
+    bookNumbers.setAsin(faker.code().asin());
+    bookNumbers.setEan8(faker.code().ean8());
+    bookNumbers.setEan13(faker.code().ean13());
+    bookNumbers.setGenerationDate(Instant.now());
+    return Response.ok(bookNumbers).build();
   }
   // tag::adocPing[]
 
   @GET
   @Path("/ping")
+  @Produces(MediaType.TEXT_PLAIN)
   public String ping() {
     return "ping";
   }
