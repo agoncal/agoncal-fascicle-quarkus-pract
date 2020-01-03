@@ -50,11 +50,11 @@ public class BookService {
   // end::adocPersistBook[]
 
   // tag::adocFallback[]
-
   Book fallbackPersistBook() {
     LOGGER.warn("Falling back on persisting a book");
     return null;
   }
+  // end::adocFallback[]
 
   @Transactional(SUPPORTS)
   public List<Book> findAllBooks() {

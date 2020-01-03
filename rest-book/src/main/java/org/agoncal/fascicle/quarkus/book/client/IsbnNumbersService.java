@@ -16,4 +16,4 @@ public interface IsbnNumbersService {
     @GET
     IsbnNumbers generateIsbnNumbers();
 }
-// end::adocRestClient[]
+// end::adocSnippet[]
