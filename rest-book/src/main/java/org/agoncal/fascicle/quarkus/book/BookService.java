@@ -1,8 +1,12 @@
 package org.agoncal.fascicle.quarkus.book;
 
+import org.agoncal.fascicle.quarkus.book.client.IsbnNumbers;
+import org.agoncal.fascicle.quarkus.book.client.IsbnNumbersService;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.math.BigDecimal;
@@ -20,6 +24,23 @@ public class BookService {
   @ConfigProperty(name = "book.discount", defaultValue = "1")
   BigDecimal discount;
   // end::adocConfigProperty[]
+
+  @Inject
+  @RestClient
+  IsbnNumbersService isbnNumbersService;
+
+  // tag::adocPersistBook[]
+  public Book persistBook(@Valid Book book) {
+    // tag::adocConfigProperty[]
+    book.price = book.price.multiply(discount);
+    // end::adocConfigProperty[]
+    IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
+    book.isbn13 = isbnNumbers.getIsbn13();
+    book.isbn10 = isbnNumbers.getIsbn10();
+    Book.persist(book);
+    return book;
+  }
+  // end::adocPersistBook[]
 
   @Transactional(SUPPORTS)
   public List<Book> findAllBooks() {
@@ -40,20 +61,11 @@ public class BookService {
     return randomBook;
   }
 
-  // tag::adocPersistBook[]
-  public Book persistBook(@Valid Book book) {
-    // tag::adocConfigProperty[]
-    book.price = book.price.multiply(discount);
-    // end::adocConfigProperty[]
-    Book.persist(book);
-    return book;
-  }
-  // end::adocPersistBook[]
-
   public Book updateBook(@Valid Book book) {
     Book entity = Book.findById(book.id);
     entity.title = book.title;
-    entity.isbn = book.isbn;
+    entity.isbn13 = book.isbn13;
+    entity.isbn10 = book.isbn10;
     entity.author = book.author;
     entity.yearOfPublication = book.yearOfPublication;
     entity.nbOfPages = book.nbOfPages;

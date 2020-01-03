@@ -25,7 +25,10 @@ public class Book extends PanacheEntity {
   // tag::adocBeanValidation[]
   @NotNull
   // end::adocBeanValidation[]
-  public String isbn;
+  @Column(name = "isbn_13")
+  public String isbn13;
+  @Column(name = "isbn_10")
+  public String isbn10;
   public String author;
   @Column(name = "year_of_publication")
   public Integer yearOfPublication;
@@ -65,7 +68,8 @@ public class Book extends PanacheEntity {
     return "Book{" +
       "id=" + id +
       ", title='" + title + '\'' +
-      ", isbn='" + isbn + '\'' +
+      ", isbn13='" + isbn13 + '\'' +
+      ", isbn10='" + isbn10 + '\'' +
       ", author='" + author + '\'' +
       ", yearOfPublication=" + yearOfPublication +
       ", nbOfPages=" + nbOfPages +

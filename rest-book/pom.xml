@@ -41,6 +41,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
+    <!-- tag::adocRestClientDependency[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client</artifactId>
+    </dependency>
+    <!-- end::adocRestClientDependency[] -->
     <!-- tag::adocDependencyHealth[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
