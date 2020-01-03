@@ -47,6 +47,12 @@
       <artifactId>quarkus-rest-client</artifactId>
     </dependency>
     <!-- end::adocRestClientDependency[] -->
+    <!-- tag::adocDependencyFaultTolerance[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
+    </dependency>
+    <!-- end::adocDependencyFaultTolerance[] -->
     <!-- tag::adocDependencyHealth[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
