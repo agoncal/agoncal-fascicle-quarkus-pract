@@ -26,10 +26,14 @@ public class NumberResource {
   private static final Logger LOGGER = Logger.getLogger(NumberResource.class);
 
   // tag::adocConfigProperty[]
+  @ConfigProperty(name = "number.separator", defaultValue = "false")
+  boolean separator;
+  // end::adocConfigProperty[]
+  // tag::adocFault[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
   int sleep = 0;
 
-  // end::adocConfigProperty[]
+  // end::adocFault[]
   // tag::adocOpenAPI[]
   @Operation(summary = "Generates a book number.")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.TEXT_PLAIN, schema = @Schema(implementation = String.class, required = true)))
@@ -41,15 +45,15 @@ public class NumberResource {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response generateBookNumber() throws InterruptedException {
-    // tag::adocConfigProperty[]
+    // tag::adocFault[]
     LOGGER.info("Waiting for " + sleep + " seconds");
     TimeUnit.SECONDS.sleep(sleep);
-    // end::adocConfigProperty[]
+    // end::adocFault[]
     LOGGER.info("Generating book numbers");
     Faker faker = new Faker();
     BookNumbers bookNumbers = new BookNumbers();
-    bookNumbers.setIsbn10(faker.code().isbn10());
-    bookNumbers.setIsbn13(faker.code().isbn13());
+    bookNumbers.setIsbn10(faker.code().isbn10(separator));
+    bookNumbers.setIsbn13(faker.code().isbn13(separator));
     bookNumbers.setAsin(faker.code().asin());
     bookNumbers.setEan8(faker.code().ean8());
     bookNumbers.setEan13(faker.code().ean13());

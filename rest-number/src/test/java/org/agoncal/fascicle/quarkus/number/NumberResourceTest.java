@@ -53,8 +53,6 @@ public class NumberResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
-  // end::adocOpenAPI[]
-  // tag::adocSwagger[]
   @Test
   void shouldPingSwaggerUI() {
     given()
@@ -62,8 +60,7 @@ public class NumberResourceTest {
       .then()
       .statusCode(OK.getStatusCode());
   }
-
-  // end::adocSwagger[]
+  // end::adocOpenAPI[]
   // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {

@@ -1,4 +1,3 @@
-// tag::adocApplication[]
 package org.agoncal.fascicle.quarkus.number;
 
 import org.eclipse.microprofile.openapi.annotations.ExternalDocumentation;
@@ -11,6 +10,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+// tag::adocSnippet[]
 @ApplicationPath("/")
 @OpenAPIDefinition(
   info = @Info(title = "Number API",
@@ -28,4 +28,4 @@ import javax.ws.rs.core.Application;
 )
 public class NumberApplication extends Application {
 }
-// end::adocApplication[]
+// end::adocSnippet[]

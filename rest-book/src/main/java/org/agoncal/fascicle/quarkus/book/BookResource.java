@@ -31,15 +31,17 @@ import java.util.List;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
+// tag::adocInjection[]
 // tag::adocSnippet[]
 @Path("/api/books")
 @Produces(APPLICATION_JSON)
 public class BookResource {
 
-  private static final Logger LOGGER = Logger.getLogger(BookResource.class);
-
   @Inject
   BookService service;
+  // end::adocInjection[]
+
+  private static final Logger LOGGER = Logger.getLogger(BookResource.class);
 
   // tag::adocOpenAPI[]
   @Operation(summary = "Returns a random book")

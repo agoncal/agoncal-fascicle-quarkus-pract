@@ -18,16 +18,22 @@ import java.util.Random;
 @Entity
 public class Book extends PanacheEntity {
 
+  // tag::adocBeanValidation[]
   @NotNull
+  // end::adocBeanValidation[]
   public String title;
+  // tag::adocBeanValidation[]
   @NotNull
+  // end::adocBeanValidation[]
   public String isbn;
   public String author;
   @Column(name = "year_of_publication")
   public Integer yearOfPublication;
   @Column(name = "nb_of_pages")
   public Integer nbOfPages;
+  // tag::adocBeanValidation[]
   @Min(1) @Max(10)
+  // end::adocBeanValidation[]
   public Integer rank;
   public BigDecimal price;
   @Column(name = "small_image_url")
@@ -35,7 +41,9 @@ public class Book extends PanacheEntity {
   @Column(name = "medium_image_url")
   public URL mediumImageUrl;
   @Column(length = 10000)
+  // tag::adocBeanValidation[]
   @Size(min = 1, max = 10000)
+  // end::adocBeanValidation[]
   public String description;
 
   // tag::adocFindRandom[]
