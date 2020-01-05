@@ -12,11 +12,14 @@ import javax.enterprise.context.ApplicationScoped;
 @RestClient
 public class MockIsbnNumbersService implements IsbnNumbersService {
 
+  public static final String MOCK_ISBN_13 = "Isbn 13";
+  public static final String MOCK_ISBN_10 = "Isbn 10";
+
   @Override
   public IsbnNumbers generateIsbnNumbers() {
     IsbnNumbers isbnNumbers = new IsbnNumbers();
-    isbnNumbers.setIsbn13("dummy isbn 13");
-    isbnNumbers.setIsbn10("dummy isbn 10");
+    isbnNumbers.setIsbn13(MOCK_ISBN_13);
+    isbnNumbers.setIsbn10(MOCK_ISBN_10);
     return isbnNumbers;
   }
 }

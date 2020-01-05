@@ -22,9 +22,6 @@ public class Book extends PanacheEntity {
   @NotNull
   // end::adocBeanValidation[]
   public String title;
-  // tag::adocBeanValidation[]
-  @NotNull
-  // end::adocBeanValidation[]
   @Column(name = "isbn_13")
   public String isbn13;
   @Column(name = "isbn_10")

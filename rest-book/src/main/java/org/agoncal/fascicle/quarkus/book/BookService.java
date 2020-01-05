@@ -50,7 +50,7 @@ public class BookService {
   // end::adocPersistBook[]
 
   // tag::adocFallback[]
-  Book fallbackPersistBook() {
+  Book fallbackPersistBook(Book book) {
     LOGGER.warn("Falling back on persisting a book");
     return null;
   }

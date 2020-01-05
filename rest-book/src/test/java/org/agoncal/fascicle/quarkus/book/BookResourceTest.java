@@ -30,6 +30,8 @@ import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import static javax.ws.rs.core.Response.Status.CREATED;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
+import static org.agoncal.fascicle.quarkus.book.client.MockIsbnNumbersService.MOCK_ISBN_10;
+import static org.agoncal.fascicle.quarkus.book.client.MockIsbnNumbersService.MOCK_ISBN_13;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -43,8 +45,6 @@ public class BookResourceTest {
 
   private static final String DEFAULT_TITLE = "Title";
   private static final String UPDATED_TITLE = "Title (updated)";
-  private static final String DEFAULT_ISBN = "Isbn";
-  private static final String UPDATED_ISBN = "Isbn (updated)";
   private static final String DEFAULT_AUTHOR = "Author";
   private static final String UPDATED_AUTHOR = "Author (updated)";
   private static final Integer DEFAULT_YEAR_OF_PUBLICATION = 1111;
@@ -178,7 +178,8 @@ public class BookResourceTest {
   void shouldNotAddInvalidItem() {
     Book book = new Book();
     book.title = null;
-    book.isbn = DEFAULT_ISBN;
+    book.isbn13 = MOCK_ISBN_13;
+    book.isbn10 = MOCK_ISBN_10;
     book.author = DEFAULT_AUTHOR;
     book.yearOfPublication = DEFAULT_YEAR_OF_PUBLICATION;
     book.nbOfPages = DEFAULT_NB_OF_PAGES;
@@ -213,7 +214,6 @@ public class BookResourceTest {
   void shouldAddAnItem() {
     Book book = new Book();
     book.title = DEFAULT_TITLE;
-    book.isbn = DEFAULT_ISBN;
     book.author = DEFAULT_AUTHOR;
     book.yearOfPublication = DEFAULT_YEAR_OF_PUBLICATION;
     book.nbOfPages = DEFAULT_NB_OF_PAGES;
@@ -246,7 +246,8 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(DEFAULT_TITLE))
-      .body("isbn", Is.is(DEFAULT_ISBN))
+      .body("isbn13", Is.is(MOCK_ISBN_13))
+      .body("isbn10", Is.is(MOCK_ISBN_10))
       .body("author", Is.is(DEFAULT_AUTHOR))
       .body("yearOfPublication", Is.is(DEFAULT_YEAR_OF_PUBLICATION))
       .body("nbOfPages", Is.is(DEFAULT_NB_OF_PAGES))
@@ -269,7 +270,8 @@ public class BookResourceTest {
     Book book = new Book();
     book.id = Long.valueOf(bookId);
     book.title = UPDATED_TITLE;
-    book.isbn = UPDATED_ISBN;
+    book.isbn13 = MOCK_ISBN_13;
+    book.isbn10 = MOCK_ISBN_10;
     book.author = UPDATED_AUTHOR;
     book.yearOfPublication = UPDATED_YEAR_OF_PUBLICATION;
     book.nbOfPages = UPDATED_NB_OF_PAGES;
@@ -289,7 +291,8 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(UPDATED_TITLE))
-      .body("isbn", Is.is(UPDATED_ISBN))
+      .body("isbn_13", Is.is(MOCK_ISBN_13))
+      .body("isbn_10", Is.is(MOCK_ISBN_10))
       .body("author", Is.is(UPDATED_AUTHOR))
       .body("yearOfPublication", Is.is(UPDATED_YEAR_OF_PUBLICATION))
       .body("nbOfPages", Is.is(UPDATED_NB_OF_PAGES))
