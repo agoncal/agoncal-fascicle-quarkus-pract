@@ -43,6 +43,7 @@ public class BookResource {
 
   private static final Logger LOGGER = Logger.getLogger(BookResource.class);
 
+  // tag::adocGetRandomBook[]
   // tag::adocOpenAPI[]
   @Operation(summary = "Returns a random book")
   @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, required = true)))
@@ -58,6 +59,7 @@ public class BookResource {
     LOGGER.debug("Found random book " + book);
     return Response.ok(book).build();
   }
+  // end::adocGetRandomBook[]
 
   // tag::adocOpenAPI[]
   @Operation(summary = "Returns all the books from the database")

@@ -77,7 +77,6 @@ public class NumberResourceTest {
       .then()
       .statusCode(OK.getStatusCode());
   }
-
   // end::adocHealth[]
   // tag::adocMetrics[]
   @Test
@@ -88,7 +87,6 @@ public class NumberResourceTest {
       .then()
       .statusCode(OK.getStatusCode());
   }
-
   // end::adocMetrics[]
   @Test
   public void shouldNotFindDummy() {

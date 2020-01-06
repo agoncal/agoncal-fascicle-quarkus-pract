@@ -1,0 +1,16 @@
+{
+  "status": "UP",
+  "checks": [
+    {
+      "name": "Book health check",
+      "status": "UP",
+      "data": {
+        "rows": 100
+      }
+    },
+    {
+      "name": "Database connection(s) health check",
+      "status": "UP"
+    }
+  ]
+}
