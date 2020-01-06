@@ -16,14 +16,15 @@ class BookApplicationLifeCycle {
 
     // tag::adocStartupEvent[]
     void onStart(@Observes StartupEvent ev) {
-        LOGGER.info("  _   _                      _    ____ ___ ");
-        LOGGER.info(" | | | | ___ _ __ ___       / \\  |  _ \\_ _|");
-        LOGGER.info(" | |_| |/ _ \\ '__/ _ \\     / _ \\ | |_) | | ");
-        LOGGER.info(" |  _  |  __/ | | (_) |   / ___ \\|  __/| | ");
-        LOGGER.info(" |_| |_|\\___|_|  \\___/   /_/   \\_\\_|  |___|");
+        LOGGER.info("______             _");
+        LOGGER.info("| ___ \\           | |");
+        LOGGER.info("| |_/ / ___   ___ | | __");
+        LOGGER.info("| ___ \\/ _ \\ / _ \\| |/ /");
+        LOGGER.info("| |_/ / (_) | (_) |   <");
+        LOGGER.info("\\____/ \\___/ \\___/|_|\\_\\");
         LOGGER.info("                         Powered by Quarkus");
         // tag::adocProfileManager[]
-        LOGGER.info("The application HERO is starting with profile " + ProfileManager.getActiveProfile());
+        LOGGER.info("The application Book is starting with profile " + ProfileManager.getActiveProfile());
         // end::adocProfileManager[]
     }
     // end::adocStartupEvent[]

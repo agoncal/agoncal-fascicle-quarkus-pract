@@ -1,10 +1,15 @@
 package org.agoncal.fascicle.quarkus.number;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import java.time.Instant;
 
 // tag::adocSnippet[]
+// tag::adocOpenAPI[]
+@Schema(description = "The hero fighting against the villain")
+// end::adocOpenAPI[]
 public class BookNumbers {
 
   // tag::adocJSonB[]

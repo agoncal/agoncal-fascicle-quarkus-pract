@@ -16,14 +16,15 @@ class NumberApplicationLifeCycle {
 
     // tag::adocStartupEvent[]
     void onStart(@Observes StartupEvent ev) {
-        LOGGER.info("  _   _                      _    ____ ___ ");
-        LOGGER.info(" | | | | ___ _ __ ___       / \\  |  _ \\_ _|");
-        LOGGER.info(" | |_| |/ _ \\ '__/ _ \\     / _ \\ | |_) | | ");
-        LOGGER.info(" |  _  |  __/ | | (_) |   / ___ \\|  __/| | ");
-        LOGGER.info(" |_| |_|\\___|_|  \\___/   /_/   \\_\\_|  |___|");
+        LOGGER.info(" _   _                 _               ");
+        LOGGER.info("| \\ | |               | |              ");
+        LOGGER.info("|  \\| |_   _ _ __ ___ | |__   ___ _ __");
+        LOGGER.info("| . ` | | | | '_ ` _ \\| '_ \\ / _ \\ '__|\n");
+        LOGGER.info("| |\\  | |_| | | | | | | |_) |  __/ |   \n");
+        LOGGER.info("\\_| \\_/\\__,_|_| |_| |_|_.__/ \\___|_|   \n");
         LOGGER.info("                         Powered by Quarkus");
         // tag::adocProfileManager[]
-        LOGGER.info("The application HERO is starting with profile " + ProfileManager.getActiveProfile());
+        LOGGER.info("The application Number is starting with profile " + ProfileManager.getActiveProfile());
         // end::adocProfileManager[]
     }
     // end::adocStartupEvent[]
