@@ -3,6 +3,7 @@
 *.log
 *.jdbc
 *.iml
+dist
 target
 *.class
 *.jar
