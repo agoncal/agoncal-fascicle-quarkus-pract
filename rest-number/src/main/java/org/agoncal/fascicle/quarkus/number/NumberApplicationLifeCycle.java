@@ -30,7 +30,7 @@ class NumberApplicationLifeCycle {
     // end::adocStartupEvent[]
 
     void onStop(@Observes ShutdownEvent ev) {
-        LOGGER.info("The application HERO is stopping...");
+        LOGGER.info("The application Number is stopping...");
     }
 }
 // end::adocSnippet[]
