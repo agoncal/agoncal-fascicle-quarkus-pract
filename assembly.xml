@@ -59,6 +59,14 @@
       </excludes>
     </fileSet>
     <fileSet>
+      <directory>ui-bookstore</directory>
+      <useDefaultExcludes>true</useDefaultExcludes>
+      <excludes>
+        <exclude>*.iml</exclude>
+        <exclude>**/target/**</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet>
       <directory>${basedir}</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <includes>
