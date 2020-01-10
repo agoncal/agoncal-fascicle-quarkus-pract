@@ -13,9 +13,6 @@
   <!-- tag::adocModules[] -->
   <modules>
     <module>event-inventory</module>
-    <!-- tag::adocSkip[] -->
-    <module>first-step</module>
-    <!-- end::adocSkip[] -->
     <module>infrastructure</module>
     <module>load-bookstore</module>
     <module>rest-book</module>
