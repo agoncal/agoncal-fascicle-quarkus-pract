@@ -45,6 +45,7 @@
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
     <!-- end::adocDependencyMetrics[] -->
+    <!-- end::adocDependency[] -->
 
     <!-- Test -->
     <!-- tag::adocDependencyTest[] -->
@@ -58,9 +59,8 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- end::adocDependencyTest[] -->
   </dependencies>
-  <!-- end::adocDependency[] -->
+  <!-- end::adocDependencyTest[] -->
 
   <!-- tag::adocBuild[] -->
   <build>
