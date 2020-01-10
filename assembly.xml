@@ -36,6 +36,7 @@
       <directory>rest-book</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
+        <exclude>pom_temp.xml</exclude>
         <exclude>*.json</exclude>
         <exclude>*.yaml</exclude>
         <exclude>*.iml</exclude>
@@ -48,6 +49,7 @@
       <directory>rest-number</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
+        <exclude>pom_temp.xml</exclude>
         <exclude>*.json</exclude>
         <exclude>*.yaml</exclude>
         <exclude>*.iml</exclude>
