@@ -35,16 +35,16 @@ public class NumberResource {
 
   // end::adocFault[]
   // tag::adocOpenAPI[]
-  @Operation(summary = "Generates a book number.")
+  @Operation(summary = "Generates book numbers.")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.TEXT_PLAIN, schema = @Schema(implementation = String.class, required = true)))
   // end::adocOpenAPI[]
   // tag::adocMetrics[]
-  @Counted(name = "countGenerateBookNumber", description = "Counts how many times the generateBookNumber method has been invoked")
-  @Timed(name = "timeGenerateBookNumber", description = "Times how long it takes to invoke the generateBookNumber method", unit = MetricUnits.MILLISECONDS)
+  @Counted(name = "countGenerateBookNumber", description = "Counts how many times the generateBookNumbers method has been invoked")
+  @Timed(name = "timeGenerateBookNumber", description = "Times how long it takes to invoke the generateBookNumbers method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  public Response generateBookNumber() throws InterruptedException {
+  public Response generateBookNumbers() throws InterruptedException {
     // tag::adocFault[]
     LOGGER.info("Waiting for " + sleep + " seconds");
     TimeUnit.SECONDS.sleep(sleep);
