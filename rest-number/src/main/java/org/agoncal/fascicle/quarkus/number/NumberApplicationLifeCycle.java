@@ -19,9 +19,9 @@ class NumberApplicationLifeCycle {
         LOGGER.info(" _   _                 _               ");
         LOGGER.info("| \\ | |               | |              ");
         LOGGER.info("|  \\| |_   _ _ __ ___ | |__   ___ _ __");
-        LOGGER.info("| . ` | | | | '_ ` _ \\| '_ \\ / _ \\ '__|\n");
-        LOGGER.info("| |\\  | |_| | | | | | | |_) |  __/ |   \n");
-        LOGGER.info("\\_| \\_/\\__,_|_| |_| |_|_.__/ \\___|_|   \n");
+        LOGGER.info("| . ` | | | | '_ ` _ \\| '_ \\ / _ \\ '__|");
+        LOGGER.info("| |\\  | |_| | | | | | | |_) |  __/ |   ");
+        LOGGER.info("\\_| \\_/\\__,_|_| |_| |_|_.__/ \\___|_|   ");
         LOGGER.info("                         Powered by Quarkus");
         // tag::adocProfileManager[]
         LOGGER.info("The application Number is starting with profile " + ProfileManager.getActiveProfile());
