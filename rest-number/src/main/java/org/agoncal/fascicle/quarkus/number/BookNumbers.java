@@ -34,6 +34,8 @@ public class BookNumbers {
   // end::adocJSonB[]
   private Instant generationDate;
 
+  // Constructors, getters, setters
+
   // tag::adocSkip[]
   public String getIsbn10() {
     return isbn10;
