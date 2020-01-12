@@ -299,8 +299,8 @@ public class BookResourceTest {
       .body("nbOfPages", Is.is(UPDATED_NB_OF_PAGES))
       .body("rank", Is.is(UPDATED_RANK))
       .body("price", Is.is(UPDATED_PRICE.intValue()))
-      .body("smallImageUrl", Is.is(UPDATED_SMALL_IMAGE_URL))
-      .body("mediumImageUrl", Is.is(UPDATED_MEDIUM_IMAGE_URL))
+      .body("smallImageUrl", Is.is(UPDATED_SMALL_IMAGE_URL.toString()))
+      .body("mediumImageUrl", Is.is(UPDATED_MEDIUM_IMAGE_URL.toString()))
       .body("description", Is.is(UPDATED_DESCRIPTION));
 
 
