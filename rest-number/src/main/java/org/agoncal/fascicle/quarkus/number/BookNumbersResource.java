@@ -9,6 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
 
 import javax.ws.rs.GET;
@@ -21,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 // tag::adocSnippet[]
 @Path("/api/numbers/book")
+@Tag(name = "Book Numbers generator service")
 public class BookNumbersResource {
 
   private static final Logger LOGGER = Logger.getLogger(BookNumbersResource.class);
