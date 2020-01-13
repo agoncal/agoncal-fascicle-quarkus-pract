@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.number.health;
 
-import org.agoncal.fascicle.quarkus.number.NumberResource;
+import org.agoncal.fascicle.quarkus.number.BookNumbersResource;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.Liveness;
@@ -11,10 +11,10 @@ import javax.inject.Inject;
 // tag::adocSnippet[]
 @Liveness
 @ApplicationScoped
-public class PingNumberResourceHealthCheck implements HealthCheck {
+public class PingBookNumbersResourceHealthCheck implements HealthCheck {
 
   @Inject
-  NumberResource numberResource;
+  BookNumbersResource numberResource;
 
   @Override
   public HealthCheckResponse call() {

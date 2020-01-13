@@ -1,79 +1,27 @@
 ---
 openapi: 3.0.1
 info:
-  title: Hero API
-  description: This API allows CRUD operations on a hero
+  title: Number API
+  description: This API allows to generate all sorts of numbers
   contact:
-    name: Quarkus
-    url: https://github.com/quarkusio
+    name: '@agoncal'
+    url: https://twitter.com/agoncal
   version: "1.0"
 externalDocs:
-  description: All the Quarkus workshops
-  url: https://github.com/quarkusio/quarkus-workshops
+  description: All the Practicing Quarkus code
+  url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract
 servers:
-- url: http://localhost:8083
+  - url: http://localhost:8083
 tags:
-- name: api
-  description: Public that can be used by anybody
-- name: heroes
-  description: Anybody interested in heroes
+  - name: api
+    description: Public API that can be used by anybody
+  - name: numbers
+    description: Anybody interested in numbers
 paths:
-  /api/heroes:
+  /api/numbers:
     get:
-      summary: Returns all the heroes from the database
-      responses:
-        204:
-          description: No heroes
-        200:
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Hero'
-    put:
-      summary: Updates an exiting  hero
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Hero'
-        required: true
-      responses:
-        200:
-          description: The updated hero
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Hero'
-    post:
-      summary: Creates a valid hero
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Hero'
-        required: true
-      responses:
-        201:
-          description: The URI of the created hero
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/URI'
-  /api/heroes/hello:
-    get:
-      responses:
-        200:
-          description: OK
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/String'
-  /api/heroes/random:
-    get:
-      summary: Returns a random hero
+      summary: Generates book numbers
+      description: 'These book numbers have several formats: ISBN, ASIN and EAN'
       responses:
         200:
           description: OK
@@ -81,115 +29,40 @@ paths:
             application/json:
               schema:
                 description: The hero fighting against the villain
-                required:
-                - level
-                - name
                 type: object
                 properties:
-                  id:
-                    format: int64
-                    type: integer
-                  level:
-                    format: int32
-                    minimum: 1
-                    type: integer
-                    nullable: false
-                  name:
-                    maxLength: 50
-                    minLength: 3
+                  asin:
                     type: string
-                    nullable: false
-                  otherName:
+                  ean-13:
                     type: string
-                  picture:
+                  ean-8:
                     type: string
-                  powers:
+                  isbn-10:
                     type: string
-  /api/heroes/{id}:
+                  isbn-13:
+                    type: string
+  /api/numbers/ping:
     get:
-      summary: Returns a hero for a given identifier
-      parameters:
-      - name: id
-        in: path
-        description: Hero identifier
-        required: true
-        schema:
-          $ref: '#/components/schemas/Long'
       responses:
-        204:
-          description: The hero is not found for a given identifier
         200:
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
-                $ref: '#/components/schemas/Hero'
-    delete:
-      summary: Deletes an exiting hero
-      parameters:
-      - name: id
-        in: path
-        description: Hero identifier
-        required: true
-        schema:
-          $ref: '#/components/schemas/Long'
-      responses:
-        204:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Hero'
+                type: string
 components:
   schemas:
-    Hero:
+    BookNumbers:
       description: The hero fighting against the villain
-      required:
-      - level
-      - name
       type: object
       properties:
-        id:
-          format: int64
-          type: integer
-        level:
-          format: int32
-          minimum: 1
-          type: integer
-          nullable: false
-        name:
-          maxLength: 50
-          minLength: 3
+        asin:
           type: string
-          nullable: false
-        otherName:
+        ean-13:
           type: string
-        picture:
+        ean-8:
           type: string
-        powers:
+        isbn-10:
           type: string
-    URI:
-      type: object
-      properties:
-        string:
+        isbn-13:
           type: string
-        rawAuthority:
-          type: string
-        rawFragment:
-          type: string
-        rawPath:
-          type: string
-        rawQuery:
-          type: string
-        rawSchemeSpecificPart:
-          type: string
-        rawUserInfo:
-          type: string
-        absolute:
-          type: boolean
-        opaque:
-          type: boolean
-    Long:
-      format: int64
-      type: integer
-    String:
-      type: string

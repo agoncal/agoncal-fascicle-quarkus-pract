@@ -14,13 +14,13 @@ import static org.hamcrest.Matchers.not;
 
 // tag::adocSnippet[]
 @QuarkusTest
-public class NumberResourceTest {
+public class BookNumbersResourceTest {
 
   @Test
   public void shouldGenerateBookNumber() {
     given()
       .header(ACCEPT, APPLICATION_JSON)
-      .when().get("/api/numbers")
+      .when().get("/api/numbers/book")
       .then()
       .statusCode(200)
       .body("$", hasKey("isbn-10"))
@@ -36,7 +36,7 @@ public class NumberResourceTest {
   public void shouldSayPing() {
     given()
       .header(ACCEPT, TEXT_PLAIN)
-      .when().get("/api/numbers/ping")
+      .when().get("/api/numbers/book/ping")
       .then()
       .statusCode(200)
       .body(is("ping"));
@@ -91,7 +91,7 @@ public class NumberResourceTest {
   @Test
   public void shouldNotFindDummy() {
     given()
-      .when().get("/api/numbers/dummy")
+      .when().get("/api/numbers//book/dummy")
       .then()
       .statusCode(404);
   }

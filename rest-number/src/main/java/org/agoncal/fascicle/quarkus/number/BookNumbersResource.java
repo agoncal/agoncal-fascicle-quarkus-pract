@@ -20,10 +20,10 @@ import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 // tag::adocSnippet[]
-@Path("/api/numbers")
-public class NumberResource {
+@Path("/api/numbers/book")
+public class BookNumbersResource {
 
-  private static final Logger LOGGER = Logger.getLogger(NumberResource.class);
+  private static final Logger LOGGER = Logger.getLogger(BookNumbersResource.class);
 
   // tag::adocConfigProperty[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")
