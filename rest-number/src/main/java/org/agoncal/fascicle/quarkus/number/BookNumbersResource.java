@@ -22,7 +22,9 @@ import java.util.concurrent.TimeUnit;
 
 // tag::adocSnippet[]
 @Path("/api/numbers/book")
+// tag::adocOpenAPI[]
 @Tag(name = "Book Numbers generator service")
+// end::adocOpenAPI[]
 public class BookNumbersResource {
 
   private static final Logger LOGGER = Logger.getLogger(BookNumbersResource.class);
