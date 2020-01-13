@@ -1,4 +1,3 @@
----
 openapi: 3.0.1
 info:
   title: Number API
@@ -17,9 +16,12 @@ tags:
     description: Public API that can be used by anybody
   - name: numbers
     description: Anybody interested in numbers
+  - name: Book Numbers generator service
 paths:
-  /api/numbers:
+  /api/numbers/book:
     get:
+      tags:
+        - Book Numbers generator service
       summary: Generates book numbers
       description: 'These book numbers have several formats: ISBN, ASIN and EAN'
       responses:
@@ -41,15 +43,6 @@ paths:
                     type: string
                   isbn-13:
                     type: string
-  /api/numbers/ping:
-    get:
-      responses:
-        200:
-          description: OK
-          content:
-            text/plain:
-              schema:
-                type: string
 components:
   schemas:
     BookNumbers:

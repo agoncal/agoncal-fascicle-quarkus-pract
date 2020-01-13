@@ -18,7 +18,7 @@ import javax.ws.rs.core.Application;
     version = "1.0",
     contact = @Contact(name = "@agoncal", url = "https://twitter.com/agoncal")),
   servers = {
-    @Server(url = "http://localhost:8083")
+    @Server(url = "http://localhost:8081")
   },
   externalDocs = @ExternalDocumentation(url = "https://github.com/agoncal/agoncal-fascicle-quarkus-pract", description = "All the Practicing Quarkus code"),
   tags = {

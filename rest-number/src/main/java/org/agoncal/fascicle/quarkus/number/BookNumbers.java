@@ -8,7 +8,7 @@ import java.time.Instant;
 
 // tag::adocSnippet[]
 // tag::adocOpenAPI[]
-@Schema(description = "The hero fighting against the villain")
+@Schema(description = "Several formats of book numbers")
 // end::adocOpenAPI[]
 public class BookNumbers {
 

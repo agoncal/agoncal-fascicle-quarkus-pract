@@ -3,7 +3,7 @@ info:
   title: Generated API
   version: "1.0"
 paths:
-  /api/numbers:
+  /api/numbers/book:
     get:
       responses:
         200:
