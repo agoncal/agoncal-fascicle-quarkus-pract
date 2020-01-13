@@ -12,10 +12,16 @@ import java.time.Instant;
 // end::adocOpenAPI[]
 public class BookNumbers {
 
+  // tag::adocOpenAPI[]
+  @Schema(required = true)
+  // end::adocOpenAPI[]
   // tag::adocJSonB[]
   @JsonbProperty("isbn-10")
   // end::adocJSonB[]
   private String isbn10;
+  // tag::adocOpenAPI[]
+  @Schema(required = true)
+  // end::adocOpenAPI[]
   // tag::adocJSonB[]
   @JsonbProperty("isbn-13")
   // end::adocJSonB[]

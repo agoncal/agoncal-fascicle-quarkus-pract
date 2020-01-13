@@ -10,7 +10,7 @@ externalDocs:
   description: All the Practicing Quarkus code
   url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract
 servers:
-  - url: http://localhost:8083
+  - url: http://localhost:8081
 tags:
   - name: api
     description: Public API that can be used by anybody
@@ -30,23 +30,14 @@ paths:
           content:
             application/json:
               schema:
-                description: The hero fighting against the villain
-                type: object
-                properties:
-                  asin:
-                    type: string
-                  ean-13:
-                    type: string
-                  ean-8:
-                    type: string
-                  isbn-10:
-                    type: string
-                  isbn-13:
-                    type: string
+                $ref: '#/components/schemas/BookNumbers'
 components:
   schemas:
     BookNumbers:
-      description: The hero fighting against the villain
+      description: Several formats of book numbers
+      required:
+        - isbn-10
+        - isbn-13
       type: object
       properties:
         asin:
