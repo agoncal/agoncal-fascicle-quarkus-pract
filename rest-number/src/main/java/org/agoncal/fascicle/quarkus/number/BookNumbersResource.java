@@ -32,6 +32,7 @@ public class BookNumbersResource {
   // tag::adocConfigProperty[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")
   boolean separator;
+
   // end::adocConfigProperty[]
   // tag::adocFault[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
