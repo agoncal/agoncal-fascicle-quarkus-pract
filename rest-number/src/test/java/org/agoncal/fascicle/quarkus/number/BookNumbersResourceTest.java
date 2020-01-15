@@ -88,6 +88,7 @@ public class BookNumbersResourceTest {
       .statusCode(OK.getStatusCode());
   }
   // end::adocMetrics[]
+  // tag::adocSkip[]
   @Test
   public void shouldNotFindDummy() {
     given()
@@ -95,5 +96,6 @@ public class BookNumbersResourceTest {
       .then()
       .statusCode(404);
   }
+  // end::adocSkip[]
 }
 // end::adocSnippet[]
