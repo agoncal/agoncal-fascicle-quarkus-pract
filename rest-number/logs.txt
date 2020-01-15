@@ -1,0 +1,3 @@
+16:02:28 INFO [i.quarkus] Quarkus started in 1.125s. Listening on: http://0.0.0.0:8080
+16:02:28 INFO [i.quarkus] Profile dev activated. Live Coding activated.
+16:02:28 INFO [i.quarkus] Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-openapi, swagger-ui]
