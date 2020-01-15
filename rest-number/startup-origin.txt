@@ -1,4 +1,4 @@
-INFO  Quarkus 1.0.1.Final started in 1.137s. Listening on: http://0.0.0.0:8080
+INFO  Quarkus started in 1.137s. Listening on: http://0.0.0.0:8080
 INFO  Profile dev activated. Live Coding activated.
 INFO  Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-openapi, swagger-ui]
 (...)
