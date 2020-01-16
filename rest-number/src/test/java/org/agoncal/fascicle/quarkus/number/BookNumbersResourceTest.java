@@ -92,7 +92,7 @@ public class BookNumbersResourceTest {
   @Test
   public void shouldNotFindDummy() {
     given()
-      .when().get("/api/numbers//book/dummy")
+      .when().get("/api/numbers/book/dummy")
       .then()
       .statusCode(404);
   }
