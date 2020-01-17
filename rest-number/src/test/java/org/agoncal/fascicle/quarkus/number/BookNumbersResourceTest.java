@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.not;
 public class BookNumbersResourceTest {
 
   @Test
-  public void shouldGenerateBookNumber() {
+  void shouldGenerateBookNumber() {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
@@ -34,7 +34,7 @@ public class BookNumbersResourceTest {
   }
   // tag::adocPing[]
   @Test
-  public void shouldSayPing() {
+  void shouldSayPing() {
     given()
       .header(ACCEPT, TEXT_PLAIN)
       .when().get("/api/numbers/book/ping")
@@ -92,7 +92,7 @@ public class BookNumbersResourceTest {
   // end::adocMetrics[]
   // tag::adocSkip[]
   @Test
-  public void shouldNotFindDummy() {
+  void shouldNotFindDummy() {
     given()
       .when().get("/api/numbers/book/dummy")
       .then()
