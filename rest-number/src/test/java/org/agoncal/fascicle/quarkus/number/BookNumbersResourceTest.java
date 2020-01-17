@@ -12,6 +12,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.not;
 
+//@formatter:off
 // tag::adocSnippet[]
 @QuarkusTest
 public class BookNumbersResourceTest {
@@ -19,9 +20,10 @@ public class BookNumbersResourceTest {
   @Test
   public void shouldGenerateBookNumber() {
     given()
-      .header(ACCEPT, APPLICATION_JSON)
-      .when().get("/api/numbers/book")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/api/numbers/book").
+    then()
       .statusCode(200)
       .body("$", hasKey("isbn-10"))
       .body("$", hasKey("isbn-13"))
@@ -30,7 +32,6 @@ public class BookNumbersResourceTest {
       .body("$", hasKey("ean-13"))
       .body("$", not(hasKey("generationDate")));
   }
-
   // tag::adocPing[]
   @Test
   public void shouldSayPing() {
@@ -41,7 +42,6 @@ public class BookNumbersResourceTest {
       .statusCode(200)
       .body(is("ping"));
   }
-
   // end::adocPing[]
   // tag::adocOpenAPI[]
   @Test
