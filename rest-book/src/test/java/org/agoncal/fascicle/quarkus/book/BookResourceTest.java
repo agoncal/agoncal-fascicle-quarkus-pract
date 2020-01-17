@@ -33,7 +33,6 @@ import static javax.ws.rs.core.Response.Status.OK;
 import static org.agoncal.fascicle.quarkus.book.client.MockIsbnNumbersService.MOCK_ISBN_10;
 import static org.agoncal.fascicle.quarkus.book.client.MockIsbnNumbersService.MOCK_ISBN_13;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.comparesEqualTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -253,9 +252,8 @@ public class BookResourceTest {
       .body("yearOfPublication", Is.is(DEFAULT_YEAR_OF_PUBLICATION))
       .body("nbOfPages", Is.is(DEFAULT_NB_OF_PAGES))
       .body("rank", Is.is(DEFAULT_RANK))
-      .body("price", Is.is(comparesEqualTo(DEFAULT_PRICE)))
-      .body("smallImageUrl", Is.is(DEFAULT_SMALL_IMAGE_URL))
-      .body("mediumImageUrl", Is.is(DEFAULT_MEDIUM_IMAGE_URL))
+      .body("smallImageUrl", Is.is(DEFAULT_SMALL_IMAGE_URL.toString()))
+      .body("mediumImageUrl", Is.is(DEFAULT_MEDIUM_IMAGE_URL.toString()))
       .body("description", Is.is(DEFAULT_DESCRIPTION));
 
     List<Book> books = get("/api/books").then()
