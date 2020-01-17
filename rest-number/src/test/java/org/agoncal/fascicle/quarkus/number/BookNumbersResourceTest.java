@@ -24,7 +24,7 @@ public class BookNumbersResourceTest {
     when()
       .get("/api/numbers/book").
     then()
-      .statusCode(200)
+      .statusCode(OK.getStatusCode())
       .body("$", hasKey("isbn-10"))
       .body("$", hasKey("isbn-13"))
       .body("$", hasKey("asin"))
@@ -39,7 +39,7 @@ public class BookNumbersResourceTest {
       .header(ACCEPT, TEXT_PLAIN)
       .when().get("/api/numbers/book/ping")
       .then()
-      .statusCode(200)
+      .statusCode(OK.getStatusCode())
       .body(is("ping"));
   }
   // end::adocPing[]
@@ -47,17 +47,19 @@ public class BookNumbersResourceTest {
   @Test
   void shouldPingOpenAPI() {
     given()
-      .header(ACCEPT, APPLICATION_JSON)
-      .when().get("/openapi")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/openapi").
+    then()
       .statusCode(OK.getStatusCode());
   }
 
   @Test
   void shouldPingSwaggerUI() {
-    given()
-      .when().get("/swagger-ui")
-      .then()
+    given().
+    when()
+      .get("/swagger-ui").
+    then()
       .statusCode(OK.getStatusCode());
   }
   // end::adocOpenAPI[]
