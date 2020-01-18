@@ -22,25 +22,27 @@ public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
 
-  // tag::adocDependencyFaultTolerance[]
+  // tag::adocFaultTolerance[]
   @Inject
   @RestClient
   IsbnNumbersService isbnNumbersService;
 
-  // end::adocDependencyFaultTolerance[]
+  // end::adocFaultTolerance[]
   // tag::adocFallback[]
   @Fallback(fallbackMethod = "fallbackPersistBook")
   // end::adocFallback[]
   // tag::adocPersistBook[]
+  // tag::adocBeanValidation[]
   public Book persistBook(@Valid Book book) {
-    // tag::adocDependencyFaultTolerance[]
+    // tag::adocFaultTolerance[]
     IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
     book.isbn13 = isbnNumbers.getIsbn13();
     book.isbn10 = isbnNumbers.getIsbn10();
-    // end::adocDependencyFaultTolerance[]
+    // end::adocFaultTolerance[]
     Book.persist(book);
     return book;
   }
+  // end::adocBeanValidation[]
   // end::adocPersistBook[]
 
   // tag::adocFallback[]
@@ -69,6 +71,7 @@ public class BookService {
     return randomBook;
   }
 
+  // tag::adocBeanValidation[]
   public Book updateBook(@Valid Book book) {
     Book entity = Book.findById(book.id);
     entity.title = book.title;
@@ -84,6 +87,7 @@ public class BookService {
     entity.description = book.description;
     return entity;
   }
+  // end::adocBeanValidation[]
 
   public void deleteBook(Long id) {
     Book book = Book.findById(id);
