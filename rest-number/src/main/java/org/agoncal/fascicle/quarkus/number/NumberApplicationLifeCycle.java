@@ -14,7 +14,6 @@ class NumberApplicationLifeCycle {
 
   private static final Logger LOGGER = Logger.getLogger(NumberApplicationLifeCycle.class);
 
-  // tag::adocStartupEvent[]
   void onStart(@Observes StartupEvent ev) {
     LOGGER.info(" _   _                 _               ");
     LOGGER.info("| \\ | |               | |              ");
@@ -27,7 +26,6 @@ class NumberApplicationLifeCycle {
     LOGGER.info("The application Number is starting with profile " + ProfileManager.getActiveProfile());
     // end::adocProfile[]
   }
-  // end::adocStartupEvent[]
 
   void onStop(@Observes ShutdownEvent ev) {
     LOGGER.info("The application Number is stopping...");

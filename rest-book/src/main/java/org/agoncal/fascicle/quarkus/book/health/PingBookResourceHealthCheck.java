@@ -13,13 +13,13 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class PingBookResourceHealthCheck implements HealthCheck {
 
-    @Inject
-    BookResource bookResource;
+  @Inject
+  BookResource bookResource;
 
-    @Override
-    public HealthCheckResponse call() {
-        bookResource.ping();
-        return HealthCheckResponse.named("Ping Book REST Endpoint").up().build();
-    }
+  @Override
+  public HealthCheckResponse call() {
+    bookResource.ping();
+    return HealthCheckResponse.named("Ping Book REST Endpoint").up().build();
+  }
 }
 // end::adocSnippet[]

@@ -16,22 +16,22 @@ import java.util.List;
 @ApplicationScoped
 public class DatabaseConnectionHealthCheck implements HealthCheck {
 
-    @Inject
-    BookService bookService;
+  @Inject
+  BookService bookService;
 
-    @Override
-    public HealthCheckResponse call() {
-        HealthCheckResponseBuilder responseBuilder = HealthCheckResponse
-            .named("Book Datasource connection health check");
+  @Override
+  public HealthCheckResponse call() {
+    HealthCheckResponseBuilder responseBuilder = HealthCheckResponse
+      .named("Book Datasource connection health check");
 
-        try {
-            List<Book> books = bookService.findAllBooks();
-            responseBuilder.withData("Number of books in the database", books.size()).up();
-        } catch (IllegalStateException e) {
-            responseBuilder.down();
-        }
-
-        return responseBuilder.build();
+    try {
+      List<Book> books = bookService.findAllBooks();
+      responseBuilder.withData("Number of books in the database", books.size()).up();
+    } catch (IllegalStateException e) {
+      responseBuilder.down();
     }
+
+    return responseBuilder.build();
+  }
 }
 // end::adocSnippet[]

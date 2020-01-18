@@ -12,25 +12,21 @@ import javax.enterprise.event.Observes;
 @ApplicationScoped
 class BookApplicationLifeCycle {
 
-    private static final Logger LOGGER = Logger.getLogger(BookApplicationLifeCycle.class);
+  private static final Logger LOGGER = Logger.getLogger(BookApplicationLifeCycle.class);
 
-    // tag::adocStartupEvent[]
-    void onStart(@Observes StartupEvent ev) {
-        LOGGER.info("______             _");
-        LOGGER.info("| ___ \\           | |");
-        LOGGER.info("| |_/ / ___   ___ | | __");
-        LOGGER.info("| ___ \\/ _ \\ / _ \\| |/ /");
-        LOGGER.info("| |_/ / (_) | (_) |   <");
-        LOGGER.info("\\____/ \\___/ \\___/|_|\\_\\");
-        LOGGER.info("                         Powered by Quarkus");
-        // tag::adocProfileManager[]
-        LOGGER.info("The application Book is starting with profile " + ProfileManager.getActiveProfile());
-        // end::adocProfileManager[]
-    }
-    // end::adocStartupEvent[]
+  void onStart(@Observes StartupEvent ev) {
+    LOGGER.info("______             _");
+    LOGGER.info("| ___ \\           | |");
+    LOGGER.info("| |_/ / ___   ___ | | __");
+    LOGGER.info("| ___ \\/ _ \\ / _ \\| |/ /");
+    LOGGER.info("| |_/ / (_) | (_) |   <");
+    LOGGER.info("\\____/ \\___/ \\___/|_|\\_\\");
+    LOGGER.info("                         Powered by Quarkus");
+    LOGGER.info("The application Book is starting with profile " + ProfileManager.getActiveProfile());
+  }
 
-    void onStop(@Observes ShutdownEvent ev) {
-        LOGGER.info("The application Book is stopping...");
-    }
+  void onStop(@Observes ShutdownEvent ev) {
+    LOGGER.info("The application Book is stopping...");
+  }
 }
 // end::adocSnippet[]

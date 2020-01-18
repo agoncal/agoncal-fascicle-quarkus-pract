@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 @RegisterRestClient
 public interface IsbnNumbersService {
 
-    @GET
-    IsbnNumbers generateIsbnNumbers();
+  @GET
+  IsbnNumbers generateIsbnNumbers();
 }
 // end::adocSnippet[]
