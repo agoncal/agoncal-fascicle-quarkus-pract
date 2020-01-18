@@ -130,7 +130,7 @@ public class BookResource {
 
   // tag::adocDeleteBook[]
   @Operation(summary = "Deletes an exiting book")
-  @APIResponse(responseCode = "204")
+  @APIResponse(responseCode = "204", description = "The book has been successfully deleted")
   // tag::adocMetrics[]
   @Counted(name = "countDeleteBook", description = "Counts how many times the deleteBook method has been invoked")
   @Timed(name = "timeDeleteBook", description = "Times how long it takes to invoke the deleteBook method", unit = MetricUnits.MILLISECONDS)
