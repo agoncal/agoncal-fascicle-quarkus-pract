@@ -71,7 +71,6 @@ public class BookService {
     return randomBook;
   }
 
-  // tag::adocBeanValidation[]
   public Book updateBook(@Valid Book book) {
     Book entity = Book.findById(book.id);
     entity.title = book.title;
@@ -87,7 +86,6 @@ public class BookService {
     entity.description = book.description;
     return entity;
   }
-  // end::adocBeanValidation[]
 
   public void deleteBook(Long id) {
     Book book = Book.findById(id);
