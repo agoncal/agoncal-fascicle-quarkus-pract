@@ -13,14 +13,15 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.util.Random;
 
-@Schema(description = "Book representation")
 // tag::adocSnippet[]
+@Schema(description = "Book representation")
 @Entity
 public class Book extends PanacheEntity {
 
   // tag::adocBeanValidation[]
   @NotNull
   // end::adocBeanValidation[]
+  @Schema(required = true)
   public String title;
   @Column(name = "isbn_13")
   public String isbn13;

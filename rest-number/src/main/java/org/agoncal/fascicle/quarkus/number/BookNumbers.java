@@ -90,5 +90,21 @@ public class BookNumbers {
     this.generationDate = generationDate;
   }
   // end::adocSkip[]
+
+  // ======================================
+  // =   Methods hash, equals, toString   =
+  // ======================================
+
+  @Override
+  public String toString() {
+    return "BookNumbers{" +
+      "isbn10='" + isbn10 + '\'' +
+      ", isbn13='" + isbn13 + '\'' +
+      ", asin='" + asin + '\'' +
+      ", ean8='" + ean8 + '\'' +
+      ", ean13='" + ean13 + '\'' +
+      ", generationDate=" + generationDate +
+      '}';
+  }
 }
 // end::adocSnippet[]

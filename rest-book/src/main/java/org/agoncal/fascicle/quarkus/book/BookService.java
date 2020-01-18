@@ -2,7 +2,6 @@ package org.agoncal.fascicle.quarkus.book;
 
 import org.agoncal.fascicle.quarkus.book.client.IsbnNumbers;
 import org.agoncal.fascicle.quarkus.book.client.IsbnNumbersService;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
@@ -11,7 +10,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.math.BigDecimal;
 import java.util.List;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
@@ -24,26 +22,22 @@ public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
 
-  // tag::adocConfigProperty[]
-  @ConfigProperty(name = "book.discount", defaultValue = "1")
-  BigDecimal discount;
-  // end::adocConfigProperty[]
-
+  // tag::adocDependencyFaultTolerance[]
   @Inject
   @RestClient
   IsbnNumbersService isbnNumbersService;
 
+  // end::adocDependencyFaultTolerance[]
   // tag::adocFallback[]
   @Fallback(fallbackMethod = "fallbackPersistBook")
   // end::adocFallback[]
   // tag::adocPersistBook[]
   public Book persistBook(@Valid Book book) {
-    // tag::adocConfigProperty[]
-    book.price = book.price.multiply(discount);
-    // end::adocConfigProperty[]
+    // tag::adocDependencyFaultTolerance[]
     IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
     book.isbn13 = isbnNumbers.getIsbn13();
     book.isbn10 = isbnNumbers.getIsbn10();
+    // end::adocDependencyFaultTolerance[]
     Book.persist(book);
     return book;
   }
