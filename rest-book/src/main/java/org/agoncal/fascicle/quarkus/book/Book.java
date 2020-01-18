@@ -49,9 +49,8 @@ public class Book extends PanacheEntity {
 
   // tag::adocFindRandom[]
   public static Book findRandom() {
-    long countBookes = Book.count();
-    Random random = new Random();
-    int randomBook = random.nextInt((int) countBookes);
+    long countBooks = Book.count();
+    int randomBook = new Random().nextInt((int) countBooks);
     return Book.findAll().page(randomBook, 1).firstResult();
   }
   // end::adocFindRandom[]
