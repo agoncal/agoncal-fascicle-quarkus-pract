@@ -33,6 +33,7 @@ import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
 // tag::adocInjection[]
 // tag::adocSnippet[]
+// tag::adocGetRandomBook[]
 @Path("/api/books")
 @Produces(APPLICATION_JSON)
 public class BookResource {
@@ -43,11 +44,8 @@ public class BookResource {
 
   private static final Logger LOGGER = Logger.getLogger(BookResource.class);
 
-  // tag::adocGetRandomBook[]
-  // tag::adocOpenAPI[]
   @Operation(summary = "Returns a random book")
   @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, required = true)))
-  // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countGetRandomBook", description = "Counts how many times the getRandomBook method has been invoked")
   @Timed(name = "timeGetRandomBook", description = "Times how long it takes to invoke the getRandomBook method", unit = MetricUnits.MILLISECONDS)
@@ -61,11 +59,10 @@ public class BookResource {
   }
   // end::adocGetRandomBook[]
 
-  // tag::adocOpenAPI[]
+  // tag::adocGetAllBooks[]
   @Operation(summary = "Returns all the books from the database")
   @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, type = SchemaType.ARRAY)))
   @APIResponse(responseCode = "204", description = "No books")
-  // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countGetAllBooks", description = "Counts how many times the getAllBooks method has been invoked")
   @Timed(name = "timeGetAllBooks", description = "Times how long it takes to invoke the getAllBooks method", unit = MetricUnits.MILLISECONDS)
@@ -76,23 +73,19 @@ public class BookResource {
     LOGGER.debug("Total number of books " + books);
     return Response.ok(books).build();
   }
+  // end::adocGetAllBooks[]
 
-  // tag::adocOpenAPI[]
+  // tag::adocGetBook[]
   @Operation(summary = "Returns a book for a given identifier")
   @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
   @APIResponse(responseCode = "204", description = "The book is not found for a given identifier")
-  // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countGetBook", description = "Counts how many times the getBook method has been invoked")
   @Timed(name = "timeGetBook", description = "Times how long it takes to invoke the getBook method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   @GET
   @Path("/{id}")
-  public Response getBook(
-    // tag::adocOpenAPI[]
-    @Parameter(description = "Book identifier", required = true)
-    // end::adocOpenAPI[]
-    @PathParam("id") Long id) {
+  public Response getBook(@Parameter(description = "Book identifier", required = true) @PathParam("id") Long id) {
     Book book = service.findBookById(id);
     if (book != null) {
       LOGGER.debug("Found book " + book);
@@ -102,67 +95,56 @@ public class BookResource {
       return Response.noContent().build();
     }
   }
+  // end::adocGetBook[]
 
-  // tag::adocOpenAPI[]
+  // tag::adocCreateBook[]
   @Operation(summary = "Creates a valid book")
   @APIResponse(responseCode = "201", description = "The URI of the created book", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = URI.class)))
-  // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countCreateBook", description = "Counts how many times the createBook method has been invoked")
   @Timed(name = "timeCreateBook", description = "Times how long it takes to invoke the createBook method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   @POST
-  public Response createBook(
-    // tag::adocOpenAPI[]
-    @RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
-    // end::adocOpenAPI[]
-    @Valid Book book, @Context UriInfo uriInfo) {
+  public Response createBook(@RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class))) @Valid Book book, @Context UriInfo uriInfo) {
     book = service.persistBook(book);
     UriBuilder builder = uriInfo.getAbsolutePathBuilder().path(Long.toString(book.id));
     LOGGER.debug("New book created with URI " + builder.build().toString());
     return Response.created(builder.build()).build();
   }
+  // end::adocCreateBook[]
 
-  // tag::adocOpenAPI[]
+  // tag::adocUpdateBook[]
   @Operation(summary = "Updates an exiting  book")
   @APIResponse(responseCode = "200", description = "The updated book", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
-  // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countUpdateBook", description = "Counts how many times the updateBook method has been invoked")
   @Timed(name = "timeUpdateBook", description = "Times how long it takes to invoke the updateBook method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   @PUT
-  public Response updateBook(
-    // tag::adocOpenAPI[]
-    @RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
-    // end::adocOpenAPI[]
-    @Valid Book book) {
+  public Response updateBook(@RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class))) @Valid Book book) {
     book = service.updateBook(book);
     LOGGER.debug("Book updated with new valued " + book);
     return Response.ok(book).build();
   }
+  // end::adocUpdateBook[]
 
-  // tag::adocOpenAPI[]
+  // tag::adocDeleteBook[]
   @Operation(summary = "Deletes an exiting book")
   @APIResponse(responseCode = "204")
-  // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countDeleteBook", description = "Counts how many times the deleteBook method has been invoked")
   @Timed(name = "timeDeleteBook", description = "Times how long it takes to invoke the deleteBook method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   @DELETE
   @Path("/{id}")
-  public Response deleteBook(
-    // tag::adocOpenAPI[]
-    @Parameter(description = "Book identifier", required = true)
-    // end::adocOpenAPI[]
-    @PathParam("id") Long id) {
+  public Response deleteBook(@Parameter(description = "Book identifier", required = true) @PathParam("id") Long id) {
     service.deleteBook(id);
     LOGGER.debug("Book deleted with " + id);
     return Response.noContent().build();
   }
-  // tag::adocPing[]
+  // end::adocDeleteBook[]
 
+  // tag::adocPing[]
   @GET
   @Produces(TEXT_PLAIN)
   @Path("/ping")
