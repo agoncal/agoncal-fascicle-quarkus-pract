@@ -50,8 +50,8 @@ public class BookService {
     LOGGER.warn("Falling back on persisting a book");
     return null;
   }
-  // end::adocFallback[]
 
+  // end::adocFallback[]
   @Transactional(SUPPORTS)
   public List<Book> findAllBooks() {
     return Book.listAll();
