@@ -115,9 +115,7 @@ public class BookResource {
     LOGGER.debug("New book created with URI " + builder.build().toString());
     return Response.created(builder.build()).build();
   }
-  // end::adocCreateBook[]
 
-  // tag::adocUpdateBook[]
   @Operation(summary = "Updates an exiting  book")
   @APIResponse(responseCode = "200", description = "The updated book", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
   // tag::adocMetrics[]
@@ -130,7 +128,7 @@ public class BookResource {
     LOGGER.debug("Book updated with new valued " + book);
     return Response.ok(book).build();
   }
-  // end::adocUpdateBook[]
+  // end::adocCreateBook[]
 
   // tag::adocDeleteBook[]
   @Operation(summary = "Deletes an exiting book")
