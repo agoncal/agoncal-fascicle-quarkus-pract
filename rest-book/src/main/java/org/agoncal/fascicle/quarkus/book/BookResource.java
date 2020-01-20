@@ -14,6 +14,7 @@ import org.jboss.logging.Logger;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -36,6 +37,7 @@ import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 // tag::adocGetRandomBook[]
 @Path("/api/books")
 @Produces(APPLICATION_JSON)
+@Consumes(APPLICATION_JSON)
 public class BookResource {
 
   @Inject
