@@ -15,10 +15,10 @@ tags:
   description: Public API that can be used by anybody
 - name: books
   description: Anybody interested in books
-paths:
 # end::adocHeader[]
 
 # tag::adocRoot[]
+paths:
   /api/books:
     get:
       summary: Returns all the books from the database
