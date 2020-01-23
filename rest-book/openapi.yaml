@@ -34,7 +34,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Book'
 
-# end::adocRoot[]
     put:
       summary: Updates an exiting  book
       requestBody:
@@ -79,6 +78,7 @@ paths:
       responses:
         204:
           description: The book has been successfully deleted
+# end::adocRoot[]
 
 # tag::adocNonRoot[]
   /api/books/random:
