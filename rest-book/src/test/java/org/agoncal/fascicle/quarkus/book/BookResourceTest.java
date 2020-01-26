@@ -1,17 +1,14 @@
 package org.agoncal.fascicle.quarkus.book;
 
+import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
+import org.agoncal.fascicle.quarkus.book.infrastructure.Database;
 import org.hamcrest.core.Is;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
@@ -39,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // tag::adocSnippet[]
 @QuarkusTest
-@Testcontainers
+@QuarkusTestResource(Database.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookResourceTest {
 
@@ -72,23 +69,6 @@ public class BookResourceTest {
 
   private static final int NB_BOOKS = 102;
   private static String bookId;
-
-  @Container
-  private static final PostgreSQLContainer DATABASE = new PostgreSQLContainer<>("postgres:12.1")
-    .withDatabaseName("books_database")
-    .withUsername("book")
-    .withPassword("book")
-    .withExposedPorts(5432);
-
-  @BeforeAll
-  private static void configure() {
-    System.setProperty("quarkus.datasource.url", DATABASE.getJdbcUrl());
-  }
-
-  @AfterAll
-  private static void cleanup() {
-    System.clearProperty("quarkus.datasource.url");
-  }
 
   @Test
   public void shouldSayPing() {
