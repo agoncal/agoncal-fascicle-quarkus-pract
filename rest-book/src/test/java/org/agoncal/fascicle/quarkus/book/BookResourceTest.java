@@ -34,7 +34,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-// tag::adocSnippet[]
+// tag::adocHeader[]
 @QuarkusTest
 @QuarkusTestResource(Database.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -69,6 +69,8 @@ public class BookResourceTest {
 
   private static final int NB_BOOKS = 102;
   private static String bookId;
+
+// end::adocHeader[]
 
   @Test
   public void shouldSayPing() {
@@ -179,6 +181,7 @@ public class BookResourceTest {
       .statusCode(BAD_REQUEST.getStatusCode());
   }
 
+  // tag::adocShouldGetInitialItems[]
   @Test
   @Order(1)
   void shouldGetInitialItems() {
@@ -189,6 +192,12 @@ public class BookResourceTest {
     assertEquals(NB_BOOKS, books.size());
   }
 
+  private TypeRef<List<Book>> getBookTypeRef() {
+    return new TypeRef<List<Book>>() {};
+  }
+  // end::adocShouldGetInitialItems[]
+
+  // tag::adocShouldAddAnItem[]
   @Test
   @Order(2)
   void shouldAddAnItem() {
@@ -242,7 +251,9 @@ public class BookResourceTest {
       .extract().body().as(getBookTypeRef());
     assertEquals(NB_BOOKS + 1, books.size());
   }
+  // end::adocShouldAddAnItem[]
 
+  // tag::adocShouldUpdateAnItem[]
   @Test
   @Order(3)
   void shouldUpdateAnItem() {
@@ -288,7 +299,9 @@ public class BookResourceTest {
       .extract().body().as(getBookTypeRef());
     assertEquals(NB_BOOKS + 1, books.size());
   }
+  // end::adocShouldUpdateAnItem[]
 
+  // tag::adocShouldRemoveAnItem[]
   @Test
   @Order(4)
   void shouldRemoveAnItem() {
@@ -304,11 +317,5 @@ public class BookResourceTest {
       .extract().body().as(getBookTypeRef());
     assertEquals(NB_BOOKS, books.size());
   }
-
-  private TypeRef<List<Book>> getBookTypeRef() {
-    return new TypeRef<List<Book>>() {
-      // Kept empty on purpose
-    };
-  }
+  // end::adocShouldRemoveAnItem[]
 }
-// end::adocSnippet[]
