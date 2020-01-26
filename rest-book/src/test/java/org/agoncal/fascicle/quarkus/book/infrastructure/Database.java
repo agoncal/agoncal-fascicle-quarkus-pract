@@ -6,6 +6,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import java.util.Collections;
 import java.util.Map;
 
+// tag::adocSnippet[]
 public class Database implements QuarkusTestResourceLifecycleManager {
 
   private static final PostgreSQLContainer DATABASE = new PostgreSQLContainer<>("postgres:12.1")
@@ -25,3 +26,4 @@ public class Database implements QuarkusTestResourceLifecycleManager {
     DATABASE.stop();
   }
 }
+// end::adocSnippet[]
