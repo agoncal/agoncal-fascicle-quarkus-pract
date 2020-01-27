@@ -156,20 +156,11 @@ public class BookResourceTest {
       .header(CONTENT_TYPE, APPLICATION_JSON);
   }
 
+  // tag::adocShouldNotAddInvalidItem[]
   @Test
   void shouldNotAddInvalidItem() {
     Book book = new Book();
     book.title = null;
-    book.isbn13 = MOCK_ISBN_13;
-    book.isbn10 = MOCK_ISBN_10;
-    book.author = DEFAULT_AUTHOR;
-    book.yearOfPublication = DEFAULT_YEAR_OF_PUBLICATION;
-    book.nbOfPages = DEFAULT_NB_OF_PAGES;
-    book.rank = DEFAULT_RANK;
-    book.price = DEFAULT_PRICE;
-    book.smallImageUrl = DEFAULT_SMALL_IMAGE_URL;
-    book.mediumImageUrl = DEFAULT_MEDIUM_IMAGE_URL;
-    book.description = DEFAULT_DESCRIPTION;
 
     given()
       .body(book)
@@ -180,6 +171,7 @@ public class BookResourceTest {
       .then()
       .statusCode(BAD_REQUEST.getStatusCode());
   }
+  // end::adocShouldNotAddInvalidItem[]
 
   // tag::adocShouldGetInitialItems[]
   @Test
