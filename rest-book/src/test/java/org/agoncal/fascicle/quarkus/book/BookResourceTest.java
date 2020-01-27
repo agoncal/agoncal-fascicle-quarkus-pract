@@ -67,7 +67,7 @@ public class BookResourceTest {
     }
   }
 
-  private static final int NB_BOOKS = 102;
+  private static int nbBooks;
   private static String bookId;
 
 // end::adocHeader[]
@@ -189,7 +189,8 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
       .extract().body().as(getBookTypeRef());
-    assertEquals(NB_BOOKS, books.size());
+
+    nbBooks = books.size();
   }
 
   private TypeRef<List<Book>> getBookTypeRef() {
@@ -249,7 +250,8 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .extract().body().as(getBookTypeRef());
-    assertEquals(NB_BOOKS + 1, books.size());
+
+    assertEquals(nbBooks + 1, books.size());
   }
   // end::adocShouldAddAnItem[]
 
@@ -297,7 +299,8 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .extract().body().as(getBookTypeRef());
-    assertEquals(NB_BOOKS + 1, books.size());
+
+    assertEquals(nbBooks + 1, books.size());
   }
   // end::adocShouldUpdateAnItem[]
 
@@ -315,7 +318,8 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .extract().body().as(getBookTypeRef());
-    assertEquals(NB_BOOKS, books.size());
+
+    assertEquals(nbBooks, books.size());
   }
   // end::adocShouldRemoveAnItem[]
 }
