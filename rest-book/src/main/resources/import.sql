@@ -1,6 +1,7 @@
 -- tag::adocSQL[]
 INSERT INTO Book(id, isbn_13, title, rank, small_image_url, medium_image_url, price, nb_of_pages, year_of_publication, author, description)
 VALUES ( 997, '9781980399025', 'Understanding Bean Validation', 9, 'https://images-na.ssl-images-amazon.com/images/I/31fHenHChZL._SL160_.jpg', 'https://images-na.ssl-images-amazon.com/images/I/31fHenHChZL.jpg', 9.99, 129, 2018, 'Antonio Goncalves', 'In this fascicle, you will learn Java Persistence API, its annotations for mapping entities, as well as the Java Persistence Query Language and entity life cycle');
+
 INSERT INTO Book(id, isbn_13, title, rank, small_image_url, medium_image_url, price, nb_of_pages, year_of_publication, author, description)
 VALUES ( 998, '9781093918977', 'Understanding JPA', 9, 'https://images-na.ssl-images-amazon.com/images/I/3122s2sjOtL_SL160_.jpg', 'https://images-na.ssl-images-amazon.com/images/I/3122s2sjOtL.jpg', 9.99, 246, 2019, 'Antonio Goncalves', 'In this fascicle will you will learn Bean Validation and use its different APIs to apply constraints on a bean, validate all sorts of constraints and write your own constraints');
 -- end::adocSQL[]
