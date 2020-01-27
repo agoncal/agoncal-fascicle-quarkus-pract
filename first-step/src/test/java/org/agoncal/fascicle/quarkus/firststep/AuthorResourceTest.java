@@ -4,6 +4,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -22,7 +23,7 @@ public class AuthorResourceTest {
     when()
       .get("/authors").
     then()
-      .statusCode(200)
+      .statusCode(OK.getStatusCode())
       .body(is("Isaac Asimov, Ray Bradbury, Douglas Adams"));
   }
 
@@ -33,7 +34,7 @@ public class AuthorResourceTest {
     when()
       .get("/authors/{index}").
     then()
-      .statusCode(200)
+      .statusCode(OK.getStatusCode())
       .body(is("Isaac Asimov"));
   }
 }

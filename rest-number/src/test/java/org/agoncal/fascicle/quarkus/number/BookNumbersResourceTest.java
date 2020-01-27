@@ -7,6 +7,7 @@ import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
+import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasKey;
@@ -96,7 +97,7 @@ public class BookNumbersResourceTest {
     given()
       .when().get("/api/numbers/book/dummy")
       .then()
-      .statusCode(404);
+      .statusCode(NOT_FOUND.getStatusCode());
   }
   // end::adocSkip[]
 }

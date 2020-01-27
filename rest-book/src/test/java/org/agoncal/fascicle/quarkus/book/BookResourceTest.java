@@ -25,6 +25,7 @@ import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import static javax.ws.rs.core.Response.Status.CREATED;
+import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.agoncal.fascicle.quarkus.book.client.MockIsbnNumbersService.MOCK_ISBN_10;
@@ -34,6 +35,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//@formatter:off
 // tag::adocHeader[]
 @QuarkusTest
 @QuarkusTestResource(Database.class)
@@ -77,7 +79,7 @@ public class BookResourceTest {
     given()
       .when().get("/api/books/ping")
       .then()
-      .statusCode(200)
+      .statusCode(OK.getStatusCode())
       .body(is("ping"));
   }
 
@@ -85,17 +87,19 @@ public class BookResourceTest {
   @Test
   void shouldPingOpenAPI() {
     given()
-      .header(ACCEPT, APPLICATION_JSON)
-      .when().get("/openapi")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/openapi").
+    then()
       .statusCode(OK.getStatusCode());
   }
 
   @Test
   void shouldPingSwaggerUI() {
-    given()
-      .when().get("/swagger-ui")
-      .then()
+    given().
+    when()
+      .get("/swagger-ui").
+    then()
       .statusCode(OK.getStatusCode());
   }
   // end::adocOpenAPI[]
@@ -103,17 +107,19 @@ public class BookResourceTest {
   // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {
-    given()
-      .when().get("/health/live")
-      .then()
+    given().
+    when()
+      .get("/health/live").
+    then()
       .statusCode(OK.getStatusCode());
   }
 
   @Test
   void shouldPingReadiness() {
-    given()
-      .when().get("/health/ready")
-      .then()
+    given().
+    when()
+      .get("/health/ready").
+    then()
       .statusCode(OK.getStatusCode());
   }
   // end::adocHealth[]
@@ -122,9 +128,10 @@ public class BookResourceTest {
   @Test
   void shouldPingMetrics() {
     given()
-      .header(ACCEPT, APPLICATION_JSON)
-      .when().get("/metrics/application")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/metrics/application").
+    then()
       .statusCode(OK.getStatusCode());
   }
   // end::adocMetrics[]
@@ -134,7 +141,7 @@ public class BookResourceTest {
     given()
       .when().get("/api/books/dummy")
       .then()
-      .statusCode(404);
+      .statusCode(NOT_FOUND.getStatusCode());
   }
 
   @Test
@@ -165,10 +172,10 @@ public class BookResourceTest {
     given()
       .body(book)
       .header(CONTENT_TYPE, APPLICATION_JSON)
-      .header(ACCEPT, APPLICATION_JSON)
-      .when()
-      .post("/api/books")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .post("/api/books").
+    then()
       .statusCode(BAD_REQUEST.getStatusCode());
   }
   // end::adocShouldNotAddInvalidItem[]
@@ -177,16 +184,21 @@ public class BookResourceTest {
   @Test
   @Order(1)
   void shouldGetInitialItems() {
-    List<Book> books = get("/api/books").then()
-      .statusCode(OK.getStatusCode())
-      .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-      .extract().body().as(getBookTypeRef());
+    List<Book> books =
+      given().
+      when()
+        .get("/api/books").
+      then()
+        .statusCode(OK.getStatusCode())
+        .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+        .extract().body().as(getBookTypeRef());
 
     nbBooks = books.size();
   }
 
   private TypeRef<List<Book>> getBookTypeRef() {
-    return new TypeRef<List<Book>>() {};
+    return new TypeRef<List<Book>>() {
+    };
   }
   // end::adocShouldGetInitialItems[]
 
@@ -205,15 +217,17 @@ public class BookResourceTest {
     book.mediumImageUrl = DEFAULT_MEDIUM_IMAGE_URL;
     book.description = DEFAULT_DESCRIPTION;
 
-    String location = given()
-      .body(book)
-      .header(CONTENT_TYPE, APPLICATION_JSON)
-      .header(ACCEPT, APPLICATION_JSON)
-      .when()
-      .post("/api/books")
-      .then()
-      .statusCode(CREATED.getStatusCode())
-      .extract().header("Location");
+    String location =
+      given()
+        .body(book)
+        .header(CONTENT_TYPE, APPLICATION_JSON)
+        .header(ACCEPT, APPLICATION_JSON).
+      when()
+        .post("/api/books").
+      then()
+        .statusCode(CREATED.getStatusCode())
+        .extract().header("Location");
+
     assertTrue(location.contains("/api/books"));
 
     // Stores the id
@@ -222,9 +236,10 @@ public class BookResourceTest {
     assertNotNull(bookId);
 
     given()
-      .pathParam("id", bookId)
-      .when().get("/api/books/{id}")
-      .then()
+      .pathParam("id", bookId).
+    when()
+      .get("/api/books/{id}").
+    then()
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(DEFAULT_TITLE))
@@ -238,10 +253,14 @@ public class BookResourceTest {
       .body("mediumImageUrl", Is.is(DEFAULT_MEDIUM_IMAGE_URL.toString()))
       .body("description", Is.is(DEFAULT_DESCRIPTION));
 
-    List<Book> books = get("/api/books").then()
-      .statusCode(OK.getStatusCode())
-      .header(CONTENT_TYPE, APPLICATION_JSON)
-      .extract().body().as(getBookTypeRef());
+    List<Book> books =
+      given().
+      when()
+        .get("/api/books").
+      then()
+        .statusCode(OK.getStatusCode())
+        .header(CONTENT_TYPE, APPLICATION_JSON)
+        .extract().body().as(getBookTypeRef());
 
     assertEquals(nbBooks + 1, books.size());
   }
@@ -268,10 +287,10 @@ public class BookResourceTest {
     given()
       .body(book)
       .header(CONTENT_TYPE, APPLICATION_JSON)
-      .header(ACCEPT, APPLICATION_JSON)
-      .when()
-      .put("/api/books")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .put("/api/books").
+    then()
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(UPDATED_TITLE))
@@ -301,15 +320,20 @@ public class BookResourceTest {
   @Order(4)
   void shouldRemoveAnItem() {
     given()
-      .pathParam("id", bookId)
-      .when().delete("/api/books/{id}")
-      .then()
+      .pathParam("id", bookId).
+    when()
+      .delete("/api/books/{id}").
+    then()
       .statusCode(NO_CONTENT.getStatusCode());
 
-    List<Book> books = get("/api/books").then()
-      .statusCode(OK.getStatusCode())
-      .header(CONTENT_TYPE, APPLICATION_JSON)
-      .extract().body().as(getBookTypeRef());
+    List<Book> books =
+      given().
+      when()
+        .get("/api/books").
+      then()
+        .statusCode(OK.getStatusCode())
+        .header(CONTENT_TYPE, APPLICATION_JSON)
+        .extract().body().as(getBookTypeRef());
 
     assertEquals(nbBooks, books.size());
   }
