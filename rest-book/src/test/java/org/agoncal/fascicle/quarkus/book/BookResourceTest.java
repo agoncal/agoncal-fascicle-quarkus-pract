@@ -27,8 +27,6 @@ import static javax.ws.rs.core.Response.Status.CREATED;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
-import static org.agoncal.fascicle.quarkus.book.client.MockIsbnNumbersService.MOCK_ISBN_10;
-import static org.agoncal.fascicle.quarkus.book.client.MockIsbnNumbersService.MOCK_ISBN_13;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -59,6 +57,8 @@ public class BookResourceTest {
   private static final URL UPDATED_MEDIUM_IMAGE_URL = makeUrl("http://www.updatedurl.com");
   private static final String DEFAULT_DESCRIPTION = "Description";
   private static final String UPDATED_DESCRIPTION = "Description (updated)";
+  public static final String MOCK_ISBN_13 = "Isbn 13";
+  public static final String MOCK_ISBN_10 = "Isbn 10";
 
   private static URL makeUrl(String urlString) {
     try {

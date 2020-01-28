@@ -6,14 +6,14 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import static org.agoncal.fascicle.quarkus.book.BookResourceTest.MOCK_ISBN_10;
+import static org.agoncal.fascicle.quarkus.book.BookResourceTest.MOCK_ISBN_13;
+
 // tag::adocSnippet[]
 @Mock
 @ApplicationScoped
 @RestClient
 public class MockIsbnNumbersService implements IsbnNumbersService {
-
-  public static final String MOCK_ISBN_13 = "Isbn 13";
-  public static final String MOCK_ISBN_10 = "Isbn 10";
 
   @Override
   public IsbnNumbers generateIsbnNumbers() {
