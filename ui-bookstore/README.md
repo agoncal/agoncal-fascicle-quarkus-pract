@@ -1,11 +1,15 @@
-# Creating the BookStore User Interface
+ng new ui-bookstore --minimal true --inline-style true --prefix bs --routing true --skip-git true --skip-install true --strict true --style css --force --packageManager npm
 
-ng new bookstore
+ng add @angular/material --defaults=true
 
---minimal true
---inline-style true
---prefix bs
---routing true
---skip-git
---skip-install
---strict 
+npm install
+
+ng serve
+
+
+ng generate component number-generate
+ng generate component book-list
+ng generate component book-form
+ng generate component book-detail
+ng generate component book-delete
+ng generate component book-random
