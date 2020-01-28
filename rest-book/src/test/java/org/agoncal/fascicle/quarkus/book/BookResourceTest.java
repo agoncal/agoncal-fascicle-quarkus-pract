@@ -18,7 +18,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.Random;
 
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
@@ -217,6 +216,7 @@ public class BookResourceTest {
     book.mediumImageUrl = DEFAULT_MEDIUM_IMAGE_URL;
     book.description = DEFAULT_DESCRIPTION;
 
+    // Persists a new book
     String location =
       given()
         .body(book)
@@ -228,13 +228,13 @@ public class BookResourceTest {
         .statusCode(CREATED.getStatusCode())
         .extract().header("Location");
 
+    // Extracts the Location and stores the book id
     assertTrue(location.contains("/api/books"));
-
-    // Stores the id
     String[] segments = location.split("/");
     bookId = segments[segments.length - 1];
     assertNotNull(bookId);
 
+    // Checks the book has been created
     given()
       .pathParam("id", bookId).
     when()
@@ -253,6 +253,7 @@ public class BookResourceTest {
       .body("mediumImageUrl", Is.is(DEFAULT_MEDIUM_IMAGE_URL.toString()))
       .body("description", Is.is(DEFAULT_DESCRIPTION));
 
+    // Checks there is an extra book in the database
     List<Book> books =
       given().
       when()
@@ -284,6 +285,7 @@ public class BookResourceTest {
     book.mediumImageUrl = UPDATED_MEDIUM_IMAGE_URL;
     book.description = UPDATED_DESCRIPTION;
 
+    // Updates the previously created book
     given()
       .body(book)
       .header(CONTENT_TYPE, APPLICATION_JSON)
@@ -304,14 +306,6 @@ public class BookResourceTest {
       .body("smallImageUrl", Is.is(UPDATED_SMALL_IMAGE_URL.toString()))
       .body("mediumImageUrl", Is.is(UPDATED_MEDIUM_IMAGE_URL.toString()))
       .body("description", Is.is(UPDATED_DESCRIPTION));
-
-
-    List<Book> books = get("/api/books").then()
-      .statusCode(OK.getStatusCode())
-      .header(CONTENT_TYPE, APPLICATION_JSON)
-      .extract().body().as(getBookTypeRef());
-
-    assertEquals(nbBooks + 1, books.size());
   }
   // end::adocShouldUpdateAnItem[]
 
@@ -319,6 +313,7 @@ public class BookResourceTest {
   @Test
   @Order(4)
   void shouldRemoveAnItem() {
+    // Deletes the previously created book
     given()
       .pathParam("id", bookId).
     when()
@@ -326,6 +321,7 @@ public class BookResourceTest {
     then()
       .statusCode(NO_CONTENT.getStatusCode());
 
+    // Checks there is less a book in the database
     List<Book> books =
       given().
       when()
