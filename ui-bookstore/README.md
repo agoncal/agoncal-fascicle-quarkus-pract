@@ -23,7 +23,7 @@ npm install -g @angular/cli@v9.0.0-rc.10
 From the root directory 
 
 ```
-ng new ui-bookstore --minimal=true --inline-style=true --inlineTemplate=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=css --force --packageManager=npm
+ng new ui-bookstore --minimal=true --inline-style=true --inlineTemplate=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=scss --force --packageManager=npm
 cd ui-bookstore
 
 npm install
@@ -49,17 +49,22 @@ The module imports and exports all the needed Material design components and sho
 
 ```
 import {NgModule} from '@angular/core';
-import {MatButtonModule} from "@angular/material/button";
-import {MatCheckboxModule} from "@angular/material/checkbox";
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatIconModule
+} from "@angular/material";
 
 @NgModule({
   imports: [
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ],
   exports: [
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ]
 })
 export class MaterialModule {
@@ -71,8 +76,11 @@ In the main `app.module.ts` import both `BrowserAnimationsModule` and our `Mater
 ```
   imports: [
     BrowserModule,
-    MaterialModule,
     BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    AppRoutingModule
+  ],
 ```
 
 ## Template
