@@ -23,7 +23,7 @@ npm install -g @angular/cli@v9.0.0-rc.10
 From the root directory 
 
 ```
-ng new ui-bookstore --minimal true --inline-style true --prefix bs --routing true --skip-git true --skip-install true --strict true --style css --force --packageManager npm
+ng new ui-bookstore --minimal=true --inline-style=true --inlineTemplate=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=css --force --packageManager=npm
 cd ui-bookstore
 
 npm install
@@ -71,8 +71,8 @@ In the main `app.module.ts` import both `BrowserAnimationsModule` and our `Mater
 ```
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     MaterialModule,
+    BrowserAnimationsModule,
 ```
 
 ## Template
