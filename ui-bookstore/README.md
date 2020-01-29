@@ -26,13 +26,59 @@ From the root directory
 ng new ui-bookstore --minimal true --inline-style true --prefix bs --routing true --skip-git true --skip-install true --strict true --style css --force --packageManager npm
 cd ui-bookstore
 
-ng add @angular/material --defaults=true
 npm install
 ng serve
 ```
 
+## Installing Material Design
+
+Install the Material Design dependencies: 
+
+```
+ng add @angular/material --defaults=true --interactive=false
+ng add @angular/cdk --defaults=true --interactive=false
+```
+
+Create a shared Material module
+
+```
+ng generate module shared/material --flat 
+```
+
+The module imports and exports all the needed Material design components and should look like that:
+
+```
+import {NgModule} from '@angular/core';
+import {MatButtonModule} from "@angular/material/button";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+
+@NgModule({
+  imports: [
+    MatButtonModule,
+    MatCheckboxModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatCheckboxModule
+  ]
+})
+export class MaterialModule {
+}
+```
+
+In the main `app.module.ts` import both `BrowserAnimationsModule` and our `MaterialModule`
+
+```
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+```
+
+## Template
 
 
+## Components
 
 ng generate component number-generate
 ng generate component book-list
