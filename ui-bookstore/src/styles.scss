@@ -12,6 +12,12 @@
   max-width: 400px;
 }
 
+.form-container{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

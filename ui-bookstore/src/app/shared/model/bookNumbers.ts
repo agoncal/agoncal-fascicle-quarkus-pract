@@ -3,8 +3,8 @@
  */
 export interface BookNumbers {
     asin?: string;
-    ean13?: string;
-    ean8?: string;
-    isbn10: string;
-    isbn13: string;
+    ean_13?: string;
+    ean_8?: string;
+    isbn_10: string;
+    isbn_13: string;
 }

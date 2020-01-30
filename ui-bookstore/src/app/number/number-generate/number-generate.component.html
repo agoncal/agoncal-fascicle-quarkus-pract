@@ -1,6 +1,31 @@
-<h1>Book Numbers</h1>
-{{bookNumbers?.asin}}
-{{bookNumbers?.ean8}}
-{{bookNumbers?.ean13}}
-{{bookNumbers?.isbn10}}
-{{bookNumbers?.isbn13}}
+<h1 mat-dialog-title>Book Numbers</h1>
+<mat-dialog-content>
+  <form class="form-container">
+    <mat-form-field appearance="standard">
+      <mat-label>Asin</mat-label>
+      <input matInput value="{{bookNumbers?.asin}}">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>EAN 8</mat-label>
+      <input matInput value="{{bookNumbers?.ean_8}}">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>EAN 13</mat-label>
+      <input matInput value="{{bookNumbers?.ean_13}}">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>ISBN 10</mat-label>
+      <input matInput value="{{bookNumbers?.isbn_10}}">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>ISBN 13</mat-label>
+      <input matInput value="{{bookNumbers?.isbn_13}}">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="generateBookNumber()">
+    <mat-icon>refresh</mat-icon>
+    Refresh
+  </button>
+</mat-dialog-actions>

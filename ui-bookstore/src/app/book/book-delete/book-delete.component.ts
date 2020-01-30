@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
-  selector: 'bs-book-delete',
   templateUrl: './book-delete.component.html',
   styles: []
 })

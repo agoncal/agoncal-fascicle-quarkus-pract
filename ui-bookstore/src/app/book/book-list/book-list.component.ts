@@ -28,7 +28,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'bs-book-list',
   templateUrl: './book-list.component.html',
   styles: []
 })

@@ -16,23 +16,23 @@ public class BookNumbers {
   @Schema(required = true)
   // end::adocOpenAPI[]
   // tag::adocJSonB[]
-  @JsonbProperty("isbn-10")
+  @JsonbProperty("isbn_10")
   // end::adocJSonB[]
   private String isbn10;
   // tag::adocOpenAPI[]
   @Schema(required = true)
   // end::adocOpenAPI[]
   // tag::adocJSonB[]
-  @JsonbProperty("isbn-13")
+  @JsonbProperty("isbn_13")
   // end::adocJSonB[]
   private String isbn13;
   private String asin;
   // tag::adocJSonB[]
-  @JsonbProperty("ean-8")
+  @JsonbProperty("ean_8")
   // end::adocJSonB[]
   private String ean8;
   // tag::adocJSonB[]
-  @JsonbProperty("ean-13")
+  @JsonbProperty("ean_13")
   // end::adocJSonB[]
   private String ean13;
   // tag::adocJSonB[]

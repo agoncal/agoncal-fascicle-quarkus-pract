@@ -3,8 +3,7 @@ import {NumberEndpointService} from "../../shared/api/numberEndpoint.service";
 import {BookNumbers} from "../../shared/model/bookNumbers";
 
 @Component({
-  selector: 'bs-number-generate',
-  templateUrl: './number-generate.component.html',
+  templateUrl: 'number-generate.component.html',
   styles: []
 })
 export class NumberGenerateComponent implements OnInit {

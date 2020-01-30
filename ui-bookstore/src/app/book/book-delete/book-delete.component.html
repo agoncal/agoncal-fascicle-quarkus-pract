@@ -12,7 +12,10 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="onCloseClick()">Close</button>
-    <button mat-button>Delete</button>
+    <button mat-button (click)="onCloseClick()">
+      <mat-icon>cancel</mat-icon>
+      Close
+    </button>
+    <button mat-button color="warn">Delete</button>
   </mat-card-actions>
 </mat-card>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'bs-book-random',
   templateUrl: './book-random.component.html',
   styles: []
 })
