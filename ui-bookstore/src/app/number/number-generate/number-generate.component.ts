@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NumberEndpointService} from "../../shared/api/numberEndpoint.service";
+import {BookNumbers} from "../../shared/model/bookNumbers";
 
 @Component({
   selector: 'bs-number-generate',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NumberGenerateComponent implements OnInit {
 
-  constructor() { }
+  bookNumbers?: BookNumbers;
+
+  constructor(private numberEndpointService: NumberEndpointService) { }
 
   ngOnInit(): void {
+    this.generateBookNumber();
+  }
+
+  generateBookNumber() {
+    this.numberEndpointService.generatesBookNumbers().subscribe(bookNumbers => this.bookNumbers = bookNumbers);
   }
 
 }
