@@ -27,9 +27,4 @@ export class BookDetailComponent implements OnInit {
       this.book = book;
     });
   }
-
-  previousState() {
-    window.history.back();
-  }
-
 }
