@@ -14,6 +14,7 @@ import { BookEndpointService } from "../../shared/api/bookEndpoint.service";
   styles: []
 })
 export class BookListComponent implements OnInit {
+
   displayedColumns: string[] = ['id', 'isbn13', 'title', 'author', 'actions'];
   dataSource = new MatTableDataSource<Book>();
 

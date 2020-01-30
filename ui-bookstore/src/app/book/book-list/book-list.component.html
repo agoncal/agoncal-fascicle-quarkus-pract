@@ -30,7 +30,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button (click)="openDetail()">View</button>
+        <button mat-button [routerLink]="['/book-detail', element.id ]">View</button>
         <button mat-button (click)="openForm()" color="primary">Edit</button>
         <button mat-button (click)="openDelete()" color="warn">Delete</button>
       </td>
