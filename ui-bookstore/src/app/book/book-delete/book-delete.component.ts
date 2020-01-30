@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'bs-book-delete',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<BookDeleteComponent>) {
+  }
 
   ngOnInit(): void {
   }
 
+  onCloseClick(): void {
+    this.dialogRef.close();
+  }
 }

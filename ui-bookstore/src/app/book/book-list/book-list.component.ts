@@ -47,7 +47,7 @@ export class BookListComponent implements OnInit {
 
   openDetail(): void {
     const dialogRef = this.dialog.open(BookDetailComponent, {
-      width: '250px'
+      width: '450px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -57,7 +57,7 @@ export class BookListComponent implements OnInit {
 
   openForm(): void {
     const dialogRef = this.dialog.open(BookFormComponent, {
-      width: '250px'
+      width: '450px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -67,7 +67,7 @@ export class BookListComponent implements OnInit {
 
   openDelete(): void {
     const dialogRef = this.dialog.open(BookDeleteComponent, {
-      width: '250px'
+      width: '450px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
