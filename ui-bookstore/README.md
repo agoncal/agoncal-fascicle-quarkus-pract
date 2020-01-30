@@ -39,7 +39,7 @@ ng add @angular/material --defaults=true --interactive=false
 ng add @angular/cdk --defaults=true --interactive=false
 ```
 
-Create a shared Material module
+Create a shared Material module 
 
 ```
 ng generate module shared/material --flat 
@@ -71,26 +71,28 @@ export class MaterialModule {
 }
 ```
 
-In the main `app.module.ts` import both `BrowserAnimationsModule` and our `MaterialModule`
-
-```
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule,
-    AppRoutingModule
-  ],
-```
-
 ## Template
 
 
+
+
+## Business modules
+
+```
+ng generate module book/book --flat --module=app.module.ts --routing=true
+ng generate module number/number --flat --module=app.module.ts --routing=true
+ng generate module inventory/inventory --flat --module=app.module.ts --routing=true
+```
+
 ## Components
 
-ng generate component number-generate
-ng generate component book-list
-ng generate component book-form
-ng generate component book-detail
-ng generate component book-delete
-ng generate component book-random
+Generate all the needed components
+
+``` 
+ng generate component number/number-generate --module=number/number.module.ts
+ng generate component book/book-list --module=book/book.module.ts
+ng generate component book/book-form --module=book/book.module.ts
+ng generate component book/book-detail --module=book/book.module.ts
+ng generate component book/book-delete --module=book/book.module.ts
+ng generate component book/book-random --module=book/book.module.ts
+```
