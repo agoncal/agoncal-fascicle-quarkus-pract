@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {BookRandomComponent} from "../book/book-random/book-random.component";
-import {BookDeleteComponent} from "../book/book-delete/book-delete.component";
 import {NumberGenerateComponent} from "./number-generate/number-generate.component";
 
 

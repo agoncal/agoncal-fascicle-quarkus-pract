@@ -1,4 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatDialog} from "@angular/material/dialog";
+import {BookDetailComponent} from "../book-detail/book-detail.component";
+import {BookFormComponent} from "../book-form/book-form.component";
+import {BookDeleteComponent} from "../book-delete/book-delete.component";
 
 export interface PeriodicElement {
   name: string;
@@ -18,6 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {position: 11, name: 'Blah', weight: 20.1797, symbol: 'Bl'},
 ];
 
 @Component({
@@ -26,13 +33,45 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styles: []
 })
 export class BookListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  constructor() {
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
 
+  openDetail(): void {
+    const dialogRef = this.dialog.open(BookDetailComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openForm(): void {
+    const dialogRef = this.dialog.open(BookFormComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openDelete(): void {
+    const dialogRef = this.dialog.open(BookDeleteComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }
