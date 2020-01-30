@@ -39,7 +39,7 @@ import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 @Path("/api/books")
 @Produces(APPLICATION_JSON)
 @Consumes(APPLICATION_JSON)
-@Tag(name = "Book REST endpoint")
+@Tag(name = "Book Endpoint")
 public class BookResource {
 
   @Inject

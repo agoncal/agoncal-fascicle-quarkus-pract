@@ -110,8 +110,9 @@ swagger-codegen -h
 swagger-codegen generate -h
 ```
 
-To generate the code from the Number REST endpoint.
+To generate the code from the Number and Book REST endpoint.
 
 ```
-swagger-codegen --lang typescript-angular --output src/app/shared --input-spec
+swagger-codegen generate --lang typescript-angular --output src/app/shared --input-spec http://127.0.0.1:8081/openapi
+swagger-codegen generate --lang typescript-angular --output src/app/shared --input-spec http://127.0.0.1:8082/openapi
 ```
