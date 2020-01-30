@@ -3,21 +3,16 @@
  * This API allows CRUD operations on books
  *//* tslint:disable:no-unused-variable member-ordering */
 
-import {Inject, Injectable, Optional} from '@angular/core';
-import {
-  HttpClient, HttpHeaders, HttpParams,
-  HttpResponse, HttpEvent
-} from '@angular/common/http';
-
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpResponse, HttpEvent} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
 import {Book} from '../model/book';
 
 
 @Injectable()
 export class BookEndpointService {
 
-  protected basePath = '/';
+  protected basePath = 'http://localhost:8082';
   public defaultHeaders = new HttpHeaders();
 
   constructor(protected httpClient: HttpClient) {
