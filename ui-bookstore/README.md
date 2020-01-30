@@ -24,10 +24,6 @@ From the root directory
 
 ```
 ng new ui-bookstore --minimal=true --inline-style=true --inlineTemplate=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=scss --force --packageManager=npm
-cd ui-bookstore
-
-npm install
-ng serve
 ```
 
 ## Installing Material Design
@@ -35,8 +31,14 @@ ng serve
 Install the Material Design dependencies: 
 
 ```
+cd ui-bookstore
+
 ng add @angular/material --defaults=true --interactive=false
 ng add @angular/cdk --defaults=true --interactive=false
+ng add @angular/flex-layout --defaults=true --interactive=false
+
+npm install
+ng serve
 ```
 
 Create a shared Material module 
@@ -79,9 +81,9 @@ export class MaterialModule {
 ## Business modules
 
 ```
-ng generate module book/book --flat --module=app.module.ts --routing=true
-ng generate module number/number --flat --module=app.module.ts --routing=true
-ng generate module inventory/inventory --flat --module=app.module.ts --routing=true
+ng generate module book/book --flat --module=app.module.ts --routing=true --route=book
+ng generate module number/number --flat --module=app.module.ts --routing=true --route=number
+ng generate module inventory/inventory --flat --module=app.module.ts --routing=true --route=inventory
 ```
 
 ## Components
@@ -89,10 +91,10 @@ ng generate module inventory/inventory --flat --module=app.module.ts --routing=t
 Generate all the needed components
 
 ``` 
-ng generate component number/number-generate --module=number/number.module.ts
-ng generate component book/book-list --module=book/book.module.ts
-ng generate component book/book-form --module=book/book.module.ts
-ng generate component book/book-detail --module=book/book.module.ts
-ng generate component book/book-delete --module=book/book.module.ts
-ng generate component book/book-random --module=book/book.module.ts
+ng generate component number/number-generate --module=number/number.module.ts --skipSelector=true
+ng generate component book/book-list --module=book/book.module.ts --skipSelector=true
+ng generate component book/book-form --module=book/book.module.ts --skipSelector=true
+ng generate component book/book-detail --module=book/book.module.ts --skipSelector=true
+ng generate component book/book-delete --module=book/book.module.ts --skipSelector=true
+ng generate component book/book-random --module=book/book.module.ts --skipSelector=true
 ```
