@@ -9,11 +9,11 @@ node -v
 npm -version
 ```
 
-Update the last version of NG CLI  (check https://github.com/angular/angular-cli/releases)
+Update the last version of NG CLI  (check https://github.com/angular/angular-cli/releases) and check Angular version (https://github.com/angular/angular/releases)
 
 ```
 ng --version
-npm install -g @angular/cli@v9.0.0-rc.10
+npm install -g @angular/cli@v9.0.0-rc.11
 ```
 
 # Creating the UI
