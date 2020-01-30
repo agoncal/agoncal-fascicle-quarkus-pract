@@ -98,3 +98,20 @@ ng generate component book/book-detail --module=book/book.module.ts --skipSelect
 ng generate component book/book-delete --module=book/book.module.ts --skipSelector=true
 ng generate component book/book-random --module=book/book.module.ts --skipSelector=true
 ```
+
+## Swagger Code Gen
+
+Swagger CodeGen (https://github.com/swagger-api/swagger-codegen) is used to generate the TypeScript code from the OpenAPI Doc. 
+To get some help on the commands:
+
+```
+swagger-codegen version
+swagger-codegen -h
+swagger-codegen generate -h
+```
+
+To generate the code from the Number REST endpoint.
+
+```
+swagger-codegen --lang typescript-angular --output src/app/shared --input-spec
+```
