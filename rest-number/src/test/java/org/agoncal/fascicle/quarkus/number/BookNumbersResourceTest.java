@@ -26,11 +26,11 @@ public class BookNumbersResourceTest {
       .get("/api/numbers/book").
     then()
       .statusCode(OK.getStatusCode())
-      .body("$", hasKey("isbn-10"))
-      .body("$", hasKey("isbn-13"))
+      .body("$", hasKey("isbn_10"))
+      .body("$", hasKey("isbn_13"))
       .body("$", hasKey("asin"))
-      .body("$", hasKey("ean-8"))
-      .body("$", hasKey("ean-13"))
+      .body("$", hasKey("ean_8"))
+      .body("$", hasKey("ean_13"))
       .body("$", not(hasKey("generationDate")));
   }
   // tag::adocPing[]
