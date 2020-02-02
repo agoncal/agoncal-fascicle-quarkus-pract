@@ -30,7 +30,7 @@ export class BookListComponent implements OnInit {
   }
 
   listBooks(): void{
-    this.numberEndpointService.apiBooksGet().subscribe(books => this.dataSource.data = books);
+    this.numberEndpointService.getAllBooks().subscribe(books => this.dataSource.data = books);
   }
 
   openDetail(): void {

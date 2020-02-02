@@ -23,7 +23,7 @@ export class BookDetailComponent implements OnInit {
   }
 
   load(id: number) {
-    this.bookEndpointService.apiBooksIdGet(id).subscribe((book) => {
+    this.bookEndpointService.getBook(id).subscribe((book) => {
       this.book = book;
     });
   }

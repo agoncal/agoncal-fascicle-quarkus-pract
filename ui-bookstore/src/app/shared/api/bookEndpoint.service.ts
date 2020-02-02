@@ -24,10 +24,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public apiBooksGet(observe?: 'body', reportProgress?: boolean): Observable<Array<Book>>;
-  public apiBooksGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Book>>>;
-  public apiBooksGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Book>>>;
-  public apiBooksGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public getAllBooks(observe?: 'body', reportProgress?: boolean): Observable<Array<Book>> {
 
     let headers = this.defaultHeaders;
 
@@ -56,10 +53,10 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public apiBooksIdDelete(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-  public apiBooksIdDelete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-  public apiBooksIdDelete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-  public apiBooksIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public deleteBook(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
+  public deleteBook(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+  public deleteBook(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+  public deleteBook(id: number, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
     if (id === null || id === undefined) {
       throw new Error('Required parameter id was null or undefined when calling apiBooksIdDelete.');
@@ -83,10 +80,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public apiBooksIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<Book>;
-  public apiBooksIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Book>>;
-  public apiBooksIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Book>>;
-  public apiBooksIdGet(id: number, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public getBook(id: number, observe?: 'body', reportProgress?: boolean): Observable<Book> {
 
     if (id === null || id === undefined) {
       throw new Error('Required parameter id was null or undefined when calling apiBooksIdGet.');
@@ -116,10 +110,10 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public apiBooksPost(body: Book, observe?: 'body', reportProgress?: boolean): Observable<string>;
-  public apiBooksPost(body: Book, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
-  public apiBooksPost(body: Book, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
-  public apiBooksPost(body: Book, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public createBook(body: Book, observe?: 'body', reportProgress?: boolean): Observable<string>;
+  public createBook(body: Book, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
+  public createBook(body: Book, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
+  public createBook(body: Book, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
     if (body === null || body === undefined) {
       throw new Error('Required parameter body was null or undefined when calling apiBooksPost.');
@@ -156,10 +150,10 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public apiBooksPut(body: Book, observe?: 'body', reportProgress?: boolean): Observable<Book>;
-  public apiBooksPut(body: Book, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Book>>;
-  public apiBooksPut(body: Book, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Book>>;
-  public apiBooksPut(body: Book, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public updateBook(body: Book, observe?: 'body', reportProgress?: boolean): Observable<Book>;
+  public updateBook(body: Book, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Book>>;
+  public updateBook(body: Book, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Book>>;
+  public updateBook(body: Book, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
     if (body === null || body === undefined) {
       throw new Error('Required parameter body was null or undefined when calling apiBooksPut.');
@@ -195,10 +189,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public apiBooksRandomGet(observe?: 'body', reportProgress?: boolean): Observable<Book>;
-  public apiBooksRandomGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Book>>;
-  public apiBooksRandomGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Book>>;
-  public apiBooksRandomGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public getRandomBook(observe?: 'body', reportProgress?: boolean): Observable<Book> {
 
     let headers = this.defaultHeaders;
 

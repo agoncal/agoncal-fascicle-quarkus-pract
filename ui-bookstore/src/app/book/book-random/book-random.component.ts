@@ -17,7 +17,7 @@ export class BookRandomComponent implements OnInit {
   }
 
   load() {
-    this.bookEndpointService.apiBooksRandomGet().subscribe((book) => {
+    this.bookEndpointService.getRandomBook().subscribe((book) => {
       this.book = book;
     });
   }
