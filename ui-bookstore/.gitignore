@@ -8,6 +8,7 @@
 /bazel-out
 
 # dependencies
+/node
 /node_modules
 /src/main
 
