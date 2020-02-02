@@ -38,8 +38,9 @@
   </build>
 
   <profiles>
+    <!-- tag::adocSnippet[] -->
     <profile>
-      <id>build-ui</id>
+      <id>install-node</id>
       <build>
         <plugins>
           <plugin>
@@ -68,5 +69,6 @@
         </plugins>
       </build>
     </profile>
+    <!-- end::adocSnippet[] -->
   </profiles>
 </project>

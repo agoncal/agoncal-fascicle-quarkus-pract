@@ -8,15 +8,18 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {BookNumbers} from '../model/bookNumbers';
 
-
+// tag::adocSnippet[]
 @Injectable()
 export class NumberEndpointService {
 
   protected basePath = 'http://localhost:8081';
-  public defaultHeaders = new HttpHeaders();
 
   constructor(protected httpClient: HttpClient) {
   }
+
+  // tag::adocSkip[]
+
+  public defaultHeaders = new HttpHeaders();
 
   /**
    * Generates book numbers
@@ -24,6 +27,7 @@ export class NumberEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
+  // end::adocSkip[]
   public generatesBookNumbers(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
     let headers = this.defaultHeaders;
@@ -43,3 +47,4 @@ export class NumberEndpointService {
     );
   }
 }
+// end::adocSnippet[]
