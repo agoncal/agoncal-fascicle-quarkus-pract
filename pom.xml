@@ -32,6 +32,9 @@
 
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
+    <frontend-maven-plugin.version>1.9.0</frontend-maven-plugin.version>
+    <node.version>v13.7.0</node.version>
+    <npm.version>6.13.6</npm.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
