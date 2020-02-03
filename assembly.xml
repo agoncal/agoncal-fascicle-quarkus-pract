@@ -37,9 +37,11 @@
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>pom_temp.xml</exclude>
+        <exclude>pom_to_be_renamed.xml</exclude>
         <exclude>*.json</exclude>
         <exclude>*.yaml</exclude>
         <exclude>*.iml</exclude>
+        <exclude>*.txt</exclude>
         <exclude>**/application.properties</exclude>
         <exclude>**/*.java</exclude>
         <exclude>**/target/**</exclude>
@@ -50,9 +52,11 @@
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>pom_temp.xml</exclude>
+        <exclude>pom_to_be_renamed.xml</exclude>
         <exclude>*.json</exclude>
         <exclude>*.yaml</exclude>
         <exclude>*.iml</exclude>
+        <exclude>*.txt</exclude>
         <exclude>**/application.properties</exclude>
         <exclude>**/*.java</exclude>
         <exclude>**/target/**</exclude>
@@ -63,7 +67,11 @@
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>*.iml</exclude>
+        <exclude>package-lock.json</exclude>
+        <exclude>README.md</exclude>
         <exclude>**/target/**</exclude>
+        <exclude>**/node/**</exclude>
+        <exclude>**/node_modules/**</exclude>
       </excludes>
     </fileSet>
     <fileSet>
