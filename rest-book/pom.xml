@@ -41,30 +41,26 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
-    <!-- tag::adocRestClientDependency[] -->
+    <!-- tag::adocDependencyFaultTolerance[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-rest-client</artifactId>
     </dependency>
-    <!-- end::adocRestClientDependency[] -->
-    <!-- tag::adocDependencyFaultTolerance[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
     </dependency>
     <!-- end::adocDependencyFaultTolerance[] -->
-    <!-- tag::adocDependencyHealth[] -->
+    <!-- tag::adocDependencyObservability[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
     </dependency>
-    <!-- end::adocDependencyHealth[] -->
-    <!-- tag::adocDependencyMetrics[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
-    <!-- end::adocDependencyMetrics[] -->
+    <!-- end::adocDependencyObservability[] -->
     <!-- end::adocDependency[] -->
 
     <!-- Test -->

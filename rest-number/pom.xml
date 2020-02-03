@@ -33,18 +33,16 @@
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
     </dependency>
-    <!-- tag::adocDependencyHealth[] -->
+    <!-- tag::adocDependencyObservability[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
     </dependency>
-    <!-- end::adocDependencyHealth[] -->
-    <!-- tag::adocDependencyMetrics[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
-    <!-- end::adocDependencyMetrics[] -->
+    <!-- end::adocDependencyObservability[] -->
     <!-- end::adocDependency[] -->
 
     <!-- Test -->
