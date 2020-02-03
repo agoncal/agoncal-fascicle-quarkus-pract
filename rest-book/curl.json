@@ -1,0 +1,13 @@
+{
+  "id": 997,
+  "author": "Antonio Goncalves",
+  "description": "In this fascicle, you will learn Java Persistence API, its annotations for mapping entities, as well as the Java Persistence Query Language and entity life cycle",
+  "isbn13": "9781980399025",
+  "mediumImageUrl": "https://images-na.ssl-images-amazon.com/images/I/31fHenHChZL.jpg",
+  "nbOfPages": 129,
+  "price": 9.99,
+  "rank": 9,
+  "smallImageUrl": "https://images-na.ssl-images-amazon.com/images/I/31fHenHChZL._SL160_.jpg",
+  "title": "Understanding Bean Validation",
+  "yearOfPublication": 2018
+}
