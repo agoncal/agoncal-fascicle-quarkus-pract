@@ -89,7 +89,6 @@ public class BookNumbers {
   public void setGenerationDate(Instant generationDate) {
     this.generationDate = generationDate;
   }
-  // end::adocSkip[]
 
   // ======================================
   // =   Methods hash, equals, toString   =
@@ -106,5 +105,6 @@ public class BookNumbers {
       ", generationDate=" + generationDate +
       '}';
   }
+  // end::adocSkip[]
 }
 // end::adocSnippet[]

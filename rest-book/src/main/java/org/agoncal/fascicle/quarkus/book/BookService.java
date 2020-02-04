@@ -15,19 +15,18 @@ import java.util.List;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
-// tag::adocSnippet[]
 // tag::adocHeader[]
 @ApplicationScoped
 @Transactional(REQUIRED)
 public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
-
   // end::adocHeader[]
   // tag::adocFaultTolerance[]
   @Inject
   @RestClient
   IsbnNumbersService isbnNumbersService;
+  // end::adocFaultTolerance[]
 
   // tag::adocFallback[]
   @Fallback(fallbackMethod = "fallbackPersistBook")
@@ -45,7 +44,6 @@ public class BookService {
   }
   // end::adocBeanValidation[]
   // end::adocPersistBook[]
-  // end::adocFaultTolerance[]
 
   // tag::adocFallback[]
   Book fallbackPersistBook(Book book) {
@@ -97,5 +95,4 @@ public class BookService {
   }
 // tag::adocFooter[]
 }
-// end::adocSnippet[]
 // end::adocFooter[]
