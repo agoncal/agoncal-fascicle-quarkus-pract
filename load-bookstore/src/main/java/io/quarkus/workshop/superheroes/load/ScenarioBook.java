@@ -16,8 +16,6 @@
  */
 package io.quarkus.workshop.superheroes.load;
 
-import com.github.javafaker.Superhero;
-
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.client.Entity;
@@ -28,62 +26,72 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
-import static io.quarkus.workshop.superheroes.load.Endpoint.*;
+import static io.quarkus.workshop.superheroes.load.Endpoint.endpoint;
+import static io.quarkus.workshop.superheroes.load.Endpoint.endpointWithEntity;
+import static io.quarkus.workshop.superheroes.load.Endpoint.endpointWithTemplates;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
 import static javax.ws.rs.client.Entity.json;
 
 public class ScenarioBook extends ScenarioInvoker {
 
-    private static final int NB_VILLAINS = 581;
+  private static final int NB_BOOKS = 120;
 
-    private static final String targetUrl = "http://localhost:8084";
+  private static final String targetUrl = "http://localhost:8082";
 
-    private static final String contextRoot = "/api/villains";
+  private static final String contextRoot = "/api/books";
 
-    @Override
-    protected String getTargetUrl() {
-        return targetUrl;
+  @Override
+  protected String getTargetUrl() {
+    return targetUrl;
+  }
+
+  @Override
+  protected List<Endpoint> getEndpoints() {
+    return Stream.of(
+      endpoint(contextRoot, "GET"),
+      endpoint(contextRoot + "/hello", "GET"),
+      endpointWithTemplates(contextRoot + "/{id}", "GET", this::idParam),
+      endpointWithTemplates(contextRoot + "/{id}", "DELETE", this::idParam),
+      endpointWithEntity(contextRoot, "POST", this::createBook)
+    )
+      .collect(collectingAndThen(toList(), Collections::unmodifiableList));
+  }
+
+  private Entity createBook() {
+    JsonObject json;
+    if (Math.random() * 100 < 95) {
+      // Valid book
+      json = Json.createObjectBuilder()
+        .add("title", faker.book().title())
+        .add("author", faker.book().author())
+        .add("yearOfPublication", faker.number().numberBetween(1950, 2020))
+        .add("nbOfPages", faker.number().numberBetween(50, 800))
+        .add("rank", faker.number().numberBetween(1, 10))
+        .add("price", faker.number().numberBetween(1, 120))
+        .add("smallImageUrl", faker.internet().url())
+        .add("mediumImageUrl", faker.internet().url())
+        .add("description", faker.lorem().characters())
+        .build();
+    } else {
+      // Invalid book
+      json = Json.createObjectBuilder()
+        .add("author", faker.book().author())
+        .add("yearOfPublication", faker.number().numberBetween(1950, 2020))
+        .add("nbOfPages", faker.number().numberBetween(50, 800))
+        .add("rank", faker.number().numberBetween(100, 200))
+        .add("price", faker.number().numberBetween(1, 120))
+        .add("smallImageUrl", faker.internet().url())
+        .add("mediumImageUrl", faker.internet().url())
+        .add("description", faker.lorem().characters())
+        .build();
     }
+    return json(json.toString());
+  }
 
-    @Override
-    protected List<Endpoint> getEndpoints() {
-        return Stream.of(
-             endpoint(contextRoot, "GET"),
-             endpoint(contextRoot + "/hello", "GET"),
-             endpoint(contextRoot + "/random", "GET"),
-             endpointWithTemplates(contextRoot + "/{id}", "GET", this::idParam),
-             endpointWithTemplates(contextRoot + "/{id}", "DELETE", this::idParam),
-             endpointWithEntity(contextRoot, "POST", this::createVillain)
-        )
-            .collect(collectingAndThen(toList(), Collections::unmodifiableList));
-    }
-
-    private Entity createVillain() {
-        final Superhero hero = faker.superhero();
-        JsonObject json;
-        if (Math.random() * 100 < 95) {
-            json = Json.createObjectBuilder()
-                .add("name", hero.name())
-                .add("otherName", faker.funnyName().name())
-                .add("level", faker.number().numberBetween(1, 20))
-                .add("picture", faker.internet().url())
-                .add("powers", hero.power())
-                .build();
-        } else {
-            json = Json.createObjectBuilder()
-                .add("otherName", faker.funnyName().name())
-                .add("level", 0)
-                .add("picture", faker.internet().url())
-                .add("powers", hero.power())
-                .build();
-        }
-        return json(json.toString());
-    }
-
-    private Map<String, Object> idParam() {
-        final HashMap<String, Object> templates = new HashMap<>();
-        templates.put("id",  ThreadLocalRandom.current().nextInt(0, NB_VILLAINS + 1));
-        return templates;
-    }
+  private Map<String, Object> idParam() {
+    final HashMap<String, Object> templates = new HashMap<>();
+    templates.put("id", ThreadLocalRandom.current().nextInt(0, NB_BOOKS + 1));
+    return templates;
+  }
 }
