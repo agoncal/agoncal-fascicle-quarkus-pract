@@ -13,7 +13,7 @@ Update the last version of NG CLI  (check https://github.com/angular/angular-cli
 
 ```
 ng --version
-npm install -g @angular/cli@v9.0.0-rc.11
+npm install -g @angular/cli@v9.0.0-rc.14
 ```
 
 # Creating the UI
@@ -36,6 +36,7 @@ cd ui-bookstore
 ng add @angular/material --defaults=true --interactive=false
 ng add @angular/cdk --defaults=true --interactive=false
 ng add @angular/flex-layout --defaults=true --interactive=false
+ng add hammerjs --defaults=true --interactive=false
 
 npm install
 ng serve
