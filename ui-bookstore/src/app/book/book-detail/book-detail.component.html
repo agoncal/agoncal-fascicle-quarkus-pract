@@ -1,20 +1,74 @@
 <h1>Book</h1>
 
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>{{book?.title}}</mat-card-title>
-    <mat-card-subtitle>{{book?.author}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image [src]="book?.mediumImageUrl" style="width: 100px">
-  <mat-card-content>
-    <p>
-      {{book?.description}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button [routerLink]="['/book-list' ]">
-      <mat-icon>arrow_back</mat-icon>
-      Back
-    </button>
-  </mat-card-actions>
-</mat-card>
+<form>
+  <div class="form-group row">
+    <label for="title" class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="title" value="{{book?.title}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="isbn13" class="col-sm-2 col-form-label">ISBN 13</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="isbn13" value="{{book?.isbn13}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="isbn10" class="col-sm-2 col-form-label">ISBN 10</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="isbn10" value="{{book?.isbn10}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="author" class="col-sm-2 col-form-label">Author</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="author" value="{{book?.author}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="nbOfPages" class="col-sm-2 col-form-label">Nb of pages</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="nbOfPages" value="{{book?.nbOfPages}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="price" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="price" value="${{book?.price}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="rank" class="col-sm-2 col-form-label">Rank</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="rank" value="{{book?.rank}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="mediumImageUrl" class="col-sm-2 col-form-label">Medium Image Url</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="mediumImageUrl" value="{{book?.mediumImageUrl}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="smallImageUrl" class="col-sm-2 col-form-label">Small Image Url</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="smallImageUrl" value="{{book?.smallImageUrl}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="description" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <textarea type="text" readonly class="form-control-plaintext" id="description" value="{{book?.description}}" rows="20"></textarea>
+    </div>
+  </div>
+
+</form>

@@ -1,13 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from "@angular/material/table";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatDialog } from "@angular/material/dialog";
+import {Component, OnInit} from '@angular/core';
 
-import { BookDetailComponent } from "../book-detail/book-detail.component";
-import { BookFormComponent } from "../book-form/book-form.component";
-import { BookDeleteComponent } from "../book-delete/book-delete.component";
-import { Book } from "../../shared/model/book";
-import { BookEndpointService } from "../../shared/api/bookEndpoint.service";
+import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
+import {Book} from "../../shared/model/book";
 
 @Component({
   templateUrl: './book-list.component.html',
@@ -15,51 +9,16 @@ import { BookEndpointService } from "../../shared/api/bookEndpoint.service";
 })
 export class BookListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'isbn13', 'title', 'author', 'actions'];
-  dataSource = new MatTableDataSource<Book>();
+  books?: Book[];
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
-  constructor(public dialog: MatDialog,
-              private numberEndpointService: BookEndpointService) {
+  constructor(private numberEndpointService: BookEndpointService) {
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
     this.listBooks();
   }
 
-  listBooks(): void{
-    this.numberEndpointService.getAllBooks().subscribe(books => this.dataSource.data = books);
-  }
-
-  openDetail(): void {
-    const dialogRef = this.dialog.open(BookDetailComponent, {
-      width: '450px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
-  openForm(): void {
-    const dialogRef = this.dialog.open(BookFormComponent, {
-      width: '450px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
-  openDelete(): void {
-    const dialogRef = this.dialog.open(BookDeleteComponent, {
-      width: '450px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  listBooks(): void {
+    this.numberEndpointService.getAllBooks().subscribe(books => this.books = books);
   }
 }

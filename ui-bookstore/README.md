@@ -33,19 +33,19 @@ Install the Material Design dependencies:
 ```
 cd ui-bookstore
 
-ng add @angular/material --defaults=true --interactive=false
-ng add @angular/cdk --defaults=true --interactive=false
-ng add @angular/flex-layout --defaults=true --interactive=false
-ng add hammerjs --defaults=true --interactive=false
-
+ng add bootstrap --defaults=true --interactive=false
+ng add ngx-bootstrap --defaults=true --interactive=false
+ng add font-awesome --defaults=true --interactive=false
+ng add jquery --defaults=true --interactive=false
+ng add popper --defaults=true --interactive=false
 npm install
 ng serve
 ```
 
-Create a shared Material module 
+Create a shared Bootstrap module 
 
 ```
-ng generate module shared/material --flat 
+ng generate module shared/bootstrap --flat 
 ```
 
 The module imports and exports all the needed Material design components and should look like that:
@@ -72,6 +72,21 @@ import {
 })
 export class MaterialModule {
 }
+```
+
+In `angular.json`:
+
+``` 
+"styles": [
+  "../node_modules/bootstrap/scss/bootstrap.scss",
+  "src/jumbotron.scss",
+  "src/styles.scss",
+  "../node_modules/font-awesome/scss/font-awesome.scss"
+],
+"scripts": [
+  "../node_modules/jquery/dist/jquery.slim.js",
+  "../node_modules/bootstrap/dist/js/bootstrap.js"
+]
 ```
 
 ## Template

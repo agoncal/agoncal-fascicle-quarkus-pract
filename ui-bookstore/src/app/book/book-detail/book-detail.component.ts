@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
 import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
 import {ActivatedRoute} from "@angular/router";
 import {Book} from "../../shared/model/book";

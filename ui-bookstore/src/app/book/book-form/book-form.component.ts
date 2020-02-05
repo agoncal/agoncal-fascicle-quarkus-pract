@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Book} from "../../shared/model/book";
 
 @Component({
   templateUrl: './book-form.component.html',
@@ -7,13 +7,11 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class BookFormComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<BookFormComponent>) {
+  book?:Book;
+
+  constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  onCloseClick(): void {
-    this.dialogRef.close();
   }
 }

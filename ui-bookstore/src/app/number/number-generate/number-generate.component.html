@@ -1,31 +1,40 @@
-<h1>Book Numbers</h1>
-<mat-dialog-content>
-  <form class="form-container">
-    <mat-form-field appearance="standard">
-      <mat-label>Asin</mat-label>
-      <input matInput value="{{bookNumbers?.asin}}">
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-      <mat-label>EAN 8</mat-label>
-      <input matInput value="{{bookNumbers?.ean_8}}">
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-      <mat-label>EAN 13</mat-label>
-      <input matInput value="{{bookNumbers?.ean_13}}">
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-      <mat-label>ISBN 10</mat-label>
-      <input matInput value="{{bookNumbers?.isbn_10}}">
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-      <mat-label>ISBN 13</mat-label>
-      <input matInput value="{{bookNumbers?.isbn_13}}">
-    </mat-form-field>
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button color="primary" (click)="generateBookNumber()">
-    <mat-icon>refresh</mat-icon>
-    Refresh
+<h1>
+  <span>Book Numbers</span>
+  <button class="btn btn-primary float-right create-book" (click)="generateBookNumber()">
+    <span class="fa fa-refresh"></span>
+    <span>Generate</span>
   </button>
-</mat-dialog-actions>
+</h1>
+
+<form>
+  <div class="form-group row">
+    <label for="asin" class="col-sm-2 col-form-label">Asin</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="asin" value="{{bookNumbers?.asin}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="ean_8" class="col-sm-2 col-form-label">EAN 8</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="ean_8" value="{{bookNumbers?.ean_8}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="ean_13" class="col-sm-2 col-form-label">EAN 13</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="ean_13" value="{{bookNumbers?.ean_13}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="isbn_10" class="col-sm-2 col-form-label">ISBN 10</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="isbn_10" value="{{bookNumbers?.isbn_10}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="isbn_13" class="col-sm-2 col-form-label">ISBN 13</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="isbn_13" value="{{bookNumbers?.isbn_13}}">
+    </div>
+  </div>
+</form>

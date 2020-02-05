@@ -1,36 +1,53 @@
-<div class="flex-container">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" [routerLink]="['']">BookStore</a>
 
-      <span>Book Store</span>
+  <div class="collapse navbar-collapse" id="navbars">
+    <ul class="navbar-nav mr-auto">
 
-      <button mat-button [matMenuTriggerFor]="numberMenu">
-        <mat-icon>dialpad</mat-icon>
-        <span>Number</span>
-      </button>
-      <mat-menu #numberMenu="matMenu" yPosition="above">
-        <button mat-menu-item [routerLink]="['/number-generate']">Generate</button>
-      </mat-menu>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown-number" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">Number</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-number">
+          <li>
+            <a class="dropdown-item" [routerLink]="['/number-generate']">
+              <i class="fa fa-fw fa-refresh" aria-hidden="true"></i>
+              <span>Generate</span>
+            </a>
+          </li>
+        </ul>
+      </li>
 
-      <button mat-button [matMenuTriggerFor]="bookMenu">
-        <mat-icon>book</mat-icon>
-        <span>Book</span>
-      </button>
-      <mat-menu #bookMenu="matMenu" yPosition="above">
-        <button mat-menu-item [routerLink]="['/book-list']">List</button>
-        <button mat-menu-item [routerLink]="['/book-random']">Random</button>
-      </mat-menu>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown-book" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">Book</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-book">
+          <li>
+            <a class="dropdown-item" [routerLink]="['/book-list']">
+              <i class="fa fa-fw fa-list" aria-hidden="true"></i>
+              <span>List</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/book-random']">
+              <i class="fa fa-fw fa-random" aria-hidden="true"></i>
+              <span>Random</span>
+            </a>
+          </li>
+        </ul>
+      </li>
 
-      <button mat-button [matMenuTriggerFor]="inventoryMenu">
-        <mat-icon>house</mat-icon>
-        <span>Inventory</span>
-      </button>
-      <mat-menu #inventoryMenu="matMenu" yPosition="above">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
-    </mat-toolbar-row>
-  </mat-toolbar>
+    </ul>
+  </div>
+</nav>
 
-  <router-outlet></router-outlet>
-</div>
+<main role="main">
+  <div class="jumbotron">
+    <h1 class="display-4">Book Store</h1>
+    <p class="lead">You can buy Books for a cheap price. Browse our catalog and do not hesitate to shop online.</p>
+  </div>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+    <hr>
+  </div>
+</main>
