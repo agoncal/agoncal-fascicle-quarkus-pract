@@ -35,9 +35,11 @@ public class BookService {
   // tag::adocBeanValidation[]
   public Book persistBook(@Valid Book book) {
     // tag::adocFaultTolerance[]
+
     IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
     book.isbn13 = isbnNumbers.getIsbn13();
     book.isbn10 = isbnNumbers.getIsbn10();
+
     // end::adocFaultTolerance[]
     Book.persist(book);
     return book;
