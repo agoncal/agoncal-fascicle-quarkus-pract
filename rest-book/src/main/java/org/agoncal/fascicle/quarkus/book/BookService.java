@@ -26,8 +26,8 @@ public class BookService {
   @Inject
   @RestClient
   IsbnNumbersService isbnNumbersService;
-  // end::adocFaultTolerance[]
 
+  // end::adocFaultTolerance[]
   // tag::adocFallback[]
   @Fallback(fallbackMethod = "fallbackPersistBook")
   // end::adocFallback[]
