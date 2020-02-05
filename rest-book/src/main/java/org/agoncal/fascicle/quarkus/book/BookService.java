@@ -36,7 +36,7 @@ public class BookService {
   // tag::adocBeanValidation[]
   public Book persistBook(@Valid Book book) {
     // tag::adocFaultTolerance[]
-
+    // The Book microservice invokes the Number microservice
     IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
     book.isbn13 = isbnNumbers.getIsbn13();
     book.isbn10 = isbnNumbers.getIsbn10();
