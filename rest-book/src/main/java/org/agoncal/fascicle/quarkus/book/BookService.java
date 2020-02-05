@@ -23,6 +23,7 @@ public class BookService {
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
   // end::adocHeader[]
   // tag::adocFaultTolerance[]
+
   @Inject
   @RestClient
   IsbnNumbersService isbnNumbersService;
