@@ -5,9 +5,9 @@ import javax.json.bind.annotation.JsonbProperty;
 // tag::adocSnippet[]
 public class IsbnNumbers {
 
-  @JsonbProperty("isbn-10")
+  @JsonbProperty("isbn_10")
   private String isbn10;
-  @JsonbProperty("isbn-13")
+  @JsonbProperty("isbn_13")
   private String isbn13;
 
   // tag::adocSkip[]
