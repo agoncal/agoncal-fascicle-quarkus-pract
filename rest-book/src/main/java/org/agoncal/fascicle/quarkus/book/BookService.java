@@ -53,6 +53,7 @@ public class BookService {
   // end::adocPersistBook[]
 
   // tag::adocFallback[]
+
   private Book fallbackPersistBook(Book book) throws FileNotFoundException {
     LOGGER.warn("Falling back on persisting a book");
     String bookJson = JsonbBuilder.create().toJson(book);
