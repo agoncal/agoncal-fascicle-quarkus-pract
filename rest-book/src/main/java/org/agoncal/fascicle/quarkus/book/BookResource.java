@@ -108,6 +108,9 @@ public class BookResource {
   @Counted(name = "countCreateBook", description = "Counts how many times the createBook method has been invoked")
   @Timed(name = "timeCreateBook", description = "Times how long it takes to invoke the createBook method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
+  // tag::adocTimeout[]
+  //@Timeout(250)
+  // end::adocTimeout[]
   @POST
   public Response createBook(@RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class))) @Valid Book book, @Context UriInfo uriInfo) {
     book = service.persistBook(book);
@@ -115,6 +118,8 @@ public class BookResource {
     LOGGER.debug("New book created with URI " + builder.build().toString());
     return Response.created(builder.build()).build();
   }
+  // end::adocCreateBook[]
+  // tag::adocUpdateBook[]
 
   @Operation(summary = "Updates an exiting  book")
   @APIResponse(responseCode = "200", description = "The updated book", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
@@ -128,7 +133,7 @@ public class BookResource {
     LOGGER.debug("Book updated with new valued " + book);
     return Response.ok(book).build();
   }
-  // end::adocCreateBook[]
+  // end::adocUpdateBook[]
 
   // tag::adocDeleteBook[]
   @Operation(summary = "Deletes an exiting book")

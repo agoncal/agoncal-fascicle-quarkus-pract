@@ -36,7 +36,7 @@ public class BookNumbersResource {
   // end::adocConfigProperty[]
   // tag::adocFault[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
-  int sleep = 0;
+  int secondsToSleep = 0;
 
   // end::adocFault[]
   // tag::adocOpenAPI[]
@@ -52,8 +52,8 @@ public class BookNumbersResource {
   @Produces(MediaType.APPLICATION_JSON)
   public Response generateBookNumbers() throws InterruptedException {
     // tag::adocFault[]
-    LOGGER.info("Waiting for " + sleep + " seconds");
-    TimeUnit.SECONDS.sleep(sleep);
+    LOGGER.info("Waiting for " + secondsToSleep + " seconds");
+    TimeUnit.SECONDS.sleep(secondsToSleep);
     // end::adocFault[]
     LOGGER.info("Generating book numbers");
     Faker faker = new Faker();
