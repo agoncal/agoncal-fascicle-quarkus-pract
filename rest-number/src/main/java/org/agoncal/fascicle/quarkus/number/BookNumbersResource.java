@@ -2,6 +2,7 @@ package org.agoncal.fascicle.quarkus.number;
 
 import com.github.javafaker.Faker;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -48,6 +49,9 @@ public class BookNumbersResource {
   @Timed(name = "timeGenerateBookNumber", description = "Times how long it takes to invoke the generateBookNumbers method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   // tag::adocGenerateBookNumbers[]
+  // tag::adocTimeout[]
+  @Timeout(250)
+  // end::adocTimeout[]
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response generateBookNumbers() throws InterruptedException {
