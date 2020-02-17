@@ -47,6 +47,7 @@ public class BookNumbersResource {
   @Counted(name = "countGenerateBookNumber", description = "Counts how many times the generateBookNumbers method has been invoked")
   @Timed(name = "timeGenerateBookNumber", description = "Times how long it takes to invoke the generateBookNumbers method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
+  // tag::adocGenerateBookNumbers[]
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response generateBookNumbers() throws InterruptedException {
@@ -66,6 +67,7 @@ public class BookNumbersResource {
     return Response.ok(bookNumbers).build();
   }
   // tag::adocPing[]
+  // end::adocGenerateBookNumbers[]
 
   @GET
   @Path("/ping")
