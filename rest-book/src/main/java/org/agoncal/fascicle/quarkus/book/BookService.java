@@ -8,8 +8,12 @@ import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.json.bind.JsonbBuilder;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.time.Instant;
 import java.util.List;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
@@ -49,9 +53,13 @@ public class BookService {
   // end::adocPersistBook[]
 
   // tag::adocFallback[]
-  Book fallbackPersistBook(Book book) {
+  private Book fallbackPersistBook(Book book) throws FileNotFoundException {
     LOGGER.warn("Falling back on persisting a book");
-    return null;
+    String bookJson = JsonbBuilder.create().toJson(book);
+    try (PrintWriter out = new PrintWriter("book-" + Instant.now())) {
+      out.println(bookJson);
+    }
+    throw new IllegalStateException();
   }
 
   // end::adocFallback[]
