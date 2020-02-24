@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.quarkus.workshop.superheroes.load;
+package org.agoncal.fascicle.quarkus.load;
 
 import com.github.javafaker.Faker;
 
@@ -49,6 +49,7 @@ public abstract class ScenarioInvoker implements Runnable {
           .resolveTemplates(endpoint.getTemplates());
         final Response response = webTarget.request().method(endpoint.getMethod(), endpoint.getEntity());
         LOGGER.info(format("%s - %s - %d", endpoint.getMethod(), webTarget.getUri(), response.getStatus()));
+        response.close();
         sleep();
       } catch (final Exception e) {
         e.printStackTrace();

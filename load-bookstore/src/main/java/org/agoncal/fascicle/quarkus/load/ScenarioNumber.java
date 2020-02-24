@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.quarkus.workshop.superheroes.load;
+package org.agoncal.fascicle.quarkus.load;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static io.quarkus.workshop.superheroes.load.Endpoint.endpoint;
+import static org.agoncal.fascicle.quarkus.load.Endpoint.endpoint;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
 

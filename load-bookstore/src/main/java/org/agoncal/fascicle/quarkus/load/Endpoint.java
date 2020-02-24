@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.quarkus.workshop.superheroes.load;
+package org.agoncal.fascicle.quarkus.load;
 
 import javax.ws.rs.client.Entity;
 import java.util.HashMap;

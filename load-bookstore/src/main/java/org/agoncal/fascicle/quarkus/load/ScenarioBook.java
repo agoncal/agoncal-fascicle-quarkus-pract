@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.quarkus.workshop.superheroes.load;
+package org.agoncal.fascicle.quarkus.load;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -26,16 +26,16 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
-import static io.quarkus.workshop.superheroes.load.Endpoint.endpoint;
-import static io.quarkus.workshop.superheroes.load.Endpoint.endpointWithEntity;
-import static io.quarkus.workshop.superheroes.load.Endpoint.endpointWithTemplates;
+import static org.agoncal.fascicle.quarkus.load.Endpoint.endpoint;
+import static org.agoncal.fascicle.quarkus.load.Endpoint.endpointWithEntity;
+import static org.agoncal.fascicle.quarkus.load.Endpoint.endpointWithTemplates;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
 import static javax.ws.rs.client.Entity.json;
 
 public class ScenarioBook extends ScenarioInvoker {
 
-  private static final int NB_BOOKS = 120;
+  private static final int NB_BOOKS = 100;
 
   private static final String targetUrl = "http://localhost:8082";
 
@@ -50,7 +50,8 @@ public class ScenarioBook extends ScenarioInvoker {
   protected List<Endpoint> getEndpoints() {
     return Stream.of(
       endpoint(contextRoot, "GET"),
-      endpoint(contextRoot + "/hello", "GET"),
+      endpoint(contextRoot + "/ping", "GET"),
+      endpoint(contextRoot + "/random", "GET"),
       endpointWithTemplates(contextRoot + "/{id}", "GET", this::idParam),
       endpointWithTemplates(contextRoot + "/{id}", "DELETE", this::idParam),
       endpointWithEntity(contextRoot, "POST", this::createBook)
@@ -91,7 +92,7 @@ public class ScenarioBook extends ScenarioInvoker {
 
   private Map<String, Object> idParam() {
     final HashMap<String, Object> templates = new HashMap<>();
-    templates.put("id", ThreadLocalRandom.current().nextInt(0, NB_BOOKS + 1));
+    templates.put("id", ThreadLocalRandom.current().nextInt(1000, 1000 + NB_BOOKS));
     return templates;
   }
 }
