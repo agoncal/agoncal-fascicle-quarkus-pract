@@ -72,7 +72,6 @@ public class BookNumbersResource {
   }
   // end::adocGenerateBookNumbers[]
   // tag::adocPing[]
-
   @GET
   @Path("/ping")
   @Produces(MediaType.TEXT_PLAIN)
