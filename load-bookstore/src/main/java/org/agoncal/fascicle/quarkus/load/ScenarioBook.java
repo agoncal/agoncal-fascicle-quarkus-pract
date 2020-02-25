@@ -47,6 +47,7 @@ public class ScenarioBook extends ScenarioInvoker {
   }
 
   @Override
+  // tag::adocSnippet[]
   protected List<Endpoint> getEndpoints() {
     return Stream.of(
       endpoint(contextRoot, "GET"),
@@ -58,6 +59,7 @@ public class ScenarioBook extends ScenarioInvoker {
     )
       .collect(collectingAndThen(toList(), Collections::unmodifiableList));
   }
+  // end::adocSnippet[]
 
   private Entity createBook() {
     JsonObject json;
