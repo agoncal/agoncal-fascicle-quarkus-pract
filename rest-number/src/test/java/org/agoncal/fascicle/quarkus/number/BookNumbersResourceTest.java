@@ -64,30 +64,35 @@ public class BookNumbersResourceTest {
       .statusCode(OK.getStatusCode());
   }
   // end::adocOpenAPI[]
+
   // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {
-    given()
-      .when().get("/health/live")
-      .then()
+    given().
+    when()
+      .get("/health/live").
+    then()
       .statusCode(OK.getStatusCode());
   }
 
   @Test
   void shouldPingReadiness() {
-    given()
-      .when().get("/health/ready")
-      .then()
+    given().
+    when()
+      .get("/health/ready").
+    then()
       .statusCode(OK.getStatusCode());
   }
   // end::adocHealth[]
+
   // tag::adocMetrics[]
   @Test
   void shouldPingMetrics() {
     given()
-      .header(ACCEPT, APPLICATION_JSON)
-      .when().get("/metrics/application")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/metrics/application").
+    then()
       .statusCode(OK.getStatusCode());
   }
   // end::adocMetrics[]
