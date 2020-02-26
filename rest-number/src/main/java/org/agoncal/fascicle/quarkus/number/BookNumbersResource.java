@@ -28,8 +28,10 @@ import java.util.concurrent.TimeUnit;
 // end::adocOpenAPI[]
 public class BookNumbersResource {
 
+  // tag::adocLogger[]
   private static final Logger LOGGER = Logger.getLogger(BookNumbersResource.class);
 
+  // end::adocLogger[]
   // tag::adocConfigProperty[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")
   boolean separator;
