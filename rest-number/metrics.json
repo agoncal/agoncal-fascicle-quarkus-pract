@@ -1,6 +1,6 @@
 {
-  "org.agoncal.fascicle.quarkus.number.BookNumbersResource.countGenerateBookNumber": 23,
-  "org.agoncal.fascicle.quarkus.number.BookNumbersResource.timeGenerateBookNumber": {
+  "BookNumbersResource.countGenerateBookNumber": 23,
+  "BookNumbersResource.timeGenerateBookNumber": {
     "p99": 2.552359,
     "min": 2.351004,
     "max": 4.142853,
