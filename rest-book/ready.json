@@ -2,15 +2,15 @@
   "status": "UP",
   "checks": [
     {
-      "name": "Book health check",
-      "status": "UP",
-      "data": {
-        "rows": 100
-      }
+      "name": "Ping Book REST Endpoint",
+      "status": "UP"
     },
     {
-      "name": "Database connection(s) health check",
-      "status": "UP"
+      "name": "Book Datasource connection health check",
+      "status": "UP",
+      "data": {
+        "Number of books in the database": 102
+      }
     }
   ]
 }
