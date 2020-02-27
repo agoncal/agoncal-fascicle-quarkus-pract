@@ -16,7 +16,7 @@
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <artifactId>quarkus-undertow</artifactId>
     </dependency>
   </dependencies>
 
@@ -25,7 +25,6 @@
       <plugin>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${quarkus-plugin.version}</version>
         <executions>
           <execution>
             <goals>
@@ -38,37 +37,54 @@
   </build>
 
   <profiles>
-    <!-- tag::adocSnippet[] -->
+    <!-- tag::adocFrontend[] -->
     <profile>
-      <id>install-node</id>
+      <id>install-node-and-npm</id>
       <build>
         <plugins>
           <plugin>
             <groupId>com.github.eirslett</groupId>
             <artifactId>frontend-maven-plugin</artifactId>
-            <version>${frontend-maven-plugin.version}</version>
             <executions>
               <execution>
                 <id>install node and npm</id>
                 <goals>
                   <goal>install-node-and-npm</goal>
                 </goals>
-                <configuration>
-                  <nodeVersion>${node.version}</nodeVersion>
-                  <npmVersion>${npm.version}</npmVersion>
-                </configuration>
+                <phase>generate-resources</phase>
               </execution>
+            </executions>
+            <configuration>
+              <nodeVersion>${node.version}</nodeVersion>
+              <npmVersion>${npm.version}</npmVersion>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>npm-install</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <executions>
               <execution>
                 <id>npm install</id>
                 <goals>
                   <goal>npm</goal>
                 </goals>
+                <phase>generate-resources</phase>
               </execution>
             </executions>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
           </plugin>
         </plugins>
       </build>
     </profile>
-    <!-- end::adocSnippet[] -->
+    <!-- end::adocFrontend[] -->
   </profiles>
 </project>
