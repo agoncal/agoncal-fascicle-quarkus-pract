@@ -13,7 +13,7 @@ Update the last version of NG CLI  (check https://github.com/angular/angular-cli
 
 ```
 ng --version
-npm install -g @angular/cli@v9.0.0-rc.14
+npm install -g @angular/cli@v9.0.3
 ```
 
 # Creating the UI
