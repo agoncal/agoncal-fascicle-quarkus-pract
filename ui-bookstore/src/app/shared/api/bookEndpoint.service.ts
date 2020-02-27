@@ -53,10 +53,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public deleteBook(id: number, observe?: 'body', reportProgress?: boolean): Observable<any>;
-  public deleteBook(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-  public deleteBook(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-  public deleteBook(id: number, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public deleteBook(id: number, observe?: 'body', reportProgress?: boolean): Observable<any> {
 
     if (id === null || id === undefined) {
       throw new Error('Required parameter id was null or undefined when calling apiBooksIdDelete.');
@@ -110,10 +107,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public createBook(body: Book, observe?: 'body', reportProgress?: boolean): Observable<string>;
-  public createBook(body: Book, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
-  public createBook(body: Book, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
-  public createBook(body: Book, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public createBook(body: Book, observe?: 'body', reportProgress?: boolean): Observable<string> {
 
     if (body === null || body === undefined) {
       throw new Error('Required parameter body was null or undefined when calling apiBooksPost.');
@@ -150,10 +144,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public updateBook(body: Book, observe?: 'body', reportProgress?: boolean): Observable<Book>;
-  public updateBook(body: Book, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Book>>;
-  public updateBook(body: Book, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Book>>;
-  public updateBook(body: Book, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public updateBook(body: Book, observe?: 'body', reportProgress?: boolean): Observable<Book> {
 
     if (body === null || body === undefined) {
       throw new Error('Required parameter body was null or undefined when calling apiBooksPut.');

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
 import {ActivatedRoute} from "@angular/router";
+import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
 import {Book} from "../../shared/model/book";
 
 @Component({
@@ -22,7 +22,7 @@ export class BookDetailComponent implements OnInit {
   }
 
   load(id: number) {
-    this.bookEndpointService.getBook(id).subscribe((book) => {
+    this.bookEndpointService.getBook(id).subscribe((book: Book) => {
       this.book = book;
     });
   }
