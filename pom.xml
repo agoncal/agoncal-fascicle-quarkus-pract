@@ -26,9 +26,9 @@
 
   <!-- tag::adocProperties[] -->
   <properties>
-    <quarkus-plugin.version>1.2.0.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.2.0.Final</quarkus.platform.version>
-    <javafaker.version>1.0.1</javafaker.version>
+    <quarkus-plugin.version>1.2.1.Final</quarkus-plugin.version>
+    <quarkus.platform.version>1.2.1.Final</quarkus.platform.version>
+    <javafaker.version>1.0.2</javafaker.version>
 
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
