@@ -61,6 +61,7 @@
         <exclude>*.iml</exclude>
         <exclude>package-lock.json</exclude>
         <exclude>README.md</exclude>
+        <exclude>**/dist/**</exclude>
         <exclude>**/target/**</exclude>
         <exclude>**/node/**</exclude>
         <exclude>**/node_modules/**</exclude>
