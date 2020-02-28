@@ -9,14 +9,6 @@
 
   <fileSets>
     <fileSet>
-      <directory>event-inventory</directory>
-      <useDefaultExcludes>true</useDefaultExcludes>
-      <excludes>
-        <exclude>**/target/**</exclude>
-        <exclude>*.iml</exclude>
-      </excludes>
-    </fileSet>
-    <fileSet>
       <directory>infrastructure</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>

@@ -77,5 +77,22 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>${assembly-plugin.version}</version>
+        <configuration>
+          <finalName>agoncal-fascicle-quarkus-practicing</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
+          <attach>false</attach>
+          <descriptors>
+            <descriptor>assembly.xml</descriptor>
+          </descriptors>
+          <outputDirectory>dist</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
