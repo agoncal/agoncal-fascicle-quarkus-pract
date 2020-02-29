@@ -64,7 +64,6 @@ public class BookNumbersResourceTest {
       .statusCode(OK.getStatusCode());
   }
   // end::adocOpenAPI[]
-
   // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {
@@ -84,7 +83,6 @@ public class BookNumbersResourceTest {
       .statusCode(OK.getStatusCode());
   }
   // end::adocHealth[]
-
   // tag::adocMetrics[]
   @Test
   void shouldPingMetrics() {
