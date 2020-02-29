@@ -11,17 +11,16 @@ Running org.agoncal.fascicle.quarkus.number.BookNumbersResourceTest
 [INFO] \_| \_/\__,_|_| |_| |_|_.__/ \___|_|
 [INFO]                          Powered by Quarkus
 [INFO] The application Number is starting with profile test
-[INFO] Quarkus started in 0.421s. Listening on: http://0.0.0.0:8081
+[INFO] Quarkus started in 0.328s. Listening on: http://0.0.0.0:8081
 [INFO] Profile test activated.
 [INFO] Waiting for 0 seconds
 [INFO] Generating book numbers
 
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.673 s
 [INFO] The application Number is stopping...
 [INFO] Quarkus stopped in 0.027s
 
 [INFO] Results:
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO]
 [INFO] -------------------------------------------------
 [INFO] BUILD SUCCESS
