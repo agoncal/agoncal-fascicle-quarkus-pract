@@ -12,8 +12,8 @@
 
   <!-- tag::adocModules[] -->
   <modules>
-    <module>event-inventory</module>
     <!-- tag::adocSkip[] -->
+    <module>event-inventory</module>
     <module>first-step</module>
     <!-- end::adocSkip[] -->
     <module>infrastructure</module>
