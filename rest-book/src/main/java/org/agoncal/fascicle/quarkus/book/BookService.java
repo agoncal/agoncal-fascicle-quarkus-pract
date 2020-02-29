@@ -25,8 +25,8 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
-  // tag::adocFaultTolerance[]
 
+  // tag::adocFaultTolerance[]
   @Inject
   @RestClient
   IsbnNumbersService isbnNumbersService;
