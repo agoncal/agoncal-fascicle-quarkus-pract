@@ -33,6 +33,7 @@
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
     </dependency>
+    <!-- tag::adocDependencyFaultTolerance[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
