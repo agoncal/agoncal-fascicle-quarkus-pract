@@ -19,13 +19,12 @@ import java.util.List;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
-// tag::adocHeader[]
+// tag::adocSnippet[]
 @ApplicationScoped
 @Transactional(REQUIRED)
 public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
-  // end::adocHeader[]
   // tag::adocFaultTolerance[]
 
   @Inject
@@ -105,6 +104,5 @@ public class BookService {
     Book book = Book.findById(id);
     book.delete();
   }
-// tag::adocFooter[]
 }
-// end::adocFooter[]
+// end::adocSnippet[]
