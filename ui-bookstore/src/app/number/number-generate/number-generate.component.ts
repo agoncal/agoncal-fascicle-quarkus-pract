@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NumberEndpointService} from "../../shared/api/numberEndpoint.service";
 import {BookNumbers} from "../../shared/model/bookNumbers";
 
-// tag::adocSnippet
+// tag::adocSnippet[]
 @Component({
   templateUrl: 'number-generate.component.html'
 })
@@ -20,4 +20,4 @@ export class NumberGenerateComponent implements OnInit {
     this.numberEndpointService.generatesBookNumbers().subscribe(bookNumbers => this.bookNumbers = bookNumbers);
   }
 }
-// end::adocSnippet
+// end::adocSnippet[]
