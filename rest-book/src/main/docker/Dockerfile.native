@@ -8,7 +8,7 @@ RUN chmod 775 /work /work/application \
   && chmod -R "g+rwX" /work \
   && chown -R 1001:root /work
 
-EXPOSE 8080
+EXPOSE 8082
 USER 1001
 
 CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
