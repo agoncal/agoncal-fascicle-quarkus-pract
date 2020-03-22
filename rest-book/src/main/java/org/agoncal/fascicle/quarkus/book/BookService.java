@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
@@ -69,8 +70,8 @@ public class BookService {
   }
 
   @Transactional(SUPPORTS)
-  public Book findBookById(Long id) {
-    return Book.findById(id);
+  public Optional<Book> findBookById(Long id) {
+    return Book.findByIdOptional(id);
   }
 
   @Transactional(SUPPORTS)

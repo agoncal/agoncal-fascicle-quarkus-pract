@@ -29,6 +29,7 @@ import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
@@ -90,8 +91,8 @@ public class BookResource {
   @GET
   @Path("/{id}")
   public Response getBook(@Parameter(description = "Book identifier", required = true) @PathParam("id") Long id) {
-    Book book = service.findBookById(id);
-    if (book != null) {
+    Optional<Book> book = service.findBookById(id);
+    if (book.isPresent()) {
       LOGGER.debug("Found book " + book);
       return Response.ok(book).build();
     } else {
