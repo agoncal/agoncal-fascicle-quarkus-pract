@@ -1,0 +1,16 @@
+{
+  "status": "UP",
+  "checks": [
+    {
+      "name": "Ping Book REST Endpoint",
+      "status": "UP"
+    },
+    {
+      "name": "Book Datasource connection health check",
+      "status": "UP",
+      "data": {
+        "Number of books in the database": 102
+      }
+    }
+  ]
+}

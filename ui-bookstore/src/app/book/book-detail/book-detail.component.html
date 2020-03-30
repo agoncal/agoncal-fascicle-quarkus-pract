@@ -1,0 +1,72 @@
+<h1>Book</h1>
+
+<form>
+  <div class="form-group row">
+    <label for="title" class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="title" value="{{book?.title}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="isbn13" class="col-sm-2 col-form-label">ISBN 13 / 10</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="isbn13" value="{{book?.isbn13}} / {{book?.isbn10}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="author" class="col-sm-2 col-form-label">Author</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="author" value="{{book?.author}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="nbOfPages" class="col-sm-2 col-form-label">Nb of pages</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="nbOfPages" value="{{book?.nbOfPages}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="price" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="price" value="${{book?.price}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="rank" class="col-sm-2 col-form-label">Rank</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="rank" value="{{book?.rank}}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="mediumImageUrl" class="col-sm-2 col-form-label">Medium Image</label>
+    <div class="col-sm-10">
+      <img id="mediumImageUrl" [src]="book?.mediumImageUrl" style="width: 100px">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="smallImageUrl" class="col-sm-2 col-form-label">Small Image</label>
+    <div class="col-sm-10">
+      <img id="smallImageUrl" [src]="book?.smallImageUrl" style="width: 100px">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="description" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <textarea type="text" readonly class="form-control-plaintext" id="description" value="{{book?.description}}" rows="10"></textarea>
+    </div>
+  </div>
+
+  <div>
+    <button type="button" [routerLink]="['/book-list']" class="btn btn-secondary" data-dismiss="modal">
+      <span class="fa fa-chevron-left"></span>&nbsp;<span>Back</span>
+    </button>
+  </div>
+</form>

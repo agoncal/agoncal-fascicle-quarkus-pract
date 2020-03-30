@@ -1,0 +1,20 @@
+{
+  "BookNumbersResource.countGenerateBookNumber": 23,
+  "BookNumbersResource.timeGenerateBookNumber": {
+    "p99": 2.552359,
+    "min": 2.351004,
+    "max": 4.142853,
+    "mean": 2.4475338218611054,
+    "p50": 2.459645,
+    "p999": 2.552359,
+    "stddev": 0.059644582615724376,
+    "p95": 2.552359,
+    "p98": 2.552359,
+    "p75": 2.475044,
+    "fiveMinRate": 0.0427305308960399,
+    "fifteenMinRate": 0.018611613176138856,
+    "meanRate": 0.005087646702440494,
+    "count": 23,
+    "oneMinRate": 0.1733913276585504
+  }
+}

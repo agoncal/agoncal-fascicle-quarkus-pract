@@ -1,0 +1,190 @@
+# tag::adocHeader[]
+openapi: 3.0.1
+info:
+  title: Book API
+  description: This API allows CRUD operations on books
+  contact:
+    name: '@agoncal'
+    url: https://twitter.com/agoncal
+  version: "1.0"
+externalDocs:
+  description: All the Practicing Quarkus code
+  url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract
+tags:
+- name: api
+  description: Public API that can be used by anybody
+- name: books
+  description: Anybody interested in books
+# end::adocHeader[]
+
+# tag::adocRoot[]
+paths:
+  /api/books:
+    get:
+      summary: Returns all the books from the database
+      responses:
+        204:
+          description: No books
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
+    put:
+      summary: Updates an exiting  book
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
+      responses:
+        200:
+          description: The updated book
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+    post:
+      summary: Creates a valid book
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
+      responses:
+        201:
+          description: The URI of the created book
+          content:
+            application/json:
+              schema:
+                format: uri
+                type: string
+    delete:
+      summary: Deletes an exiting book
+      parameters:
+        - name: id
+          in: path
+          description: Book identifier
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        204:
+          description: The book has been successfully deleted
+# end::adocRoot[]
+
+# tag::adocNonRoot[]
+  /api/books/random:
+    get:
+      summary: Returns a random book
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+
+  /api/books/{id}:
+    get:
+      summary: Returns a book for a given identifier
+      parameters:
+      - name: id
+        in: path
+        description: Book identifier
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        204:
+          description: The book is not found for a given identifier
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+# end::adocNonRoot[]
+
+# tag::adocComponent[]
+components:
+  schemas:
+    Book:
+      description: Book representation
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        author:
+          type: string
+        description:
+          maxLength: 10000
+          minLength: 1
+          type: string
+        isbn10:
+          type: string
+        isbn13:
+          type: string
+        mediumImageUrl:
+          $ref: '#/components/schemas/URL'
+        nbOfPages:
+          format: int32
+          type: integer
+        price:
+          $ref: '#/components/schemas/BigDecimal'
+        rank:
+          format: int32
+          maximum: 10
+          minimum: 1
+          type: integer
+        smallImageUrl:
+          $ref: '#/components/schemas/URL'
+        title:
+          type: string
+          nullable: false
+        yearOfPublication:
+          format: int32
+          type: integer
+# end::adocComponent[]
+
+    URL:
+      type: object
+      properties:
+        authority:
+          type: string
+        file:
+          type: string
+        hashCode:
+          format: int32
+          type: integer
+        host:
+          type: string
+        port:
+          format: int32
+          type: integer
+        protocol:
+          type: string
+        ref:
+          type: string
+        content:
+          type: object
+        defaultPort:
+          format: int32
+          type: integer
+        serializedHashCode:
+          format: int32
+          type: integer
+
+    BigDecimal:
+      type: number

@@ -1,0 +1,52 @@
+openapi: 3.0.1
+info:
+  title: Number API
+  description: This API allows to generate all sorts of numbers
+  contact:
+    name: '@agoncal'
+    url: https://twitter.com/agoncal
+  version: "1.0"
+externalDocs:
+  description: All the Practicing Quarkus code
+  url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract
+servers:
+  - url: http://localhost:8081
+tags:
+  - name: api
+    description: Public API that can be used by anybody
+  - name: numbers
+    description: Anybody interested in numbers
+  - name: Book Numbers generator service
+paths:
+  /api/numbers/book:
+    get:
+      tags:
+        - Book Numbers generator service
+      summary: Generates book numbers
+      description: 'These book numbers have several formats: ISBN, ASIN and EAN'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookNumbers'
+components:
+  schemas:
+    BookNumbers:
+      description: Several formats of book numbers
+      required:
+        - isbn-10
+        - isbn-13
+      type: object
+      properties:
+        asin:
+          type: string
+        ean-13:
+          type: string
+        ean-8:
+          type: string
+        isbn-10:
+          type: string
+        isbn-13:
+          type: string

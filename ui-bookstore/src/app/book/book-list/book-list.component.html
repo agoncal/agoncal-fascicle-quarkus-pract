@@ -1,0 +1,42 @@
+<h1>
+  <span>Books</span>
+  <button class="btn btn-primary float-right create-book" [routerLink]="['/book-form']">
+    <span class="fa fa-plus"></span>
+    <span>Create new Book</span>
+  </button>
+</h1>
+
+<div class="table-responsive" *ngIf="books">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th><span>ID</span></th>
+      <th><span>Isbn</span></th>
+      <th><span>Title</span></th>
+      <th><span>Author</span></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{book.id}}</td>
+      <td>{{book.isbn13}}</td>
+      <td>{{book.title | slice:0:50}}</td>
+      <td>{{book.author}}</td>
+      <td class="text-right">
+        <div class="btn-group flex-btn-group-container">
+          <button type="submit" [routerLink]="['/book-detail', book.id ]" class="btn btn-info btn-sm">
+            <span class="fa fa-eye"></span>
+            <span class="d-none d-md-inline">View</span>
+          </button>
+          <button type="submit" [routerLink]="['/book-delete', book.id ]" class="btn btn-danger btn-sm">
+            <span class="fa fa-remove"></span>
+            <span class="d-none d-md-inline">Delete</span>
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

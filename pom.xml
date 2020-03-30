@@ -1,3 +1,4 @@
+<!-- tag::adocHeader[] -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -7,40 +8,104 @@
   <version>1.0</version>
   <packaging>pom</packaging>
   <name>Practicing Quarkus</name>
+  <!-- end::adocHeader[] -->
 
+  <!-- tag::adocModules[] -->
   <modules>
-    <module>event-inventory</module>
+    <!-- tag::adocSkip[] -->
+    <module>first-step</module>
+    <!-- end::adocSkip[] -->
     <module>infrastructure</module>
     <module>load-bookstore</module>
     <module>rest-book</module>
     <module>rest-number</module>
     <module>ui-bookstore</module>
   </modules>
+  <!-- end::adocModules[] -->
 
+  <!-- tag::adocProperties[] -->
   <properties>
+    <quarkus-plugin.version>1.3.1.Final</quarkus-plugin.version>
+    <quarkus.platform.version>1.3.1.Final</quarkus.platform.version>
+    <javafaker.version>1.0.2</javafaker.version>
+    <surefire-plugin.version>2.22.1</surefire-plugin.version>
+    <!-- tag::adocSkip[] -->
+    <assembly-plugin.version>3.2.0</assembly-plugin.version>
+    <!-- end::adocSkip[] -->
+    <frontend-maven-plugin.version>1.9.1</frontend-maven-plugin.version>
+    <node.version>v13.8.0</node.version>
+    <npm.version>6.14.1</npm.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus-plugin.version>1.0.1.Final</quarkus-plugin.version>
-    <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.version>1.0.1.Final</quarkus.platform.version>
-    <surefire-plugin.version>2.22.1</surefire-plugin.version>
   </properties>
+  <!-- end::adocProperties[] -->
 
+  <!-- tag::adocDependency[] -->
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>${quarkus.platform.group-id}</groupId>
-        <artifactId>${quarkus.platform.artifact-id}</artifactId>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-universe-bom</artifactId>
         <version>${quarkus.platform.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>${javafaker.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
+  <!-- end::adocDependency[] -->
 
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-maven-plugin</artifactId>
+          <version>${quarkus-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${compiler-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${surefire-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${surefire-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>com.github.eirslett</groupId>
+          <artifactId>frontend-maven-plugin</artifactId>
+          <version>${frontend-maven-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>${assembly-plugin.version}</version>
+        <configuration>
+          <finalName>agoncal-fascicle-quarkus-practicing</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
+          <attach>false</attach>
+          <descriptors>
+            <descriptor>assembly.xml</descriptor>
+          </descriptors>
+          <outputDirectory>dist</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

@@ -1,0 +1,16 @@
+<h1>{{book?.title | slice:0:50}}</h1>
+
+<h2>{{book?.author}}</h2>
+<img [src]="book?.mediumImageUrl" style="width: 100px">
+<p>
+  {{book?.description}}
+</p>
+
+<div>
+  <button type="button" [routerLink]="['/book-list']" class="btn btn-secondary" data-dismiss="modal">
+    <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+  </button>
+  <button type="submit" (click)="delete(book?.id)" class="btn btn-primary">
+    <span class="fa fa-remove"></span>&nbsp;<span>Delete</span>
+  </button>
+</div>

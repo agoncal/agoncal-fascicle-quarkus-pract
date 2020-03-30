@@ -1,0 +1,68 @@
+<h1>Book</h1>
+
+<form (ngSubmit)="save()">
+  <div class="form-group row">
+    <label for="title" class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" id="title" [(ngModel)]="book.title">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="author" class="col-sm-2 col-form-label">Author</label>
+    <div class="col-sm-10">
+      <input type="text" id="author" [(ngModel)]="book.author">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="nbOfPages" class="col-sm-2 col-form-label">Nb of pages</label>
+    <div class="col-sm-10">
+      <input type="text" id="nbOfPages" [(ngModel)]="book.nbOfPages">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="price" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+      <input type="text" id="price" [(ngModel)]="book.price">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="rank" class="col-sm-2 col-form-label">Rank</label>
+    <div class="col-sm-10">
+      <input type="text" id="rank" [(ngModel)]="book.rank">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="mediumImageUrl" class="col-sm-2 col-form-label">Medium Image Url</label>
+    <div class="col-sm-10">
+      <input type="text" id="mediumImageUrl" [(ngModel)]="book.mediumImageUrl">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="smallImageUrl" class="col-sm-2 col-form-label">Small Image Url</label>
+    <div class="col-sm-10">
+      <input type="text" id="smallImageUrl" [(ngModel)]="book.smallImageUrl">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="description" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <textarea type="text" id="description" [(ngModel)]="book.description" rows="5"></textarea>
+    </div>
+  </div>
+
+  <div>
+    <button type="button" [routerLink]="['/book-list']" class="btn btn-secondary" data-dismiss="modal">
+      <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+    </button>
+    <button type="submit" class="btn btn-primary">
+      <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+    </button>
+  </div>
+</form>

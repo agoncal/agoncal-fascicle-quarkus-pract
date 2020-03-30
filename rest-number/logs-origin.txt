@@ -1,0 +1,3 @@
+2020-01-15 15:56:19,218 INFO  [io.quarkus] (main) Quarkus started in 1.131s. Listening on: http://0.0.0.0:8081
+2020-01-15 15:56:19,219 INFO  [io.quarkus] (main) Profile dev activated. Live Coding activated.
+2020-01-15 15:56:19,219 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-openapi, swagger-ui]

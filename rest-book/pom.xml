@@ -1,3 +1,4 @@
+<!-- tag::adocHeader[] -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -9,10 +10,12 @@
   </parent>
 
   <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
-  <artifactId>book</artifactId>
+  <artifactId>rest-book</artifactId>
   <version>1.0</version>
   <name>Practicing Quarkus :: Books REST Microservice</name>
+  <!-- end::adocHeader[] -->
 
+  <!-- tag::adocDependency[] -->
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -20,21 +23,48 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm-panache</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-postgresql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-validator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
-    <!-- tag::adocDependencyHealth[] -->
+    <!-- tag::adocDependencyFaultTolerance[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
+    </dependency>
+    <!-- end::adocDependencyFaultTolerance[] -->
+    <!-- tag::adocDependencyObservability[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
     </dependency>
-    <!-- end::adocDependencyHealth[] -->
-    <!-- tag::adocDependencyMetrics[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
-    <!-- end::adocDependencyMetrics[] -->
+    <!-- end::adocDependencyObservability[] -->
+    <!-- end::adocDependency[] -->
 
+    <!-- Test -->
+    <!-- tag::adocDependencyTest[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -45,14 +75,25 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  <!-- end::adocDependencyTest[] -->
 
+  <!-- tag::adocBuild[] -->
   <build>
     <plugins>
       <plugin>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${quarkus-plugin.version}</version>
         <executions>
           <execution>
             <goals>
@@ -63,11 +104,9 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${compiler-plugin.version}</version>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire-plugin.version}</version>
         <configuration>
           <systemProperties>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
@@ -76,6 +115,8 @@
       </plugin>
     </plugins>
   </build>
+  <!-- end::adocBuild[] -->
+  <!-- tag::adocProfile[] -->
   <profiles>
     <profile>
       <id>native</id>
@@ -88,7 +129,6 @@
         <plugins>
           <plugin>
             <artifactId>maven-failsafe-plugin</artifactId>
-            <version>${surefire-plugin.version}</version>
             <executions>
               <execution>
                 <goals>
@@ -110,4 +150,5 @@
       </properties>
     </profile>
   </profiles>
+  <!-- end::adocProfile[] -->
 </project>

@@ -1,0 +1,11 @@
+INFO   _   _                 _
+INFO  | \ | |               | |
+INFO  |  \| |_   _ _ __ ___ | |__   ___ _ __
+INFO  | . ` | | | | '_ ` _ \| '_ \ / _ \ '__|
+INFO  | |\  | |_| | | | | | | |_) |  __/ |
+INFO  \_| \_/\__,_|_| |_| |_|_.__/ \___|_|
+INFO                           Powered by Quarkus
+INFO  The application Number is starting with profile prod
+INFO  Quarkus started in 0.638s. Listening on: http://0.0.0.0:8080
+INFO  Profile prod activated.
+INFO  Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-openapi]

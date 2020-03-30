@@ -1,3 +1,4 @@
+<!-- tag::adocHeader[] -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -9,34 +10,48 @@
   </parent>
 
   <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
-  <artifactId>number</artifactId>
+  <artifactId>rest-number</artifactId>
   <version>1.0</version>
   <name>Practicing Quarkus :: Numbers REST Microservice</name>
+  <!-- end::adocHeader[] -->
 
+  <!-- tag::adocDependency[] -->
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
-    <!-- tag::adocDependencyOpenAPI[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
-    <!-- end::adocDependencyOpenAPI[] -->
-    <!-- tag::adocDependencyHealth[] -->
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+    </dependency>
+    <!-- tag::adocDependencyFaultTolerance[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
+    </dependency>
+    <!-- end::adocDependencyFaultTolerance[] -->
+    <!-- tag::adocDependencyObservability[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
     </dependency>
-    <!-- end::adocDependencyHealth[] -->
-    <!-- tag::adocDependencyMetrics[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
-    <!-- end::adocDependencyMetrics[] -->
+    <!-- end::adocDependencyObservability[] -->
+    <!-- end::adocDependency[] -->
 
+    <!-- Test -->
     <!-- tag::adocDependencyTest[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -48,15 +63,15 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- end::adocDependencyTest[] -->
   </dependencies>
+  <!-- end::adocDependencyTest[] -->
 
+  <!-- tag::adocBuild[] -->
   <build>
     <plugins>
       <plugin>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${quarkus-plugin.version}</version>
         <executions>
           <execution>
             <goals>
@@ -67,11 +82,9 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${compiler-plugin.version}</version>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire-plugin.version}</version>
         <configuration>
           <systemProperties>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
@@ -80,6 +93,8 @@
       </plugin>
     </plugins>
   </build>
+  <!-- end::adocBuild[] -->
+  <!-- tag::adocProfile[] -->
   <profiles>
     <profile>
       <id>native</id>
@@ -92,7 +107,6 @@
         <plugins>
           <plugin>
             <artifactId>maven-failsafe-plugin</artifactId>
-            <version>${surefire-plugin.version}</version>
             <executions>
               <execution>
                 <goals>
@@ -114,4 +128,5 @@
       </properties>
     </profile>
   </profiles>
+  <!-- end::adocProfile[] -->
 </project>

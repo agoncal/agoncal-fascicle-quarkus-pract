@@ -1,0 +1,40 @@
+<h1>
+  <span>Book Numbers</span>
+  <button class="btn btn-primary float-right create-book" (click)="generateBookNumber()">
+    <span class="fa fa-refresh"></span>
+    <span>Generate</span>
+  </button>
+</h1>
+
+<form>
+  <div class="form-group row">
+    <label for="asin" class="col-sm-2 col-form-label">Asin</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="asin" value="{{bookNumbers?.asin}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="ean_8" class="col-sm-2 col-form-label">EAN 8</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="ean_8" value="{{bookNumbers?.ean_8}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="ean_13" class="col-sm-2 col-form-label">EAN 13</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="ean_13" value="{{bookNumbers?.ean_13}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="isbn_10" class="col-sm-2 col-form-label">ISBN 10</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="isbn_10" value="{{bookNumbers?.isbn_10}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="isbn_13" class="col-sm-2 col-form-label">ISBN 13</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="isbn_13" value="{{bookNumbers?.isbn_13}}">
+    </div>
+  </div>
+</form>

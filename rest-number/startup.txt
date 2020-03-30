@@ -1,0 +1,14 @@
+INFO   _   _                 _
+INFO  | \ | |               | |
+INFO  |  \| |_   _ _ __ ___ | |__   ___ _ __
+INFO  | . ` | | | | '_ ` _ \| '_ \ / _ \ '__|
+INFO  | |\  | |_| | | | | | | |_) |  __/ |
+INFO  \_| \_/\__,_|_| |_| |_|_.__/ \___|_|
+INFO                           Powered by Quarkus
+INFO  The application Number is starting with profile dev
+INFO  Quarkus started in 1.137s. Listening on: http://0.0.0.0:8080
+INFO  Profile dev activated. Live Coding activated.
+INFO  Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-openapi, swagger-ui]
+(...)
+INFO  The application Number is stopping...
+INFO  Quarkus stopped in 0.002s
