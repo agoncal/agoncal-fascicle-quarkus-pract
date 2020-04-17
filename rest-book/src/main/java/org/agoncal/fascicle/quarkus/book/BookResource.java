@@ -24,6 +24,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
@@ -31,15 +32,12 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
-
 // tag::adocInjection[]
 // tag::adocSnippet[]
 // tag::adocGetRandomBook[]
 @Path("/api/books")
-@Produces(APPLICATION_JSON)
-@Consumes(APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 @Tag(name = "Book Endpoint")
 public class BookResource {
 
@@ -50,7 +48,7 @@ public class BookResource {
   private static final Logger LOGGER = Logger.getLogger(BookResource.class);
 
   @Operation(summary = "Returns a random book")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, required = true)))
+  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class, required = true)))
   // tag::adocMetrics[]
   @Counted(name = "countGetRandomBook", description = "Counts how many times the getRandomBook method has been invoked")
   @Timed(name = "timeGetRandomBook", description = "Times how long it takes to invoke the getRandomBook method", unit = MetricUnits.MILLISECONDS)
@@ -66,7 +64,7 @@ public class BookResource {
 
   // tag::adocGetAllBooks[]
   @Operation(summary = "Returns all the books from the database")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class, type = SchemaType.ARRAY)))
+  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class, type = SchemaType.ARRAY)))
   @APIResponse(responseCode = "204", description = "No books")
   // tag::adocMetrics[]
   @Counted(name = "countGetAllBooks", description = "Counts how many times the getAllBooks method has been invoked")
@@ -82,7 +80,7 @@ public class BookResource {
 
   // tag::adocGetBook[]
   @Operation(summary = "Returns a book for a given identifier")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
+  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
   @APIResponse(responseCode = "204", description = "The book is not found for a given identifier")
   // tag::adocMetrics[]
   @Counted(name = "countGetBook", description = "Counts how many times the getBook method has been invoked")
@@ -104,13 +102,13 @@ public class BookResource {
 
   // tag::adocCreateBook[]
   @Operation(summary = "Creates a valid book")
-  @APIResponse(responseCode = "201", description = "The URI of the created book", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = URI.class)))
+  @APIResponse(responseCode = "201", description = "The URI of the created book", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = URI.class)))
   // tag::adocMetrics[]
   @Counted(name = "countCreateBook", description = "Counts how many times the createBook method has been invoked")
   @Timed(name = "timeCreateBook", description = "Times how long it takes to invoke the createBook method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   @POST
-  public Response createBook(@RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class))) @Valid Book book, @Context UriInfo uriInfo) {
+  public Response createBook(@RequestBody(required = true, content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class))) @Valid Book book, @Context UriInfo uriInfo) {
     book = service.persistBook(book);
     UriBuilder builder = uriInfo.getAbsolutePathBuilder().path(Long.toString(book.id));
     LOGGER.debug("New book created with URI " + builder.build().toString());
@@ -118,13 +116,13 @@ public class BookResource {
   }
 
   @Operation(summary = "Updates an exiting  book")
-  @APIResponse(responseCode = "200", description = "The updated book", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
+  @APIResponse(responseCode = "200", description = "The updated book", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
   // tag::adocMetrics[]
   @Counted(name = "countUpdateBook", description = "Counts how many times the updateBook method has been invoked")
   @Timed(name = "timeUpdateBook", description = "Times how long it takes to invoke the updateBook method", unit = MetricUnits.MILLISECONDS)
   // end::adocMetrics[]
   @PUT
-  public Response updateBook(@RequestBody(required = true, content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Book.class))) @Valid Book book) {
+  public Response updateBook(@RequestBody(required = true, content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class))) @Valid Book book) {
     book = service.updateBook(book);
     LOGGER.debug("Book updated with new valued " + book);
     return Response.ok(book).build();
@@ -149,7 +147,7 @@ public class BookResource {
 
   // tag::adocPing[]
   @GET
-  @Produces(TEXT_PLAIN)
+  @Produces(MediaType.TEXT_PLAIN)
   @Path("/ping")
   public String ping() {
     return "ping";

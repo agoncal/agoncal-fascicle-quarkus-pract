@@ -18,12 +18,9 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
-import static javax.transaction.Transactional.TxType.REQUIRED;
-import static javax.transaction.Transactional.TxType.SUPPORTS;
-
 // tag::adocSnippet[]
 @ApplicationScoped
-@Transactional(REQUIRED)
+@Transactional(Transactional.TxType.REQUIRED)
 public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
@@ -68,17 +65,17 @@ public class BookService {
   }
 
   // end::adocFallback[]
-  @Transactional(SUPPORTS)
+  @Transactional(Transactional.TxType.SUPPORTS)
   public List<Book> findAllBooks() {
     return Book.listAll();
   }
 
-  @Transactional(SUPPORTS)
+  @Transactional(Transactional.TxType.SUPPORTS)
   public Optional<Book> findBookById(Long id) {
     return Book.findByIdOptional(id);
   }
 
-  @Transactional(SUPPORTS)
+  @Transactional(Transactional.TxType.SUPPORTS)
   public Book findRandomBook() {
     Book randomBook = null;
     while (randomBook == null) {
