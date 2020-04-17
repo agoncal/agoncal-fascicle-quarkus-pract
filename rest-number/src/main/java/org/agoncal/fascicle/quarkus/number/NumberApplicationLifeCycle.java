@@ -3,8 +3,10 @@ package org.agoncal.fascicle.quarkus.number;
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import io.quarkus.runtime.configuration.ProfileManager;
+// tag::adocSnippet[]
 import org.jboss.logging.Logger;
 
+// end::adocSnippet[]
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 

@@ -9,6 +9,7 @@ import org.jboss.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.bind.JsonbBuilder;
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.io.FileNotFoundException;
@@ -26,6 +27,9 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 public class BookService {
 
   private static final Logger LOGGER = Logger.getLogger(BookService.class);
+
+  @Inject
+  EntityManager em;
 
   // tag::adocFaultTolerance[]
   @Inject
@@ -85,18 +89,7 @@ public class BookService {
   // tag::adocBeanValidation[]
 
   public Book updateBook(@Valid Book book) {
-    Book entity = Book.findById(book.id);
-    entity.title = book.title;
-    entity.isbn13 = book.isbn13;
-    entity.isbn10 = book.isbn10;
-    entity.author = book.author;
-    entity.yearOfPublication = book.yearOfPublication;
-    entity.nbOfPages = book.nbOfPages;
-    entity.rank = book.rank;
-    entity.price = book.price;
-    entity.smallImageUrl = book.smallImageUrl;
-    entity.mediumImageUrl = book.mediumImageUrl;
-    entity.description = book.description;
+    Book entity = em.merge(book);
     return entity;
   }
   // end::adocBeanValidation[]
