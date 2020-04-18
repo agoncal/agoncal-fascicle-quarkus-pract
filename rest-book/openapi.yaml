@@ -35,7 +35,7 @@ paths:
                   $ref: '#/components/schemas/Book'
 
     put:
-      summary: Updates an exiting  book
+      summary: Updates an existing  book
       requestBody:
         content:
           application/json:
@@ -66,7 +66,7 @@ paths:
                 format: uri
                 type: string
     delete:
-      summary: Deletes an exiting book
+      summary: Deletes an existing book
       parameters:
         - name: id
           in: path

@@ -47,7 +47,7 @@ export class BookEndpointService {
   }
 
   /**
-   * Deletes an exiting book
+   * Deletes an existing book
    *
    * @param id Book identifier
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -138,7 +138,7 @@ export class BookEndpointService {
   }
 
   /**
-   * Updates an exiting  book
+   * Updates an existing  book
    *
    * @param body
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.

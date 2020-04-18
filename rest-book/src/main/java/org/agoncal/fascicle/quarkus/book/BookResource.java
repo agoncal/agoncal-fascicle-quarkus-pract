@@ -115,7 +115,7 @@ public class BookResource {
     return Response.created(builder.build()).build();
   }
 
-  @Operation(summary = "Updates an exiting  book")
+  @Operation(summary = "Updates an existing  book")
   @APIResponse(responseCode = "200", description = "The updated book", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
   // tag::adocMetrics[]
   @Counted(name = "countUpdateBook", description = "Counts how many times the updateBook method has been invoked")
@@ -130,7 +130,7 @@ public class BookResource {
   // end::adocCreateBook[]
 
   // tag::adocDeleteBook[]
-  @Operation(summary = "Deletes an exiting book")
+  @Operation(summary = "Deletes an existing book")
   @APIResponse(responseCode = "204", description = "The book has been successfully deleted")
   // tag::adocMetrics[]
   @Counted(name = "countDeleteBook", description = "Counts how many times the deleteBook method has been invoked")
