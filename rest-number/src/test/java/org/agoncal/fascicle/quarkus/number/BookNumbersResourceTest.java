@@ -3,10 +3,10 @@ package org.agoncal.fascicle.quarkus.number;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
+
 import static io.restassured.RestAssured.given;
-import static javax.ws.rs.core.HttpHeaders.ACCEPT;
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
@@ -21,7 +21,7 @@ public class BookNumbersResourceTest {
   @Test
   void shouldGenerateBookNumber() {
     given()
-      .header(ACCEPT, APPLICATION_JSON).
+      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
       .get("/api/numbers/book").
     then()
@@ -37,7 +37,7 @@ public class BookNumbersResourceTest {
   @Test
   void shouldSayPing() {
     given()
-      .header(ACCEPT, TEXT_PLAIN)
+      .header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN)
       .when().get("/api/numbers/book/ping")
       .then()
       .statusCode(OK.getStatusCode())
@@ -48,7 +48,7 @@ public class BookNumbersResourceTest {
   @Test
   void shouldPingOpenAPI() {
     given()
-      .header(ACCEPT, APPLICATION_JSON).
+      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
       .get("/openapi").
     then()
@@ -87,7 +87,7 @@ public class BookNumbersResourceTest {
   @Test
   void shouldPingMetrics() {
     given()
-      .header(ACCEPT, APPLICATION_JSON).
+      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
       .get("/metrics/application").
     then()
