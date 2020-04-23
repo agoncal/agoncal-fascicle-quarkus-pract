@@ -1,7 +1,7 @@
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running org.agoncal.fascicle.quarkus.number.BookNumbersResourceTest
+[INFO] -------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------
+[INFO] Running org.agoncal.fascicle.quarkus.number.BookNumbersResourceTest
 
 [INFO]  _   _                 _
 [INFO] | \ | |               | |
