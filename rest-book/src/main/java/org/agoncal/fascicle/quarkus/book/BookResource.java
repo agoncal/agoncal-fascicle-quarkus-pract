@@ -48,7 +48,7 @@ public class BookResource {
   private static final Logger LOGGER = Logger.getLogger(BookResource.class);
 
   @Operation(summary = "Returns a random book")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class, required = true)))
+  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
   // tag::adocMetrics[]
   @Counted(name = "countGetRandomBook", description = "Counts how many times the getRandomBook method has been invoked")
   @Timed(name = "timeGetRandomBook", description = "Times how long it takes to invoke the getRandomBook method", unit = MetricUnits.MILLISECONDS)
