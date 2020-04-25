@@ -48,7 +48,7 @@ public class BookResource {
   private static final Logger LOGGER = Logger.getLogger(BookResource.class);
 
   @Operation(summary = "Returns a random book")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class, required = true)))
+  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
   // tag::adocMetrics[]
   @Counted(name = "countGetRandomBook", description = "Counts how many times the getRandomBook method has been invoked")
   @Timed(name = "timeGetRandomBook", description = "Times how long it takes to invoke the getRandomBook method", unit = MetricUnits.MILLISECONDS)
@@ -81,7 +81,7 @@ public class BookResource {
   // tag::adocGetBook[]
   @Operation(summary = "Returns a book for a given identifier")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
-  @APIResponse(responseCode = "204", description = "The book is not found for a given identifier")
+  @APIResponse(responseCode = "204", description = "The book is not found for the given identifier")
   // tag::adocMetrics[]
   @Counted(name = "countGetBook", description = "Counts how many times the getBook method has been invoked")
   @Timed(name = "timeGetBook", description = "Times how long it takes to invoke the getBook method", unit = MetricUnits.MILLISECONDS)

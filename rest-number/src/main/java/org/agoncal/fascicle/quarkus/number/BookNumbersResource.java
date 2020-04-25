@@ -44,7 +44,7 @@ public class BookNumbersResource {
   // end::adocFault[]
   // tag::adocOpenAPI[]
   @Operation(summary = "Generates book numbers", description = "These book numbers have several formats: ISBN, ASIN and EAN")
-  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = BookNumbers.class, required = true)))
+  @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = BookNumbers.class)))
   // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countGenerateBookNumber", description = "Counts how many times the generateBookNumbers method has been invoked")

@@ -105,7 +105,7 @@ paths:
           type: integer
       responses:
         204:
-          description: The book is not found for a given identifier
+          description: The book is not found for the given identifier
         200:
           description: OK
           content:
