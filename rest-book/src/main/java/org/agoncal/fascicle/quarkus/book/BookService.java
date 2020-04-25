@@ -92,8 +92,7 @@ public class BookService {
   // end::adocBeanValidation[]
 
   public void deleteBook(Long id) {
-    Book book = Book.findById(id);
-    book.delete();
+    Book.deleteById(id);
   }
 }
 // end::adocSnippet[]
