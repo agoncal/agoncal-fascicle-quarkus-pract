@@ -25,9 +25,10 @@
 
   <!-- tag::adocProperties[] -->
   <properties>
-    <quarkus-plugin.version>1.4.1.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.4.1.Final</quarkus.platform.version>
+    <quarkus-plugin.version>1.8.1.Final</quarkus-plugin.version>
+    <quarkus.platform.version>1.8.1.Final</quarkus.platform.version>
     <javafaker.version>1.0.2</javafaker.version>
+    <testcontainers.version>1.14.3</testcontainers.version>
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
     <!-- tag::adocSkip[] -->
     <assembly-plugin.version>3.2.0</assembly-plugin.version>
@@ -58,6 +59,16 @@
         <groupId>com.github.javafaker</groupId>
         <artifactId>javafaker</artifactId>
         <version>${javafaker.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>${testcontainers.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${testcontainers.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
