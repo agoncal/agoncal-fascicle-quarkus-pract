@@ -83,7 +83,7 @@ public class BookResource {
   // tag::adocGetBook[]
   @Operation(summary = "Returns a book for a given identifier")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
-  @APIResponse(responseCode = "204", description = "The book is not found for the given identifier")
+  @APIResponse(responseCode = "404", description = "The book is not found for the given identifier")
   // tag::adocMetrics[]
   @Counted(name = "countGetBook", description = "Counts how many times the getBook method has been invoked")
   @Timed(name = "timeGetBook", description = "Times how long it takes to invoke the getBook method", unit = MetricUnits.MILLISECONDS)
