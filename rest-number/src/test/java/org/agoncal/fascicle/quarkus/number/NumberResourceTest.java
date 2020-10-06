@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.not;
 //@formatter:off
 // tag::adocSnippet[]
 @QuarkusTest
-public class BookNumbersResourceTest {
+public class NumberResourceTest {
 
   @Test
   void shouldGenerateBookNumber() {
