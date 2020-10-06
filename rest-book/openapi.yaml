@@ -1,5 +1,5 @@
 # tag::adocHeader[]
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: Book API
   description: This API allows CRUD operations on books
