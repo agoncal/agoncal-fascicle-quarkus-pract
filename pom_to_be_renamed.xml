@@ -1,4 +1,3 @@
-<!-- tag::adocHeader[] -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -8,22 +7,15 @@
   <version>1.0</version>
   <packaging>pom</packaging>
   <name>Practicing Quarkus</name>
-  <!-- end::adocHeader[] -->
 
-  <!-- tag::adocModules[] -->
   <modules>
-    <!-- tag::adocSkip[] -->
-    <module>first-step</module>
-    <!-- end::adocSkip[] -->
     <module>infrastructure</module>
     <module>load-bookstore</module>
     <module>rest-book</module>
     <module>rest-number</module>
     <module>ui-bookstore</module>
   </modules>
-  <!-- end::adocModules[] -->
 
-  <!-- tag::adocProperties[] -->
   <properties>
     <version.java>11</version.java>
     <quarkus-plugin.version>1.8.1.Final</quarkus-plugin.version>
@@ -32,9 +24,7 @@
     <testcontainers.version>1.15.0-rc2</testcontainers.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <!-- tag::adocSkip[] -->
     <assembly-plugin.version>3.2.0</assembly-plugin.version>
-    <!-- end::adocSkip[] -->
     <frontend-maven-plugin.version>1.9.1</frontend-maven-plugin.version>
     <node.version>v13.8.0</node.version>
     <npm.version>6.14.1</npm.version>
@@ -44,9 +34,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
-  <!-- end::adocProperties[] -->
 
-  <!-- tag::adocDependency[] -->
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -63,7 +51,6 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-  <!-- end::adocDependency[] -->
 
   <build>
     <pluginManagement>
