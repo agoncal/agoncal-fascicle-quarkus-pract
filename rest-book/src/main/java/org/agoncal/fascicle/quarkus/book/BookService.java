@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.book;
 
 import org.agoncal.fascicle.quarkus.book.client.IsbnNumbers;
-import org.agoncal.fascicle.quarkus.book.client.IsbnNumbersService;
+import org.agoncal.fascicle.quarkus.book.client.NumberProxy;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
@@ -31,7 +31,7 @@ public class BookService {
   // tag::adocFaultTolerance[]
   @Inject
   @RestClient
-  IsbnNumbersService isbnNumbersService;
+  NumberProxy numberProxy;
 
   // end::adocFaultTolerance[]
   // tag::adocFallback[]
@@ -42,7 +42,7 @@ public class BookService {
   public Book persistBook(@Valid Book book) {
     // tag::adocFaultTolerance[]
     // The Book microservice invokes the Number microservice
-    IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
+    IsbnNumbers isbnNumbers = numberProxy.generateIsbnNumbers();
     book.isbn13 = isbnNumbers.getIsbn13();
     book.isbn10 = isbnNumbers.getIsbn10();
 

@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/api/numbers/book")
 @Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient
-public interface IsbnNumbersService {
+public interface NumberProxy {
 
   @GET
   IsbnNumbers generateIsbnNumbers();
