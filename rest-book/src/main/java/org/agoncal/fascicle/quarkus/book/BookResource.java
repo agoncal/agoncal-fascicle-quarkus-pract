@@ -32,6 +32,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+import static javax.ws.rs.core.Response.Status.NOT_FOUND;
+
 // tag::adocInjection[]
 // tag::adocSnippet[]
 // tag::adocGetRandomBook[]
@@ -95,7 +97,7 @@ public class BookResource {
       return Response.ok(book).build();
     } else {
       LOGGER.debug("No book found with id " + id);
-      return Response.noContent().build();
+      return Response.status(NOT_FOUND).build();
     }
   }
   // end::adocGetBook[]

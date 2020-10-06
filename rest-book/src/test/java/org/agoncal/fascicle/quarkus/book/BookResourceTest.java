@@ -148,7 +148,7 @@ public class BookResourceTest {
       .pathParam("id", randomId)
       .when().get("/api/books/{id}")
       .then()
-      .statusCode(NO_CONTENT.getStatusCode());
+      .statusCode(NOT_FOUND.getStatusCode());
   }
 
   @Test
