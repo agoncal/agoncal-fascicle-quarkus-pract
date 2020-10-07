@@ -61,6 +61,12 @@
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
     <!-- end::adocDependencyObservability[] -->
+    <!-- tag::adocDependencyDocker[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-container-image-docker</artifactId>
+    </dependency>
+    <!-- end::adocDependencyDocker[] -->
     <!-- end::adocDependency[] -->
 
     <!-- Test -->
