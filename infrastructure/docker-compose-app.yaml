@@ -1,0 +1,40 @@
+version: "3"
+services:
+  ui-bookstore:
+    image: "agoncal/ui-bookstore:1.0"
+    container_name: "ui-bookstore"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - rest-number
+      - rest-book
+  rest-number:
+    image: "agoncal/rest-number:1.0"
+    container_name: "rest-number"
+    ports:
+      - "8081:8081"
+    environment:
+      - BOOK_API_HOST=http://rest-number
+      - BOOK_API_PORT=8081
+  rest-book:
+    image: "agoncal/rest-book:1.0"
+    container_name: "rest-book"
+    ports:
+      - "8082:8082"
+    depends_on:
+      - rest-number
+      - database
+  database:
+    image: "postgres:12.1"
+    container_name: "books-database"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db-init/initialize-databases.sql:/docker-entrypoint-initdb.d/init.sql
+  monitoring:
+    image: "prom/prometheus:v2.21.0"
+    container_name: "books-monitoring"
+    ports:
+      - 9090:9090
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
