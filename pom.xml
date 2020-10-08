@@ -32,6 +32,7 @@
     <testcontainers.version>1.15.0-rc2</testcontainers.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <exec-plugin.version>1.6.0</exec-plugin.version>
     <!-- tag::adocSkip[] -->
     <assembly-plugin.version>3.2.0</assembly-plugin.version>
     <!-- end::adocSkip[] -->
@@ -76,6 +77,11 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${exec-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
