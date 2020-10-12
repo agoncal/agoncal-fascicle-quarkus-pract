@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.book;
 
 import org.agoncal.fascicle.quarkus.book.client.IsbnNumbers;
-import org.agoncal.fascicle.quarkus.book.client.IsbnNumbersService;
+import org.agoncal.fascicle.quarkus.book.client.NumberProxy;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
@@ -31,7 +31,7 @@ public class BookService {
   // tag::adocFaultTolerance[]
   @Inject
   @RestClient
-  IsbnNumbersService isbnNumbersService;
+  NumberProxy numberProxy;
 
   // end::adocFaultTolerance[]
   // tag::adocFallback[]
@@ -42,7 +42,7 @@ public class BookService {
   public Book persistBook(@Valid Book book) {
     // tag::adocFaultTolerance[]
     // The Book microservice invokes the Number microservice
-    IsbnNumbers isbnNumbers = isbnNumbersService.generateIsbnNumbers();
+    IsbnNumbers isbnNumbers = numberProxy.generateIsbnNumbers();
     book.isbn13 = isbnNumbers.getIsbn13();
     book.isbn10 = isbnNumbers.getIsbn10();
 
@@ -58,7 +58,7 @@ public class BookService {
   private Book fallbackPersistBook(Book book) throws FileNotFoundException {
     LOGGER.warn("Falling back on persisting a book");
     String bookJson = JsonbBuilder.create().toJson(book);
-    try (PrintWriter out = new PrintWriter("book-" + Instant.now() + ".json")) {
+    try (PrintWriter out = new PrintWriter("book-" + Instant.now().toEpochMilli() + ".json")) {
       out.println(bookJson);
     }
     throw new IllegalStateException();
@@ -92,8 +92,7 @@ public class BookService {
   // end::adocBeanValidation[]
 
   public void deleteBook(Long id) {
-    Book book = Book.findById(id);
-    book.delete();
+    Book.deleteById(id);
   }
 }
 // end::adocSnippet[]

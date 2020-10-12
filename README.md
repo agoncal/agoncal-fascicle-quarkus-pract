@@ -1,3 +1,3 @@
 # agoncal-fascicle-quarkus-pract
 
-Code of my future Practicing Quarkus Fascicle
+Code of my future Practising Quarkus Fascicle

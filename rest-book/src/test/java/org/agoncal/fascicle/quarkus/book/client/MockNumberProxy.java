@@ -11,7 +11,7 @@ import javax.enterprise.context.ApplicationScoped;
 @Mock
 @ApplicationScoped
 @RestClient
-public class MockIsbnNumbersService implements IsbnNumbersService {
+public class MockNumberProxy implements NumberProxy {
 
   @Override
   public IsbnNumbers generateIsbnNumbers() {

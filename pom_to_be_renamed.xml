@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle</groupId>
-  <artifactId>quarkus-practicing</artifactId>
+  <artifactId>quarkus-practising</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>Practicing Quarkus</name>
+  <name>Practising Quarkus</name>
 
   <modules>
     <module>infrastructure</module>
@@ -17,19 +17,21 @@
   </modules>
 
   <properties>
-    <quarkus-plugin.version>1.2.1.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.2.1.Final</quarkus.platform.version>
+    <version.java>11</version.java>
+    <quarkus-plugin.version>1.8.1.Final</quarkus-plugin.version>
+    <quarkus.platform.version>1.8.1.Final</quarkus.platform.version>
     <javafaker.version>1.0.2</javafaker.version>
-
+    <testcontainers.version>1.15.0-rc2</testcontainers.version>
+    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <surefire-plugin.version>2.22.1</surefire-plugin.version>
+    <exec-plugin.version>1.6.0</exec-plugin.version>
     <assembly-plugin.version>3.2.0</assembly-plugin.version>
     <frontend-maven-plugin.version>1.9.1</frontend-maven-plugin.version>
-    <node.version>v13.8.0</node.version>
-    <npm.version>6.14.1</npm.version>
+    <node.version>v14.13.0</node.version>
+    <npm.version>6.14.8</npm.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>${version.java}</maven.compiler.source>
+    <maven.compiler.target>${version.java}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -64,6 +66,11 @@
           <version>${compiler-plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${exec-plugin.version}</version>
+        </plugin>
+        <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${surefire-plugin.version}</version>
         </plugin>
@@ -84,7 +91,7 @@
         <artifactId>maven-assembly-plugin</artifactId>
         <version>${assembly-plugin.version}</version>
         <configuration>
-          <finalName>agoncal-fascicle-quarkus-practicing</finalName>
+          <finalName>agoncal-fascicle-quarkus-practising</finalName>
           <appendAssemblyId>false</appendAssemblyId>
           <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
           <attach>false</attach>
