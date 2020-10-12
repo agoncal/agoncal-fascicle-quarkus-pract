@@ -16,7 +16,7 @@ import javax.ws.rs.core.Application;
     description = "This API allows CRUD operations on books",
     version = "1.0",
     contact = @Contact(name = "@agoncal", url = "https://twitter.com/agoncal")),
-  externalDocs = @ExternalDocumentation(url = "https://github.com/agoncal/agoncal-fascicle-quarkus-pract", description = "All the Practicing Quarkus code"),
+  externalDocs = @ExternalDocumentation(url = "https://github.com/agoncal/agoncal-fascicle-quarkus-pract", description = "All the Practising Quarkus code"),
   tags = {
     @Tag(name = "api", description = "Public API that can be used by anybody"),
     @Tag(name = "books", description = "Anybody interested in books")

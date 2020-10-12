@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle</groupId>
-  <artifactId>quarkus-practicing</artifactId>
+  <artifactId>quarkus-practising</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>Practicing Quarkus</name>
+  <name>Practising Quarkus</name>
   <!-- end::adocHeader[] -->
 
   <!-- tag::adocModules[] -->
@@ -104,7 +104,7 @@
         <artifactId>maven-assembly-plugin</artifactId>
         <version>${assembly-plugin.version}</version>
         <configuration>
-          <finalName>agoncal-fascicle-quarkus-practicing</finalName>
+          <finalName>agoncal-fascicle-quarkus-practising</finalName>
           <appendAssemblyId>false</appendAssemblyId>
           <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
           <attach>false</attach>

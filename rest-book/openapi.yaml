@@ -8,7 +8,7 @@ info:
     url: https://twitter.com/agoncal
   version: "1.0"
 externalDocs:
-  description: All the Practicing Quarkus code
+  description: All the Practising Quarkus code
   url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract
 tags:
 - name: api

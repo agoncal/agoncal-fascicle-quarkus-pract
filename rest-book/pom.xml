@@ -5,14 +5,14 @@
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus-practicing</artifactId>
+    <artifactId>quarkus-practising</artifactId>
     <version>1.0</version>
   </parent>
 
-  <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
+  <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
   <artifactId>rest-book</artifactId>
   <version>1.0</version>
-  <name>Practicing Quarkus :: Books REST Microservice</name>
+  <name>Practising Quarkus :: Books REST Microservice</name>
   <!-- end::adocHeader[] -->
 
   <!-- tag::adocDependency[] -->

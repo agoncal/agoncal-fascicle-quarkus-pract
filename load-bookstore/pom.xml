@@ -4,14 +4,14 @@
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus-practicing</artifactId>
+    <artifactId>quarkus-practising</artifactId>
     <version>1.0</version>
   </parent>
 
-  <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
+  <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
   <artifactId>load-bookstore</artifactId>
   <version>1.0</version>
-  <name>Practicing Quarkus :: Load</name>
+  <name>Practising Quarkus :: Load</name>
 
   <dependencies>
     <dependency>
