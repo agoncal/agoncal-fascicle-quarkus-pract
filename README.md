@@ -19,7 +19,7 @@ Having distributed microservices, you will implement health checks and add some 
 Finally, thanks to GraalVM you will build native executables, and package and execute them with Docker.
 
 This fascicle is very practical.
-It is the companion book of the more theoretical _Understanding Quarkus_ where you’ll learn more about Quarkus, MicroProfile, REST and reactive microservices, as well as Cloud Native and GraalVM.
+It is the companion book of the more theoretical [Understanding Quarkus](https://github.com/agoncal/agoncal-fascicle-quarkus) where you’ll learn more about Quarkus, MicroProfile, REST and reactive microservices, as well as Cloud Native and GraalVM.
 
 ![Quarkus](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-quarkus-pract/master/cover.jpg)
 
