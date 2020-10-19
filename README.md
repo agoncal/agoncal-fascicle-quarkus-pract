@@ -49,12 +49,12 @@ From the first line of code to production monitoring, this fascicle is your comp
 Fasten your seat belt, and get ready to take off!
 <br/><br/>
 **Clement Escoffier**  
-_Vert.x and Quarkus Core Developer at Red Hat_
+_Vert.x and Quarkus Core Developer at Red Hat_<br/>
 [clementplop](https://twitter.com/clementplop)
 
 And thanks to my proof-reader team:
 
 * [Clement Escoffier](https://twitter.com/thjanssen123)
 * [Youness Teimouri](https://twitter.com/clementplop)
-* [Aurélie Vache](https://twitter.com/aurelievache)
+* [Mike François](https://twitter.com/mike_francois)
 
