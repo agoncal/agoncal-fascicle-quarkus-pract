@@ -13,8 +13,10 @@
     <module>first-step</module>
     <module>infrastructure</module>
     <module>load-vintagestore</module>
+    <!-- tag::adocSkip[] -->
     <module>rest-book</module>
     <module>rest-number</module>
+    <!-- tag::adocSkip[] -->
     <module>ui-vintagestore</module>
   </modules>
   <!-- tag::adocSkip[] -->
