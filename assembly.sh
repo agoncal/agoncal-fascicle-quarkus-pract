@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-cp pom.xml pom.xml.back
+cp pom.xml dummy.pom.xml
 mv pom_to_be_renamed.xml pom.xml
 
 mvn assembly:single
 
 mv pom.xml pom_to_be_renamed.xml
-cp pom.xml.back pom.xml
+cp dummy.pom.xml pom.xml
