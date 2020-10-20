@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
     <artifactId>quarkus-practising</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
   <artifactId>load-bookstore</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Practising Quarkus :: Load</name>
 
   <dependencies>
