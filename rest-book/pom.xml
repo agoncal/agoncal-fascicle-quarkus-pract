@@ -6,12 +6,12 @@
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
     <artifactId>quarkus-practising</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
   </parent>
 
   <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
   <artifactId>rest-book</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>Practising Quarkus :: Books REST Microservice</name>
   <!-- end::adocHeader[] -->
 
