@@ -18,7 +18,7 @@ tags:
     description: Anybody interested in numbers
   - name: Book Numbers generator service
 paths:
-  /api/numbers/book:
+  /api/numbers:
     get:
       tags:
         - Book Numbers generator service

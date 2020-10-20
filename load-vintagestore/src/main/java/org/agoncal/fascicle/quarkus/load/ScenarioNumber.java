@@ -29,7 +29,7 @@ public class ScenarioNumber extends ScenarioInvoker {
   // tag::adocSnippet[]
   private static final String targetUrl = "http://localhost:8081";
 
-  private static final String contextRoot = "/api/numbers/book";
+  private static final String contextRoot = "/api/numbers";
 
   @Override
   protected String getTargetUrl() {

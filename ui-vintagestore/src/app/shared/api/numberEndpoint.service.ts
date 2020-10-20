@@ -38,7 +38,7 @@ export class NumberEndpointService {
     ];
     headers = headers.set('Accept', httpHeaderAccepts);
 
-    return this.httpClient.request<BookNumbers>('get', `${this.basePath}/api/numbers/book`,
+    return this.httpClient.request<BookNumbers>('get', `${this.basePath}/api/numbers`,
       {
         headers: headers,
         observe: observe,

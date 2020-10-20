@@ -27,7 +27,7 @@ public class NumberResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/api/numbers/book").
+      .get("/api/numbers").
     then()
       .statusCode(OK.getStatusCode())
       .body("$", hasKey("isbn_10"))
@@ -42,7 +42,7 @@ public class NumberResourceTest {
   void shouldSayPing() {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN)
-      .when().get("/api/numbers/book/ping")
+      .when().get("/api/numbers/ping")
       .then()
       .statusCode(OK.getStatusCode())
       .body(is("ping"));
@@ -105,7 +105,7 @@ public class NumberResourceTest {
   @Test
   void shouldNotFindDummy() {
     given()
-      .when().get("/api/numbers/book/dummy")
+      .when().get("/api/numbers/dummy")
       .then()
       .statusCode(NOT_FOUND.getStatusCode());
   }

@@ -22,7 +22,7 @@ import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 // tag::adocSnippet[]
-@Path("/api/numbers/book")
+@Path("/api/numbers")
 // tag::adocOpenAPI[]
 @Tag(name = "Number Endpoint")
 // end::adocOpenAPI[]
