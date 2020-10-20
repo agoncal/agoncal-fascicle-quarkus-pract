@@ -32,6 +32,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+import static javax.ws.rs.core.Response.Status.NOT_FOUND;
+
 // tag::adocInjection[]
 // tag::adocSnippet[]
 // tag::adocGetRandomBook[]
@@ -81,7 +83,7 @@ public class BookResource {
   // tag::adocGetBook[]
   @Operation(summary = "Returns a book for a given identifier")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
-  @APIResponse(responseCode = "204", description = "The book is not found for the given identifier")
+  @APIResponse(responseCode = "404", description = "The book is not found for the given identifier")
   // tag::adocMetrics[]
   @Counted(name = "countGetBook", description = "Counts how many times the getBook method has been invoked")
   @Timed(name = "timeGetBook", description = "Times how long it takes to invoke the getBook method", unit = MetricUnits.MILLISECONDS)
@@ -95,7 +97,7 @@ public class BookResource {
       return Response.ok(book).build();
     } else {
       LOGGER.debug("No book found with id " + id);
-      return Response.noContent().build();
+      return Response.status(NOT_FOUND).build();
     }
   }
   // end::adocGetBook[]

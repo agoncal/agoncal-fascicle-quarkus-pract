@@ -9,7 +9,7 @@ import java.util.Map;
 // tag::adocSnippet[]
 public class Database implements QuarkusTestResourceLifecycleManager {
 
-  private static final PostgreSQLContainer DATABASE = new PostgreSQLContainer<>("postgres:12.1")
+  private static final PostgreSQLContainer DATABASE = new PostgreSQLContainer<>("postgres:12.4")
     .withDatabaseName("books_database")
     .withUsername("book")
     .withPassword("book")

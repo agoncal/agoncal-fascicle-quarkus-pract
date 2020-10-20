@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.number;
 
+import io.quarkus.test.junit.DisabledOnNativeImage;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +17,11 @@ import static org.hamcrest.Matchers.not;
 //@formatter:off
 // tag::adocSnippet[]
 @QuarkusTest
-public class BookNumbersResourceTest {
+public class NumberResourceTest {
 
+  // tag::adocNative[]
+  @DisabledOnNativeImage
+  // end::adocNative[]
   @Test
   void shouldGenerateBookNumber() {
     given()
@@ -55,6 +59,9 @@ public class BookNumbersResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
+  // tag::adocNative[]
+  @DisabledOnNativeImage
+  // end::adocNative[]
   @Test
   void shouldPingSwaggerUI() {
     given().

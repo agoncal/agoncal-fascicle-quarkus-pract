@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.book;
 
 import io.quarkus.test.common.QuarkusTestResource;
+import io.quarkus.test.junit.DisabledOnNativeImage;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
 import org.agoncal.fascicle.quarkus.book.infrastructure.Database;
@@ -91,6 +92,7 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
+  @DisabledOnNativeImage
   @Test
   void shouldPingSwaggerUI() {
     given().
@@ -148,7 +150,7 @@ public class BookResourceTest {
       .pathParam("id", randomId)
       .when().get("/api/books/{id}")
       .then()
-      .statusCode(NO_CONTENT.getStatusCode());
+      .statusCode(NOT_FOUND.getStatusCode());
   }
 
   @Test
@@ -199,6 +201,7 @@ public class BookResourceTest {
   }
   // end::adocShouldGetInitialItems[]
 
+  @DisabledOnNativeImage
   // tag::adocShouldAddAnItem[]
   @Test
   @Order(2)
@@ -265,6 +268,7 @@ public class BookResourceTest {
   }
   // end::adocShouldAddAnItem[]
 
+  @DisabledOnNativeImage
   // tag::adocShouldUpdateAnItem[]
   @Test
   @Order(3)
@@ -307,6 +311,7 @@ public class BookResourceTest {
   }
   // end::adocShouldUpdateAnItem[]
 
+  @DisabledOnNativeImage
   // tag::adocShouldRemoveAnItem[]
   @Test
   @Order(4)

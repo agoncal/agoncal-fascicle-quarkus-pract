@@ -13,7 +13,7 @@ Update the last version of NG CLI  (check https://github.com/angular/angular-cli
 
 ```
 ng --version
-npm install -g @angular/cli@v9.0.3
+npm install -g @angular/cli@v9.1.12
 ```
 
 # Creating the UI
@@ -23,7 +23,7 @@ npm install -g @angular/cli@v9.0.3
 From the root directory 
 
 ```
-ng new ui-bookstore --minimal=true --inline-style=true --inlineTemplate=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=scss --force --packageManager=npm
+ng new ui-bookstore --minimal=true --inline-style=true --inline-template=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=scss --force=true --package-manager=npm
 ```
 
 ## Installing Material Design
@@ -33,19 +33,12 @@ Install the Material Design dependencies:
 ```
 cd ui-bookstore
 
-ng add bootstrap --defaults=true --interactive=false
-ng add ngx-bootstrap --defaults=true --interactive=false
+ng add @ng-bootstrap/ng-bootstrap --defaults=true --interactive=false
 ng add font-awesome --defaults=true --interactive=false
 ng add jquery --defaults=true --interactive=false
 ng add popper --defaults=true --interactive=false
 npm install
 ng serve
-```
-
-Create a shared Bootstrap module 
-
-```
-ng generate module shared/bootstrap --flat 
 ```
 
 The module imports and exports all the needed Material design components and should look like that:
@@ -97,9 +90,9 @@ In `angular.json`:
 ## Business modules
 
 ```
-ng generate module book/book --flat --module=app.module.ts --routing=true --route=book
-ng generate module number/number --flat --module=app.module.ts --routing=true --route=number
-ng generate module inventory/inventory --flat --module=app.module.ts --routing=true --route=inventory
+ng generate module book/book --flat=true --module=app.module.ts --routing=true --route=book
+ng generate module number/number --flat=true --module=app.module.ts --routing=true --route=number
+ng generate module inventory/inventory --flat=true --module=app.module.ts --routing=true --route=inventory
 ```
 
 ## Components
@@ -107,12 +100,12 @@ ng generate module inventory/inventory --flat --module=app.module.ts --routing=t
 Generate all the needed components
 
 ``` 
-ng generate component number/number-generate --module=number/number.module.ts --skipSelector=true
-ng generate component book/book-list --module=book/book.module.ts --skipSelector=true
-ng generate component book/book-form --module=book/book.module.ts --skipSelector=true
-ng generate component book/book-detail --module=book/book.module.ts --skipSelector=true
-ng generate component book/book-delete --module=book/book.module.ts --skipSelector=true
-ng generate component book/book-random --module=book/book.module.ts --skipSelector=true
+ng generate component number/number-generate --module=number/number.module.ts --skipSelector=true --inline-template=false  --skip-tests=true
+ng generate component book/book-list --module=book/book.module.ts --skipSelector=true --inline-template=false  --skip-tests=true
+ng generate component book/book-form --module=book/book.module.ts --skipSelector=true --inline-template=false  --skip-tests=true
+ng generate component book/book-detail --module=book/book.module.ts --skipSelector=true --inline-template=false  --skip-tests=true
+ng generate component book/book-delete --module=book/book.module.ts --skipSelector=true --inline-template=false  --skip-tests=true
+ng generate component book/book-random --module=book/book.module.ts --skipSelector=true --inline-template=false  --skip-tests=true
 ```
 
 ## Swagger Code Gen

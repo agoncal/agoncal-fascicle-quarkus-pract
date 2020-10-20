@@ -26,10 +26,10 @@ import java.util.concurrent.TimeUnit;
 // tag::adocOpenAPI[]
 @Tag(name = "Number Endpoint")
 // end::adocOpenAPI[]
-public class BookNumbersResource {
+public class NumberResource {
 
   // tag::adocLogger[]
-  private static final Logger LOGGER = Logger.getLogger(BookNumbersResource.class);
+  private static final Logger LOGGER = Logger.getLogger(NumberResource.class);
 
   // end::adocLogger[]
   // tag::adocConfigProperty[]
@@ -72,6 +72,7 @@ public class BookNumbersResource {
     bookNumbers.setGenerationDate(Instant.now());
     return Response.ok(bookNumbers).build();
   }
+
   // end::adocGenerateBookNumbers[]
   // tag::adocPing[]
   @GET

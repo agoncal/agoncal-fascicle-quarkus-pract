@@ -3,10 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
+  <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
   <artifactId>first-step</artifactId>
   <version>1.0</version>
-  <name>Practicing Quarkus :: First Step</name>
+  <name>Practising Quarkus :: First Step</name>
 
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>

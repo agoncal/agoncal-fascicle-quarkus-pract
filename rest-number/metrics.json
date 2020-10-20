@@ -1,6 +1,6 @@
 {
-  "BookNumbersResource.countGenerateBookNumber": 23,
-  "BookNumbersResource.timeGenerateBookNumber": {
+  "NumberResource.countGenerateBookNumber": 23,
+  "NumberResource.timeGenerateBookNumber": {
     "p99": 2.552359,
     "min": 2.351004,
     "max": 4.142853,

@@ -24,7 +24,7 @@ public class AuthorResourceTest {
       .get("/authors").
     then()
       .statusCode(OK.getStatusCode())
-      .body(is("Isaac Asimov, Ray Bradbury, Douglas Adams"));
+      .body(is("Isaac Asimov, Nora Jemisin, Douglas Adams"));
   }
 
   @Test

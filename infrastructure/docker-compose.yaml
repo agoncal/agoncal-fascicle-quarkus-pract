@@ -8,7 +8,7 @@ services:
     volumes:
       - ./db-init/initialize-databases.sql:/docker-entrypoint-initdb.d/init.sql
   monitoring:
-    image: "prom/prometheus:v2.16.0"
+    image: "prom/prometheus:v2.21.0"
     container_name: "books-monitoring"
     ports:
       - 9090:9090

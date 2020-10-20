@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle</groupId>
-  <artifactId>quarkus-practicing</artifactId>
+  <artifactId>quarkus-practising</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>Practicing Quarkus</name>
+  <name>Practising Quarkus</name>
   <!-- end::adocHeader[] -->
 
   <!-- tag::adocModules[] -->
@@ -25,20 +25,23 @@
 
   <!-- tag::adocProperties[] -->
   <properties>
-    <quarkus-plugin.version>1.4.1.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.4.1.Final</quarkus.platform.version>
+    <version.java>11</version.java>
+    <quarkus-plugin.version>1.8.1.Final</quarkus-plugin.version>
+    <quarkus.platform.version>1.8.1.Final</quarkus.platform.version>
     <javafaker.version>1.0.2</javafaker.version>
-    <surefire-plugin.version>2.22.1</surefire-plugin.version>
+    <testcontainers.version>1.15.0-rc2</testcontainers.version>
+    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <exec-plugin.version>1.6.0</exec-plugin.version>
     <!-- tag::adocSkip[] -->
     <assembly-plugin.version>3.2.0</assembly-plugin.version>
     <!-- end::adocSkip[] -->
     <frontend-maven-plugin.version>1.9.1</frontend-maven-plugin.version>
-    <node.version>v13.8.0</node.version>
-    <npm.version>6.14.1</npm.version>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <node.version>v14.13.0</node.version>
+    <npm.version>6.14.8</npm.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>${version.java}</maven.compiler.source>
+    <maven.compiler.target>${version.java}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -74,6 +77,11 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compiler-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${exec-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>

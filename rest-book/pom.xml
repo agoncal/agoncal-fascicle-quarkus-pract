@@ -5,14 +5,14 @@
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>quarkus-practicing</artifactId>
+    <artifactId>quarkus-practising</artifactId>
     <version>1.0</version>
   </parent>
 
-  <groupId>org.agoncal.fascicle.quarkus-practicing</groupId>
+  <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
   <artifactId>rest-book</artifactId>
   <version>1.0</version>
-  <name>Practicing Quarkus :: Books REST Microservice</name>
+  <name>Practising Quarkus :: Books REST Microservice</name>
   <!-- end::adocHeader[] -->
 
   <!-- tag::adocDependency[] -->
@@ -61,6 +61,12 @@
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
     <!-- end::adocDependencyObservability[] -->
+    <!-- tag::adocDependencyDocker[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-container-image-docker</artifactId>
+    </dependency>
+    <!-- end::adocDependencyDocker[] -->
     <!-- end::adocDependency[] -->
 
     <!-- Test -->
@@ -78,11 +84,13 @@
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>junit-jupiter</artifactId>
+      <version>${testcontainers.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>postgresql</artifactId>
+      <version>${testcontainers.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

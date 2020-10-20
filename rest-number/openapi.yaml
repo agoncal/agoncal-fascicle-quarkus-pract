@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: Number API
   description: This API allows to generate all sorts of numbers
@@ -7,7 +7,7 @@ info:
     url: https://twitter.com/agoncal
   version: "1.0"
 externalDocs:
-  description: All the Practicing Quarkus code
+  description: All the Practising Quarkus code
   url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract
 servers:
   - url: http://localhost:8081
