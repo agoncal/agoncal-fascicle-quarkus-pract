@@ -104,7 +104,7 @@
         <artifactId>maven-assembly-plugin</artifactId>
         <version>${assembly-plugin.version}</version>
         <configuration>
-          <finalName>agoncal-fascicle-quarkus-practising</finalName>
+          <finalName>agoncal-fascicle-quarkus-practicing-${project.version}</finalName>
           <appendAssemblyId>false</appendAssemblyId>
           <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
           <attach>false</attach>
