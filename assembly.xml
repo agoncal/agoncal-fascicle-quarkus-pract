@@ -17,7 +17,7 @@
       </excludes>
     </fileSet>
     <fileSet>
-      <directory>load-bookstore</directory>
+      <directory>load-vintagestore</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>**/target/**</exclude>
@@ -55,7 +55,7 @@
       </excludes>
     </fileSet>
     <fileSet>
-      <directory>ui-bookstore</directory>
+      <directory>ui-vintagestore</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>*.iml</exclude>

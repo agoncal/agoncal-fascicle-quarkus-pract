@@ -9,7 +9,7 @@
 <!--  </parent>-->
 
   <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
-  <artifactId>load-bookstore</artifactId>
+  <artifactId>load-vintagestore</artifactId>
   <version>1.1-SNAPSHOT</version>
   <name>Practising Quarkus :: Load</name>
 
@@ -65,7 +65,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <configuration>
-          <mainClass>org.agoncal.fascicle.quarkus.load.BookStoreLoad</mainClass>
+          <mainClass>org.agoncal.fascicle.quarkus.load.VintageStoreLoad</mainClass>
         </configuration>
       </plugin>
     </plugins>

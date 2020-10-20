@@ -9,9 +9,9 @@
   </parent>
 
   <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
-  <artifactId>ui-bookstore</artifactId>
+  <artifactId>ui-vintagestore</artifactId>
   <version>1.1-SNAPSHOT</version>
-  <name>Practising Quarkus :: UI Bookstore</name>
+  <name>Practising Quarkus :: UI VintageStore</name>
 
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>

@@ -1,20 +1,20 @@
 version: "3"
 services:
-  ui-bookstore:
-    image: "agoncal/ui-bookstore:1.0"
-    container_name: "ui-bookstore"
+  ui-vintagestore:
+    image: "agoncal/ui-vintagestore:1.1"
+    container_name: "ui-vintagestore"
     ports:
       - "8080:8080"
     depends_on:
       - rest-number
       - rest-book
   rest-number:
-    image: "agoncal/rest-number:1.0"
+    image: "agoncal/rest-number:1.1"
     container_name: "rest-number"
     ports:
       - "8081:8081"
   rest-book:
-    image: "agoncal/rest-book:1.0"
+    image: "agoncal/rest-book:1.1"
     container_name: "rest-book"
     ports:
       - "8082:8082"
