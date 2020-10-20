@@ -16,7 +16,7 @@
     <!-- tag::adocSkip[] -->
     <module>rest-book</module>
     <module>rest-number</module>
-    <!-- tag::adocSkip[] -->
+    <!-- end::adocSkip[] -->
     <module>ui-vintagestore</module>
   </modules>
   <!-- tag::adocSkip[] -->
