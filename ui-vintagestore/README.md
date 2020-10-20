@@ -23,7 +23,7 @@ npm install -g @angular/cli@v9.1.12
 From the root directory 
 
 ```
-ng new ui-bookstore --minimal=true --inline-style=true --inline-template=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=scss --force=true --package-manager=npm
+ng new ui-vintagestore --minimal=true --inline-style=true --inline-template=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=scss --force=true --package-manager=npm
 ```
 
 ## Installing Material Design
@@ -31,7 +31,7 @@ ng new ui-bookstore --minimal=true --inline-style=true --inline-template=false -
 Install the Material Design dependencies: 
 
 ```
-cd ui-bookstore
+cd ui-vintagestore
 
 ng add @ng-bootstrap/ng-bootstrap --defaults=true --interactive=false
 ng add font-awesome --defaults=true --interactive=false
