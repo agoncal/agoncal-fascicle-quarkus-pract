@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # tag::adocBootstrap[]
-mvn io.quarkus:quarkus-maven-plugin:1.8.3.Final:create \
-    -DplatformVersion=1.8.3.Final \
+mvn io.quarkus:quarkus-maven-plugin:1.9.0.Final:create \
+    -DplatformVersion=1.9.0.Final \
     -DprojectGroupId=org.agoncal.fascicle.quarkus-practising \
     -DprojectArtifactId=rest-number \
     -DprojectVersion=1.1-SNAPSHOT \
