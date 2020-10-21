@@ -20,16 +20,20 @@
     <module>ui-vintagestore</module>
   </modules>
   <!-- tag::adocSkip[] -->
-  <properties>
-    <assembly-plugin.version>3.2.0</assembly-plugin.version>
-  </properties>
-
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.2.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>${assembly-plugin.version}</version>
         <configuration>
           <finalName>agoncal-fascicle-quarkus-practising-${project.version}</finalName>
           <appendAssemblyId>false</appendAssemblyId>
@@ -43,6 +47,6 @@
       </plugin>
     </plugins>
   </build>
-<!-- end::adocSkip[] -->
+  <!-- end::adocSkip[] -->
 </project>
-<!-- end::adocSnippet[] -->
+  <!-- end::adocSnippet[] -->
