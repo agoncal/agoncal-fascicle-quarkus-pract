@@ -1,5 +1,5 @@
-<!-- tag::adocHeader[] -->
 <?xml version="1.0"?>
+<!-- tag::adocHeader[] -->
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
@@ -7,10 +7,10 @@
   <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
   <artifactId>rest-number</artifactId>
   <version>1.1-SNAPSHOT</version>
-  <!-- end::adocHeader[] -->
+  <!-- tag::adocSkip[] -->
   <name>Practising Quarkus :: Numbers REST Microservice</name>
+  <!-- end::adocSkip[] -->
 
-  <!-- tag::adocProperties[] -->
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -23,7 +23,6 @@
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.8.3.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-    <javafaker.version>1.0.2</javafaker.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -36,7 +35,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-  <!-- end::adocProperties[] -->
+  <!-- end::adocHeader[] -->
 
   <!-- tag::adocDependency[] -->
   <dependencies>
@@ -62,11 +61,13 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
+    <!-- tag::adocDependencyFaker[] -->
     <dependency>
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
-      <version>${javafaker.version}</version>
+      <version>1.0.2</version>
     </dependency>
+    <!-- end::adocDependencyFaker[] -->
     <!-- tag::adocDependencyFaultTolerance[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
