@@ -11,7 +11,9 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+// tag::adocImportLogger[]
 import org.jboss.logging.Logger;
+// end::adocImportLogger[]
 
 import javax.inject.Inject;
 import javax.validation.Valid;

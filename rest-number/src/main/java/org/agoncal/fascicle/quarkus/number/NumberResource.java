@@ -1,6 +1,8 @@
 package org.agoncal.fascicle.quarkus.number;
 
+// tag::adocImportFaker[]
 import com.github.javafaker.Faker;
+// end::adocImportFaker[]
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.metrics.MetricUnits;
@@ -11,13 +13,17 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+// tag::adocImportLogger[]
 import org.jboss.logging.Logger;
+// end::adocImportLogger[]
 
+// tag::adocImportJAXRS[]
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+// end::adocImportJAXRS[]
 import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
