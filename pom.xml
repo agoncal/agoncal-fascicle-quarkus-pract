@@ -22,7 +22,7 @@
     <!-- end::adocSkipNumber[] -->
     <module>ui-vintagestore</module>
   </modules>
-  <!-- tag::adocModules[] -->
+  <!-- end::adocModules[] -->
 
   <!-- tag::adocSkip[] -->
   <build>
