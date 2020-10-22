@@ -9,16 +9,21 @@
   <packaging>pom</packaging>
   <name>Practising Quarkus</name>
 
+  <!-- tag::adocModules[] -->
   <modules>
     <module>first-step</module>
     <module>infrastructure</module>
     <module>load-vintagestore</module>
-    <!-- tag::adocSkip[] -->
+    <!-- tag::adocSkipBook[] -->
     <module>rest-book</module>
+    <!-- end::adocSkipBook[] -->
+    <!-- tag::adocSkipNumber[] -->
     <module>rest-number</module>
-    <!-- end::adocSkip[] -->
+    <!-- end::adocSkipNumber[] -->
     <module>ui-vintagestore</module>
   </modules>
+  <!-- tag::adocModules[] -->
+
   <!-- tag::adocSkip[] -->
   <build>
     <pluginManagement>
