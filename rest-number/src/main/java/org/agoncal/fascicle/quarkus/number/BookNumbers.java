@@ -2,8 +2,10 @@ package org.agoncal.fascicle.quarkus.number;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+// tag::adocImportJSonB[]
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
+// end::adocImportJSonB[]
 import java.time.Instant;
 
 // tag::adocSnippet[]
