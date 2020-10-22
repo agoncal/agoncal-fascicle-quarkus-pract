@@ -1,7 +1,9 @@
 package org.agoncal.fascicle.quarkus.number;
 
+// tag::adocImportRuntime[]
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
+// end::adocImportRuntime[]
 import io.quarkus.runtime.configuration.ProfileManager;
 // tag::adocSnippet[]
 import org.jboss.logging.Logger;
