@@ -4,7 +4,10 @@ package org.agoncal.fascicle.quarkus.number;
 
 import com.github.javafaker.Faker;
 // end::adocImportFaker[]
+// tag::adocConfigProperty[]
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+
+// end::adocConfigProperty[]
 import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
@@ -42,7 +45,6 @@ public class NumberResource {
   // tag::adocConfigProperty[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")
   boolean separator;
-
   // end::adocConfigProperty[]
   // tag::adocFault[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
