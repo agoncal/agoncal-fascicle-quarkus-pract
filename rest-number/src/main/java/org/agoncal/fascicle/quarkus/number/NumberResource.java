@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.quarkus.number;
+//@formatter:off
 
 // tag::adocImportFaker[]
-
 import com.github.javafaker.Faker;
 // end::adocImportFaker[]
 // tag::adocConfigProperty[]
