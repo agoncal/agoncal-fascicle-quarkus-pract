@@ -12,11 +12,13 @@ import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
+// tag::adocImportOpenAPI[]
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+// end::adocImportOpenAPI[]
 // tag::adocImportLogger[]
 import org.jboss.logging.Logger;
 // end::adocImportLogger[]
@@ -45,6 +47,7 @@ public class NumberResource {
   // end::adocLogger[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")
   boolean separator;
+
   // end::adocConfigProperty[]
   // tag::adocFault[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
