@@ -78,8 +78,8 @@ public class NumberResource {
     bookNumbers.setGenerationDate(Instant.now());
     return Response.ok(bookNumbers).build();
   }
-
   // end::adocGenerateBookNumbers[]
+
   // tag::adocPing[]
   @GET
   @Path("/ping")
