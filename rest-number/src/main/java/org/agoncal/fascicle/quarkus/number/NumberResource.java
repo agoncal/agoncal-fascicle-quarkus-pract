@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.quarkus.number;
 
 // tag::adocImportFaker[]
+
 import com.github.javafaker.Faker;
 // end::adocImportFaker[]
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -70,12 +71,12 @@ public class NumberResource {
     LOGGER.info("Generating book numbers");
     Faker faker = new Faker();
     BookNumbers bookNumbers = new BookNumbers();
-    bookNumbers.setIsbn10(faker.code().isbn10(separator));
-    bookNumbers.setIsbn13(faker.code().isbn13(separator));
-    bookNumbers.setAsin(faker.code().asin());
-    bookNumbers.setEan8(faker.code().ean8());
-    bookNumbers.setEan13(faker.code().ean13());
-    bookNumbers.setGenerationDate(Instant.now());
+    bookNumbers.isbn10 = faker.code().isbn10(separator);
+    bookNumbers.isbn13 = faker.code().isbn13(separator);
+    bookNumbers.asin = faker.code().asin();
+    bookNumbers.ean8 = faker.code().ean8();
+    bookNumbers.ean13 = faker.code().ean13();
+    bookNumbers.generationDate = Instant.now();
     return Response.ok(bookNumbers).build();
   }
   // end::adocGenerateBookNumbers[]
