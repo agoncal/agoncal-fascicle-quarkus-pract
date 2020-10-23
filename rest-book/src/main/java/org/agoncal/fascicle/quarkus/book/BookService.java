@@ -4,14 +4,20 @@ import org.agoncal.fascicle.quarkus.book.client.IsbnNumbers;
 import org.agoncal.fascicle.quarkus.book.client.NumberProxy;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+// tag::adocImportInit[]
 import org.jboss.logging.Logger;
+// end::adocImportInit[]
 
+// tag::adocImportInit[]
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+// end::adocImportInit[]
 import javax.json.bind.JsonbBuilder;
+// tag::adocImportInit[]
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+// end::adocImportInit[]
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.Instant;
