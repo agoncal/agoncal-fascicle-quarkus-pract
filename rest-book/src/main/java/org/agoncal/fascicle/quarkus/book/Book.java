@@ -1,10 +1,12 @@
 package org.agoncal.fascicle.quarkus.book;
 
+// tag::adocImportORM[]
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+// end::adocImportORM[]
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
