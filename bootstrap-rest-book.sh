@@ -7,7 +7,7 @@ mvn io.quarkus:quarkus-maven-plugin:1.9.0.Final:create \
     -DprojectVersion=1.1-SNAPSHOT \
     -DclassName="org.agoncal.fascicle.quarkus.book.BookResource" \
     -Dpath="/api/books" \
-    -Dextensions="resteasy, hibernate-orm-panache, jdbc-postgresql, hibernate-validator, smallrye-openapi"
+    -Dextensions="resteasy, resteasy-jsonb, hibernate-orm-panache, jdbc-postgresql, hibernate-validator, smallrye-openapi"
 # end::adocBootstrap[]
 
 cd rest-book
