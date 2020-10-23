@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.book;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
+// tag::adocImportInit[]
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -11,9 +12,7 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-// tag::adocImportLogger[]
 import org.jboss.logging.Logger;
-// end::adocImportLogger[]
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -30,6 +29,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
+// end::adocImportInit[]
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
