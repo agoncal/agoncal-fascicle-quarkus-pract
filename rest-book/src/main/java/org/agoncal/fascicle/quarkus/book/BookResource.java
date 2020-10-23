@@ -34,7 +34,9 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+// tag::adocImportInit[]
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
+// end::adocImportInit[]
 
 // tag::adocInjection[]
 // tag::adocSnippet[]
