@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
-import {Book} from "../../shared/model/book";
+import {IBook} from "../../shared/model/book";
 
 @Component({
   templateUrl: './book-delete.component.html',
@@ -9,7 +9,7 @@ import {Book} from "../../shared/model/book";
 })
 export class BookDeleteComponent implements OnInit {
 
-  book?: Book;
+  book?: IBook;
 
   constructor(private bookEndpointService: BookEndpointService,
               private route: ActivatedRoute,

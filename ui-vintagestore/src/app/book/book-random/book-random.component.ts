@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Book} from "../../shared/model/book";
+import {IBook} from "../../shared/model/book";
 import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
 })
 export class BookRandomComponent implements OnInit {
 
-  book?: Book;
+  book?: IBook;
 
   constructor(private bookEndpointService: BookEndpointService) { }
 

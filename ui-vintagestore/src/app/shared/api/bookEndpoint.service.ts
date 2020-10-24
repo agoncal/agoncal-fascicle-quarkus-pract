@@ -6,7 +6,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpResponse, HttpEvent} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Book} from '../model/book';
+import {IBook} from '../model/book';
 
 
 @Injectable()
@@ -24,7 +24,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public getAllBooks(observe?: 'body', reportProgress?: boolean): Observable<Array<Book>> {
+  public getAllBooks(observe?: 'body', reportProgress?: boolean): Observable<Array<IBook>> {
 
     let headers = this.defaultHeaders;
 
@@ -37,7 +37,7 @@ export class BookEndpointService {
     // to determine the Content-Type header
     const consumes: string[] = [];
 
-    return this.httpClient.request<Array<Book>>('get', `${this.basePath}/api/books`,
+    return this.httpClient.request<Array<IBook>>('get', `${this.basePath}/api/books`,
       {
         headers: headers,
         observe: observe,
@@ -77,7 +77,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public getBook(id: number, observe?: 'body', reportProgress?: boolean): Observable<Book> {
+  public getBook(id: number, observe?: 'body', reportProgress?: boolean): Observable<IBook> {
 
     if (id === null || id === undefined) {
       throw new Error('Required parameter id was null or undefined when calling apiBooksIdGet.');
@@ -91,7 +91,7 @@ export class BookEndpointService {
     ];
     headers = headers.set('Accept', httpHeaderAccepts);
 
-    return this.httpClient.request<Book>('get', `${this.basePath}/api/books/${encodeURIComponent(String(id))}`,
+    return this.httpClient.request<IBook>('get', `${this.basePath}/api/books/${encodeURIComponent(String(id))}`,
       {
         headers: headers,
         observe: observe,
@@ -107,7 +107,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public createBook(body: Book | undefined, observe?: 'body', reportProgress?: boolean): Observable<string> {
+  public createBook(body: IBook | undefined, observe?: 'body', reportProgress?: boolean): Observable<string> {
 
     if (body === null || body === undefined) {
       throw new Error('Required parameter body was null or undefined when calling apiBooksPost.');
@@ -144,7 +144,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public updateBook(body: Book, observe?: 'body', reportProgress?: boolean): Observable<Book> {
+  public updateBook(body: IBook, observe?: 'body', reportProgress?: boolean): Observable<IBook> {
 
     if (body === null || body === undefined) {
       throw new Error('Required parameter body was null or undefined when calling apiBooksPut.');
@@ -164,7 +164,7 @@ export class BookEndpointService {
     ];
     headers = headers.set('Content-Type', consumes);
 
-    return this.httpClient.request<Book>('put', `${this.basePath}/api/books`,
+    return this.httpClient.request<IBook>('put', `${this.basePath}/api/books`,
       {
         body: body,
         headers: headers,
@@ -180,7 +180,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public getRandomBook(observe?: 'body', reportProgress?: boolean): Observable<Book> {
+  public getRandomBook(observe?: 'body', reportProgress?: boolean): Observable<IBook> {
 
     let headers = this.defaultHeaders;
 
@@ -190,7 +190,7 @@ export class BookEndpointService {
     ];
     headers = headers.set('Accept', httpHeaderAccepts);
 
-    return this.httpClient.request<Book>('get', `${this.basePath}/api/books/random`,
+    return this.httpClient.request<IBook>('get', `${this.basePath}/api/books/random`,
       {
         headers: headers,
         observe: observe,

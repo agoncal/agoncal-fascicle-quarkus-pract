@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Book} from "../../shared/model/book";
+import {Component, OnInit} from '@angular/core';
+import {IBook, Book} from "../../shared/model/book";
 import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class BookFormComponent implements OnInit {
 
-  book?: Book;
+  book?: IBook;
 
   constructor(private bookEndpointService: BookEndpointService,
               private route: ActivatedRoute,
@@ -17,6 +17,7 @@ export class BookFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.book = new Book();
   }
 
   save() {

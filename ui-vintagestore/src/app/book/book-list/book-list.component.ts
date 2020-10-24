@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
-import {Book} from "../../shared/model/book";
+import {IBook} from "../../shared/model/book";
 
 @Component({
   templateUrl: './book-list.component.html',
@@ -9,7 +9,7 @@ import {Book} from "../../shared/model/book";
 })
 export class BookListComponent implements OnInit {
 
-  books?: Book[];
+  books?: IBook[];
 
   constructor(private numberEndpointService: BookEndpointService) {
   }
