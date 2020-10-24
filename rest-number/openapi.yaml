@@ -10,7 +10,7 @@ externalDocs:
   description: All the Practising Quarkus code
   url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract
 servers:
-  - url: http://localhost:8081
+  - url: http://localhost:8701
 tags:
   - name: api
     description: Public API that can be used by anybody

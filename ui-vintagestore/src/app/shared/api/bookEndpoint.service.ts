@@ -12,7 +12,7 @@ import {Book} from '../model/book';
 @Injectable()
 export class BookEndpointService {
 
-  protected basePath = 'http://localhost:8082';
+  protected basePath = 'http://localhost:8702';
   public defaultHeaders = new HttpHeaders();
 
   constructor(protected httpClient: HttpClient) {

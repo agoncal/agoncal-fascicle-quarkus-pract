@@ -37,7 +37,7 @@ public class ScenarioBook extends ScenarioInvoker {
 
   private static final int NB_BOOKS = 100;
 
-  private static final String targetUrl = "http://localhost:8082";
+  private static final String targetUrl = "http://localhost:8702";
 
   private static final String contextRoot = "/api/books";
 

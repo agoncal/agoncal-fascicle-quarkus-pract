@@ -27,7 +27,7 @@ import static java.util.stream.Collectors.toList;
 public class ScenarioNumber extends ScenarioInvoker {
 
   // tag::adocSnippet[]
-  private static final String targetUrl = "http://localhost:8081";
+  private static final String targetUrl = "http://localhost:8701";
 
   private static final String contextRoot = "/api/numbers";
 

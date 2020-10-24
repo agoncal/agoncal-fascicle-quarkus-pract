@@ -12,7 +12,7 @@ import {BookNumbers} from '../model/bookNumbers';
 @Injectable()
 export class NumberEndpointService {
 
-  protected basePath = 'http://localhost:8081';
+  protected basePath = 'http://localhost:8701';
 
   constructor(protected httpClient: HttpClient) {
   }
