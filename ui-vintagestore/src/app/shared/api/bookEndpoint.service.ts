@@ -107,7 +107,7 @@ export class BookEndpointService {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public createBook(body: Book, observe?: 'body', reportProgress?: boolean): Observable<string> {
+  public createBook(body: Book | undefined, observe?: 'body', reportProgress?: boolean): Observable<string> {
 
     if (body === null || body === undefined) {
       throw new Error('Required parameter body was null or undefined when calling apiBooksPost.');

@@ -8,7 +8,7 @@ import {BookEndpointService} from "../../shared/api/bookEndpoint.service";
 })
 export class BookRandomComponent implements OnInit {
 
-  book: Book;
+  book?: Book;
 
   constructor(private bookEndpointService: BookEndpointService) { }
 

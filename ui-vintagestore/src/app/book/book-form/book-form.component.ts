@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class BookFormComponent implements OnInit {
 
-  book:Book;
+  book?: Book;
 
   constructor(private bookEndpointService: BookEndpointService,
               private route: ActivatedRoute,

@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ui-bookstore": {
+    "ui-vintagestore": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -44,7 +44,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ui-bookstore",
+            "outputPath": "dist/ui-vintagestore",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -83,13 +83,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ]
             }
@@ -98,22 +98,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ui-bookstore:build"
+            "browserTarget": "ui-vintagestore:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ui-bookstore:build:production"
+              "browserTarget": "ui-vintagestore:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ui-bookstore:build"
-          }
+            "browserTarget": "ui-vintagestore:build"
         }
       }
     }
-  },
-  "defaultProject": "ui-bookstore"
+    }},
+  "defaultProject": "ui-vintagestore"
 }

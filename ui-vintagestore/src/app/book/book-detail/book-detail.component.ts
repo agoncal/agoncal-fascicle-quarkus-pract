@@ -9,7 +9,7 @@ import {Book} from "../../shared/model/book";
 })
 export class BookDetailComponent implements OnInit {
 
-  book: Book;
+  book?: Book;
 
   constructor(private bookEndpointService: BookEndpointService,
               private route: ActivatedRoute) {
