@@ -121,8 +121,8 @@
       <version>1.15.0-rc2</version>
       <scope>test</scope>
     </dependency>
+    <!-- end::adocDependencyTest[] -->
   </dependencies>
-  <!-- end::adocDependencyTest[] -->
 
   <!-- tag::adocBuild[] -->
   <build>
