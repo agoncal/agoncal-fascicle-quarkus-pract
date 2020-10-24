@@ -11,7 +11,7 @@
 # dependencies
 /node
 /node_modules
-/src/main/resources
+/src/main/resources/META-INF
 
 # profiling files
 chrome-profiler-events*.json
