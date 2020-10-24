@@ -11,7 +11,7 @@
 # dependencies
 /node
 /node_modules
-/src/main/resources/META-INF
+/src/main/resources/META-INF/ui-vintagestore
 
 # profiling files
 chrome-profiler-events*.json
