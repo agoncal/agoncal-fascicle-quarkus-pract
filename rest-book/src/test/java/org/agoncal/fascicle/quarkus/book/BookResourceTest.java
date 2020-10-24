@@ -11,8 +11,6 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,6 +19,9 @@ import java.util.Random;
 
 // tag::adocImportStatic[]
 import static io.restassured.RestAssured.given;
+import static javax.ws.rs.core.HttpHeaders.ACCEPT;
+import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import static javax.ws.rs.core.Response.Status.CREATED;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
@@ -87,7 +88,7 @@ public class BookResourceTest {
   @Test
   void shouldPingOpenAPI() {
     given()
-      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+      .header(ACCEPT, APPLICATION_JSON).
     when()
       .get("/openapi").
     then()
@@ -129,7 +130,7 @@ public class BookResourceTest {
   @Test
   void shouldPingMetrics() {
     given()
-      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+      .header(ACCEPT, APPLICATION_JSON).
     when()
       .get("/metrics/application").
     then()
@@ -161,7 +162,7 @@ public class BookResourceTest {
       .when().get("/api/books/random")
       .then()
       .statusCode(OK.getStatusCode())
-      .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
+      .header(CONTENT_TYPE, APPLICATION_JSON);
   }
 
   // tag::adocShouldNotAddInvalidItem[]
@@ -172,8 +173,8 @@ public class BookResourceTest {
 
     given()
       .body(book)
-      .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .header(ACCEPT, APPLICATION_JSON).
     when()
       .post("/api/books").
     then()
@@ -191,7 +192,7 @@ public class BookResourceTest {
         .get("/api/books").
       then()
         .statusCode(OK.getStatusCode())
-        .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+        .header(CONTENT_TYPE, APPLICATION_JSON)
         .extract().body().as(getBookTypeRef());
 
     nbBooks = books.size();
@@ -223,8 +224,8 @@ public class BookResourceTest {
     String location =
       given()
         .body(book)
-        .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-        .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+        .header(CONTENT_TYPE, APPLICATION_JSON)
+        .header(ACCEPT, APPLICATION_JSON).
       when()
         .post("/api/books").
       then()
@@ -244,7 +245,7 @@ public class BookResourceTest {
       .get("/api/books/{id}").
     then()
       .statusCode(OK.getStatusCode())
-      .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+      .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(DEFAULT_TITLE))
       .body("isbn13", Is.is(MOCK_ISBN_13))
       .body("isbn10", Is.is(MOCK_ISBN_10))
@@ -263,7 +264,7 @@ public class BookResourceTest {
         .get("/api/books").
       then()
         .statusCode(OK.getStatusCode())
-        .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+        .header(CONTENT_TYPE, APPLICATION_JSON)
         .extract().body().as(getBookTypeRef());
 
     assertEquals(nbBooks + 1, books.size());
@@ -292,13 +293,13 @@ public class BookResourceTest {
     // Updates the previously created book
     given()
       .body(book)
-      .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+      .header(CONTENT_TYPE, APPLICATION_JSON)
+      .header(ACCEPT, APPLICATION_JSON).
     when()
       .put("/api/books").
     then()
       .statusCode(OK.getStatusCode())
-      .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+      .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(UPDATED_TITLE))
       .body("isbn13", Is.is(MOCK_ISBN_13))
       .body("isbn10", Is.is(MOCK_ISBN_10))
@@ -333,7 +334,7 @@ public class BookResourceTest {
         .get("/api/books").
       then()
         .statusCode(OK.getStatusCode())
-        .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+        .header(CONTENT_TYPE, APPLICATION_JSON)
         .extract().body().as(getBookTypeRef());
 
     assertEquals(nbBooks, books.size());
