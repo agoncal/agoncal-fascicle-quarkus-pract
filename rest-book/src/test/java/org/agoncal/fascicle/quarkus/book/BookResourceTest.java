@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Random;
 
+// tag::adocImportStatic[]
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import static javax.ws.rs.core.Response.Status.CREATED;
@@ -29,6 +30,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+// end::adocImportStatic[]
 
 //@formatter:off
 // tag::adocHeader[]
