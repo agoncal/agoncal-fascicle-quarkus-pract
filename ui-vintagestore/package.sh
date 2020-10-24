@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # tag::adocSnippet[]
-export DEST=src/main/resources/META-INF/resources
+export DEST=src/main/resources/META-INF/resources/ui-vintagestore
 ./node_modules/.bin/ng build --prod --base-href "."
 rm -Rf ${DEST}
 mkdir -p ${DEST}
