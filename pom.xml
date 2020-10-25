@@ -11,6 +11,9 @@
 
   <!-- tag::adocModules[] -->
   <modules>
+    <!-- tag::adocSkipInventory[] -->
+    <module>event-inventory</module>
+    <!-- end::adocSkipInventory[] -->
     <module>first-step</module>
     <module>infrastructure</module>
     <module>load-vintagestore</module>

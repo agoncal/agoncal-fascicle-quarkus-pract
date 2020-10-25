@@ -1,5 +1,6 @@
 # tag::adocSnippet[]
 version: "3"
+# tag::adocPostgres[]
 services:
   database:
     image: "postgres:12.1"
@@ -10,6 +11,8 @@ services:
       - POSTGRES_DB=books_database
       - POSTGRES_USER=book
       - POSTGRES_PASSWORD=book
+# end::adocPostgres[]
+# tag::adocPrometheus[]
   monitoring:
     image: "prom/prometheus:v2.21.0"
     container_name: "vintage_store_monitoring"
@@ -17,7 +20,8 @@ services:
       - 9090:9090
     volumes:
       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
-# end::adocSnippet[]
+# end::adocPrometheus[]
+# tag::adocKafka[]
   zookeeper:
     image: strimzi/kafka:0.11.3-kafka-2.1.0
     container_name: "vintage_store_zookeeper"
@@ -45,3 +49,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+# end::adocKafka[]
+# tag::adocMongodb[]
+# end::adocMongodb[]
+# end::adocSnippet[]
