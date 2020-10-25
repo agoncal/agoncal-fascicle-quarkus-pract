@@ -16,8 +16,8 @@ public class MockNumberProxy implements NumberProxy {
   @Override
   public IsbnNumbers generateNumbers() {
     IsbnNumbers isbnNumbers = new IsbnNumbers();
-    isbnNumbers.setIsbn13(BookResourceTest.MOCK_ISBN_13);
-    isbnNumbers.setIsbn10(BookResourceTest.MOCK_ISBN_10);
+    isbnNumbers.isbn13 = BookResourceTest.MOCK_ISBN_13;
+    isbnNumbers.isbn10 = BookResourceTest.MOCK_ISBN_10;
     return isbnNumbers;
   }
 }

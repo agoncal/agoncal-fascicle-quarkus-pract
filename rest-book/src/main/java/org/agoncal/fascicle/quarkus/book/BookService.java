@@ -49,8 +49,8 @@ public class BookService {
     // tag::adocRestClient[]
     // The Book microservice invokes the Number microservice
     IsbnNumbers isbnNumbers = numberProxy.generateNumbers();
-    book.isbn13 = isbnNumbers.getIsbn13();
-    book.isbn10 = isbnNumbers.getIsbn10();
+    book.isbn13 = isbnNumbers.isbn13;
+    book.isbn10 = isbnNumbers.isbn10;
 
     // end::adocRestClient[]
     Book.persist(book);
