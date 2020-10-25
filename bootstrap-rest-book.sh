@@ -12,4 +12,6 @@ mvn io.quarkus:quarkus-maven-plugin:1.9.0.Final:create \
 
 cd rest-book
 
-./mvnw quarkus:add-extension -Dextensions="hibernate-validator"
+# tag::adocDependencyFaultTolerance[]
+./mvnw quarkus:add-extension -Dextensions="rest-client, smallrye-fault-tolerance"
+# end::adocDependencyFaultTolerance[]
