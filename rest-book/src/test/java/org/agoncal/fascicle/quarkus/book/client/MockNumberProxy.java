@@ -14,7 +14,7 @@ import javax.enterprise.context.ApplicationScoped;
 public class MockNumberProxy implements NumberProxy {
 
   @Override
-  public IsbnNumbers generateIsbnNumbers() {
+  public IsbnNumbers generateNumbers() {
     IsbnNumbers isbnNumbers = new IsbnNumbers();
     isbnNumbers.setIsbn13(BookResourceTest.MOCK_ISBN_13);
     isbnNumbers.setIsbn10(BookResourceTest.MOCK_ISBN_10);

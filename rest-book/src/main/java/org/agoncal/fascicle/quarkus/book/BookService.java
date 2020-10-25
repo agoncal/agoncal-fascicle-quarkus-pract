@@ -34,25 +34,25 @@ public class BookService {
   @Inject
   EntityManager em;
 
-  // tag::adocFaultTolerance[]
+  // tag::adocRestClientAttr[]
   @Inject
   @RestClient
   NumberProxy numberProxy;
+  // end::adocRestClientAttr[]
 
-  // end::adocFaultTolerance[]
   // tag::adocFallback[]
   @Fallback(fallbackMethod = "fallbackPersistBook")
   // end::adocFallback[]
   // tag::adocPersistBook[]
   // tag::adocBeanValidation[]
   public Book persistBook(@Valid Book book) {
-    // tag::adocFaultTolerance[]
+    // tag::adocRestClient[]
     // The Book microservice invokes the Number microservice
-    IsbnNumbers isbnNumbers = numberProxy.generateIsbnNumbers();
+    IsbnNumbers isbnNumbers = numberProxy.generateNumbers();
     book.isbn13 = isbnNumbers.getIsbn13();
     book.isbn10 = isbnNumbers.getIsbn10();
 
-    // end::adocFaultTolerance[]
+    // end::adocRestClient[]
     Book.persist(book);
     return book;
   }

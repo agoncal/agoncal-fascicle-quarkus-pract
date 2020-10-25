@@ -14,6 +14,6 @@ import javax.ws.rs.core.MediaType;
 public interface NumberProxy {
 
   @GET
-  IsbnNumbers generateIsbnNumbers();
+  IsbnNumbers generateNumbers();
 }
 // end::adocSnippet[]
