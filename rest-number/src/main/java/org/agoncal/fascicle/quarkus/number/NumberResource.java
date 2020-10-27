@@ -49,11 +49,11 @@ public class NumberResource {
   boolean separator;
 
   // end::adocConfigProperty[]
-  // tag::adocFault[]
+  // tag::adocFaultAttr[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
   int secondsToSleep = 0;
 
-  // end::adocFault[]
+  // end::adocFaultAttr[]
   // tag::adocOpenAPI[]
   @Operation(summary = "Generates book numbers", description = "These book numbers have several formats: ISBN, ASIN and EAN")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = BookNumbers.class)))
