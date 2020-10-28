@@ -85,7 +85,6 @@ public class NumberResource {
     return Response.ok(bookNumbers).build();
   }
   // end::adocGenerateBookNumbers[]
-
   // tag::adocPing[]
   @GET
   @Produces(MediaType.TEXT_PLAIN)
