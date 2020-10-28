@@ -4,10 +4,10 @@ package org.agoncal.fascicle.quarkus.number;
 // tag::adocImportFaker[]
 import com.github.javafaker.Faker;
 // end::adocImportFaker[]
-// tag::adocConfigProperty[]
+// tag::adocConfigPropertyImport[]
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-// end::adocConfigProperty[]
+// end::adocConfigPropertyImport[]
 import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
