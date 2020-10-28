@@ -8,7 +8,9 @@ import com.github.javafaker.Faker;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 // end::adocConfigPropertyImport[]
+// tag::adocImportFault[]
 import org.eclipse.microprofile.faulttolerance.Timeout;
+// end::adocImportFault[]
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
