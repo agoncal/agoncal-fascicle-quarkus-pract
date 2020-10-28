@@ -2,15 +2,10 @@ package org.agoncal.fascicle.quarkus.number;
 //@formatter:off
 
 // tag::adocImports[]
+import org.jboss.logging.Logger;
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
-// end::adocImports[]
 import io.quarkus.runtime.configuration.ProfileManager;
-// tag::adocSnippet[]
-import org.jboss.logging.Logger;
-
-// end::adocSnippet[]
-// tag::adocImports[]
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 // end::adocImports[]
