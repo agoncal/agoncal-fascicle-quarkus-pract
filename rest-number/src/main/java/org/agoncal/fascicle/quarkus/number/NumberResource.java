@@ -38,13 +38,13 @@ import java.util.concurrent.TimeUnit;
 // tag::adocOpenAPI[]
 @Tag(name = "Number Endpoint")
 // end::adocOpenAPI[]
-// tag::adocConfigProperty[]
 public class NumberResource {
 
   // tag::adocLogger[]
   private static final Logger LOGGER = Logger.getLogger(NumberResource.class);
 
   // end::adocLogger[]
+  // tag::adocConfigProperty[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")
   boolean separator;
 
