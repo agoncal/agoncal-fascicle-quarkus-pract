@@ -3,7 +3,9 @@ package org.agoncal.fascicle.quarkus.book;
 import org.agoncal.fascicle.quarkus.book.client.IsbnNumbers;
 import org.agoncal.fascicle.quarkus.book.client.NumberProxy;
 import org.eclipse.microprofile.faulttolerance.Fallback;
+// tag::adocImportRestClient[]
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+// end::adocImportRestClient[]
 // tag::adocImportInit[]
 import org.jboss.logging.Logger;
 // end::adocImportInit[]
