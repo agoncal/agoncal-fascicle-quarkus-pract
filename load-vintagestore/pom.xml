@@ -11,7 +11,7 @@
   <groupId>org.agoncal.fascicle.quarkus-practising</groupId>
   <artifactId>load-vintagestore</artifactId>
   <version>1.1-SNAPSHOT</version>
-  <name>Practising Quarkus :: Load</name>
+  <name>Practising Quarkus :: Load VintageStore</name>
 
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>

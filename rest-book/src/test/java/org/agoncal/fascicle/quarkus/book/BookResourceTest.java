@@ -82,7 +82,7 @@ public class BookResourceTest {
       .when().get("/api/books/ping")
       .then()
       .statusCode(OK.getStatusCode())
-      .body(is("ping"));
+      .body(is("hello"));
   }
 
   // tag::adocOpenAPI[]

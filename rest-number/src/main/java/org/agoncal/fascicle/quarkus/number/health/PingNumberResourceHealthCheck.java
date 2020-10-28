@@ -18,7 +18,7 @@ public class PingNumberResourceHealthCheck implements HealthCheck {
 
   @Override
   public HealthCheckResponse call() {
-    numberResource.ping();
+    numberResource.hello();
     return HealthCheckResponse.named("Ping Number REST Endpoint").up().build();
   }
 }

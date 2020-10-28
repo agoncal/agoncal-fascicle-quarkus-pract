@@ -88,10 +88,10 @@ public class NumberResource {
 
   // tag::adocPing[]
   @GET
-  @Path("/ping")
   @Produces(MediaType.TEXT_PLAIN)
-  public String ping() {
-    return "ping";
+  @Path("/ping")
+  public String hello() {
+    return "hello";
   }
   // end::adocPing[]
 }

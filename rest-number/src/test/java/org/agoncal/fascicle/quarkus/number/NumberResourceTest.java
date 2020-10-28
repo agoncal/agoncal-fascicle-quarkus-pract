@@ -47,7 +47,7 @@ public class NumberResourceTest {
       .when().get("/api/numbers/ping")
       .then()
       .statusCode(OK.getStatusCode())
-      .body(is("ping"));
+      .body(is("hello"));
   }
   // end::adocPing[]
   // tag::adocOpenAPI[]

@@ -155,8 +155,8 @@ public class BookResource {
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   @Path("/ping")
-  public String ping() {
-    return "ping";
+  public String hello() {
+    return "hello";
   }
   // end::adocPing[]
 }
