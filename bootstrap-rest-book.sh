@@ -15,3 +15,7 @@ cd rest-book
 # tag::adocDependencyFaultTolerance[]
 ./mvnw quarkus:add-extension -Dextensions="rest-client, smallrye-fault-tolerance"
 # end::adocDependencyFaultTolerance[]
+
+# tag::adocDependencyObservability[]
+./mvnw quarkus:add-extension -Dextensions="smallrye-health, smallrye-metrics"
+# end::adocDependencyObservability[]
