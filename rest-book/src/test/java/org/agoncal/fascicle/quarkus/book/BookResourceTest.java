@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.book;
 
+// tag::adocImports[]
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.DisabledOnNativeImage;
 import io.quarkus.test.junit.QuarkusTest;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+// end::adocImports[]
 
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
