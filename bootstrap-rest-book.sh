@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # tag::adocBootstrap[]
-mvn io.quarkus:quarkus-maven-plugin:1.9.0.Final:create \
-    -DplatformVersion=1.9.0.Final \
+mvn io.quarkus:quarkus-maven-plugin:1.9.1.Final:create \
+    -DplatformVersion=1.9.1.Final \
     -DprojectGroupId=org.agoncal.fascicle.quarkus-practising \
     -DprojectArtifactId=rest-book \
     -DprojectVersion=1.1-SNAPSHOT \
@@ -19,3 +19,7 @@ cd rest-book
 # tag::adocDependencyObservability[]
 ./mvnw quarkus:add-extension -Dextensions="smallrye-health, smallrye-metrics"
 # end::adocDependencyObservability[]
+
+# tag::adocDependencyDocker[]
+./mvnw quarkus:add-extension -Dextensions="container-image-docker"
+# end::adocDependencyDocker[]
