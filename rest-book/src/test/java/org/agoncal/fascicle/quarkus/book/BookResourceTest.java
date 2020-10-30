@@ -11,7 +11,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-// end::adocImports[]
 
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
@@ -19,7 +18,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.Random;
 
-// tag::adocImportStatic[]
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
@@ -30,11 +28,12 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.Matchers.hasKey;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+// end::adocImports[]
+// tag::adocImportStatic[]
 // end::adocImportStatic[]
 
 //@formatter:off
@@ -252,8 +251,6 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(DEFAULT_TITLE))
-      .body("$", hasKey("isbn13"))
-      .body("$", hasKey("isbn10"))
       .body("author", Is.is(DEFAULT_AUTHOR))
       .body("yearOfPublication", Is.is(DEFAULT_YEAR_OF_PUBLICATION))
       .body("nbOfPages", Is.is(DEFAULT_NB_OF_PAGES))
@@ -304,8 +301,6 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(UPDATED_TITLE))
-      .body("$", not(hasKey("isbn13")))
-      .body("$", not(hasKey("isbn10")))
       .body("author", Is.is(UPDATED_AUTHOR))
       .body("yearOfPublication", Is.is(UPDATED_YEAR_OF_PUBLICATION))
       .body("nbOfPages", Is.is(UPDATED_NB_OF_PAGES))
