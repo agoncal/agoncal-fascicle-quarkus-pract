@@ -28,6 +28,7 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasKey;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -61,10 +62,6 @@ public class BookResourceTest {
   private static final URL UPDATED_MEDIUM_IMAGE_URL = makeUrl("http://www.updatedurl.com");
   private static final String DEFAULT_DESCRIPTION = "Description";
   private static final String UPDATED_DESCRIPTION = "Description (updated)";
-  // tag::adocProxyAttr[]
-  public static final String MOCK_ISBN_13 = "Isbn 13";
-  public static final String MOCK_ISBN_10 = "Isbn 10";
-  // end::adocProxyAttr[]
 
   private static URL makeUrl(String urlString) {
     try {
@@ -382,8 +379,8 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(DEFAULT_TITLE))
-      .body("isbn13", Is.is(MOCK_ISBN_13))
-      .body("isbn10", Is.is(MOCK_ISBN_10))
+      .body("$", hasKey("isbn13"))
+      .body("$", hasKey("isbn10"))
       .body("author", Is.is(DEFAULT_AUTHOR))
       .body("yearOfPublication", Is.is(DEFAULT_YEAR_OF_PUBLICATION))
       .body("nbOfPages", Is.is(DEFAULT_NB_OF_PAGES))
