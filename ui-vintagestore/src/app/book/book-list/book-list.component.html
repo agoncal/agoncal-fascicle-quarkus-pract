@@ -14,6 +14,7 @@
       <th><span>Isbn</span></th>
       <th><span>Title</span></th>
       <th><span>Author</span></th>
+      <th><span>ISBN</span></th>
       <th></th>
     </tr>
     </thead>
@@ -24,6 +25,7 @@
       <td>{{book.isbn13}}</td>
       <td>{{book.title | slice:0:50}}</td>
       <td>{{book.author}}</td>
+      <td>{{book.isbn13}}</td>
       <td class="text-right">
         <div class="btn-group flex-btn-group-container">
           <button type="submit" [routerLink]="['/book-detail', book.id ]" class="btn btn-info btn-sm">
