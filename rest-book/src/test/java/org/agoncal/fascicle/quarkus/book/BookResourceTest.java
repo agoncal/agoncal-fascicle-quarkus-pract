@@ -99,7 +99,10 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode());
   }
 
+  // tag::adocSwagger[]
+  // tag::adocNative[]
   @DisabledOnNativeImage
+  // end::adocNative[]
   @Test
   void shouldPingSwaggerUI() {
     given().
@@ -109,6 +112,7 @@ public class BookResourceTest {
       .statusCode(OK.getStatusCode());
   }
   // end::adocOpenAPI[]
+  // end::adocSwagger[]
 
   // tag::adocHealth[]
   @Test
@@ -208,7 +212,6 @@ public class BookResourceTest {
   }
   // end::adocShouldGetInitialItems[]
 
-  @DisabledOnNativeImage
   // tag::adocShouldAddAnItem[]
   @Test
   @Order(2)
@@ -273,7 +276,6 @@ public class BookResourceTest {
   }
   // end::adocShouldAddAnItem[]
 
-  @DisabledOnNativeImage
   // tag::adocShouldUpdateAnItem[]
   @Test
   @Order(3)
@@ -312,7 +314,6 @@ public class BookResourceTest {
   }
   // end::adocShouldUpdateAnItem[]
 
-  @DisabledOnNativeImage
   // tag::adocShouldRemoveAnItem[]
   @Test
   @Order(4)

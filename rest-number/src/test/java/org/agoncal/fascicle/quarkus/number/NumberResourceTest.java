@@ -21,9 +21,6 @@ import static org.hamcrest.Matchers.not;
 @QuarkusTest
 public class NumberResourceTest {
 
-  // tag::adocNative[]
-  @DisabledOnNativeImage
-  // end::adocNative[]
   @Test
   void shouldGenerateBookNumber() {
     given()
