@@ -1,33 +1,50 @@
-.DS_Store
-.idea
-*.log
-*.jdbc
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+*dummy*
+dummy/
+dist/
+tmp/
+target/
+maven-wrapper.jar
+
+# dependencies
+node/
+node_modules/
+src/main/resources/META-INF/resources/ui-vintagestore/
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
 *.iml
-target
-*.class
-*.jar
-*.war
-*.ear
-*.rar
-*.ipr
-*.iws
-rebel.xml
-*DB
-*.dat
-.classpath
+/.idea
 .project
-.settings
-WebContent
-*.vpp~*
-*.vpdm
-vpproject
-.vpprefdata
-*dummy*.*
-*dummy*/
-*-soapui-project.xml
-.lock
-teamworkUser.xml
-projectFilesBackup*
-create.sql
-drop.sql
-lsp
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db

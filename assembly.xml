@@ -48,7 +48,7 @@
     </fileSet>
     <fileSet>
       <directory>${basedir}</directory>
-      <useDefaultExcludes>true</useDefaultExcludes>
+      <useDefaultExcludes>false</useDefaultExcludes>
       <includes>
         <include>.dockerignore</include>
         <include>.editorconfig</include>
