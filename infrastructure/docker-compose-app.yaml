@@ -2,7 +2,7 @@
 version: "3"
 services:
   ui:
-    image: "agoncal/ui-vintagestore:1.1"
+    image: "agoncal/ui-vintagestore:1.1-SNAPSHOT"
     container_name: "vintage_store_ui"
     ports:
       - "8700:8700"
@@ -10,12 +10,12 @@ services:
       - rest-number
       - rest-book
   rest-number:
-    image: "agoncal/rest-number:1.1"
+    image: "agoncal/rest-number:1.1-SNAPSHOT"
     container_name: "vintage_store_rest_number"
     ports:
       - "8701:8701"
   rest-book:
-    image: "agoncal/rest-book:1.1"
+    image: "agoncal/rest-book:1.1-SNAPSHOT"
     container_name: "vintage_store_rest_book"
     ports:
       - "8702:8702"
