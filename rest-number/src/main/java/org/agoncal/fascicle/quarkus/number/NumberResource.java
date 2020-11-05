@@ -48,8 +48,10 @@ public class NumberResource {
   // end::adocLogger[]
   // tag::adocConfigProperty[]
   @ConfigProperty(name = "number.separator", defaultValue = "false")
+  // tag::adocSeparatorProperty[]
   boolean separator;
 
+  // end::adocSeparatorProperty[]
   // end::adocConfigProperty[]
   // tag::adocFaultAttr[]
   @ConfigProperty(name = "seconds.sleep", defaultValue = "0")
