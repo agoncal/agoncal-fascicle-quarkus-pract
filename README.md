@@ -1,6 +1,6 @@
 # AGoncal Fascicle: Practising Quarkus Fascicle
 
-Code of my future Practising Quarkus Fascicle
+Code of my [Practising Quarkus Fascicle](https://developers.redhat.com/books/practising-quarkus)
 
 ![Travis](https://travis-ci.org/agoncal/agoncal-fascicle-quarkus-pract.svg?branch=1.x)
 
