@@ -93,6 +93,7 @@ In `angular.json`:
 ng generate module book/book --flat=true --module=app.module.ts --routing=true --route=book
 ng generate module number/number --flat=true --module=app.module.ts --routing=true --route=number
 ng generate module inventory/inventory --flat=true --module=app.module.ts --routing=true --route=inventory
+ng generate module admin/admin --flat=true --module=app.module.ts --routing=true --route=admin
 ```
 
 ## Components
