@@ -9,6 +9,8 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
 import static io.restassured.RestAssured.given;
+import static javax.ws.rs.core.HttpHeaders.ACCEPT;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
@@ -40,9 +42,10 @@ public class NumberResourceTest {
   @Test
   void shouldSayPing() {
     given()
-      .header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN)
-      .when().get("/api/numbers/ping")
-      .then()
+      .header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN).
+    when()
+      .get("/api/numbers/ping").
+    then()
       .statusCode(OK.getStatusCode())
       .body(is("hello"));
   }
@@ -73,7 +76,8 @@ public class NumberResourceTest {
   // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {
-    given().
+    given()
+      .header(ACCEPT, APPLICATION_JSON).
     when()
       .get("/health/live").
     then()
@@ -82,7 +86,8 @@ public class NumberResourceTest {
 
   @Test
   void shouldPingReadiness() {
-    given().
+    given()
+      .header(ACCEPT, APPLICATION_JSON).
     when()
       .get("/health/ready").
     then()
@@ -104,8 +109,10 @@ public class NumberResourceTest {
   @Test
   void shouldNotFindDummy() {
     given()
-      .when().get("/api/numbers/dummy")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/api/numbers/dummy").
+    then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
   // end::adocSkip[]

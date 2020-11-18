@@ -112,7 +112,8 @@ public class BookResourceTest {
   // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {
-    given().
+    given()
+      .header(ACCEPT, APPLICATION_JSON).
     when()
       .get("/health/live").
     then()
@@ -121,7 +122,8 @@ public class BookResourceTest {
 
   @Test
   void shouldPingReadiness() {
-    given().
+    given()
+      .header(ACCEPT, APPLICATION_JSON).
     when()
       .get("/health/ready").
     then()
