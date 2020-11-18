@@ -144,8 +144,10 @@ public class BookResourceTest {
   @Test
   public void shouldNotFindDummy() {
     given()
-      .when().get("/api/books/dummy")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/api/books/dummy").
+    then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
 
@@ -153,19 +155,21 @@ public class BookResourceTest {
   void shouldNotGetUnknownBook() {
     Long randomId = new Random().nextLong();
     given()
-      .pathParam("id", randomId)
-      .when().get("/api/books/{id}")
-      .then()
+      .pathParam("id", randomId).
+    when()
+      .get("/api/books/{id}").
+    then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
 
   @Test
   void shouldGetRandomBook() {
     given()
-      .when().get("/api/books/random")
-      .then()
-      .statusCode(OK.getStatusCode())
-      .header(CONTENT_TYPE, APPLICATION_JSON);
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/api/books/random").
+    then()
+      .statusCode(OK.getStatusCode());
   }
 
   // tag::adocShouldNotAddInvalidItem[]
@@ -190,7 +194,8 @@ public class BookResourceTest {
   @Order(1)
   void shouldGetInitialBooks() {
     List<Book> books =
-      given().
+      given()
+        .header(ACCEPT, APPLICATION_JSON).
       when()
         .get("/api/books").
       then()
@@ -242,6 +247,7 @@ public class BookResourceTest {
 
     // Checks the book has been created
     given()
+      .header(ACCEPT, APPLICATION_JSON)
       .pathParam("id", bookId).
     when()
       .get("/api/books/{id}").
@@ -260,6 +266,7 @@ public class BookResourceTest {
     // Checks there is an extra book in the database
     List<Book> books =
       given().
+        header(ACCEPT, APPLICATION_JSON).
       when()
         .get("/api/books").
       then()
@@ -323,7 +330,8 @@ public class BookResourceTest {
 
     // Checks there is less a book in the database
     List<Book> books =
-      given().
+      given()
+        .header(ACCEPT, APPLICATION_JSON).
       when()
         .get("/api/books").
       then()
@@ -370,10 +378,11 @@ public class BookResourceTest {
 
     // Checks the book has been created
     given()
+      .header(ACCEPT, APPLICATION_JSON)
       .pathParam("id", bookId).
-      when()
+    when()
       .get("/api/books/{id}").
-      then()
+    then()
       .statusCode(OK.getStatusCode())
       .header(CONTENT_TYPE, APPLICATION_JSON)
       .body("title", Is.is(DEFAULT_TITLE))
@@ -389,10 +398,11 @@ public class BookResourceTest {
 
     // Checks there is an extra book in the database
     List<Book> books =
-      given().
-        when()
+      given()
+        .header(ACCEPT, APPLICATION_JSON).
+      when()
         .get("/api/books").
-        then()
+      then()
         .statusCode(OK.getStatusCode())
         .header(CONTENT_TYPE, APPLICATION_JSON)
         .extract().body().as(getBookTypeRef());
