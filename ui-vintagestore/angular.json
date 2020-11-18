@@ -57,7 +57,7 @@
             "styles": [
               "./node_modules/bootstrap/scss/bootstrap.scss",
               "src/jumbotron.scss",
-              "./node_modules/font-awesome/scss/font-awesome.scss"
+              "./node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.js",
