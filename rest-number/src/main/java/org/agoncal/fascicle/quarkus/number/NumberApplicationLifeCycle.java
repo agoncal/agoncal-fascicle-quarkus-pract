@@ -7,14 +7,15 @@ import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import io.quarkus.runtime.configuration.ProfileManager;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
+import javax.enterprise.event.Observes;import javax.inject.Inject;
 // end::adocImports[]
 
 // tag::adocSnippet[]
 @ApplicationScoped
 class NumberApplicationLifeCycle {
 
-  private static final Logger LOGGER = Logger.getLogger(NumberApplicationLifeCycle.class);
+  @Inject
+  Logger LOGGER;
 
   void onStart(@Observes StartupEvent ev) {
     LOGGER.info(" _   _                 _               ");

@@ -51,7 +51,8 @@ public class BookResource {
   BookService service;
   // end::adocInjection[]
 
-  private static final Logger LOGGER = Logger.getLogger(BookResource.class);
+  @Inject
+  Logger LOGGER;
 
   @Operation(summary = "Returns a random book")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))

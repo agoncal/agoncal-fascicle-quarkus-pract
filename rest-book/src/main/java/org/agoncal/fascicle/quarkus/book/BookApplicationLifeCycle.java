@@ -7,12 +7,14 @@ import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
+import javax.inject.Inject;
 
 // tag::adocSnippet[]
 @ApplicationScoped
 class BookApplicationLifeCycle {
 
-  private static final Logger LOGGER = Logger.getLogger(BookApplicationLifeCycle.class);
+  @Inject
+  Logger LOGGER;
 
   void onStart(@Observes StartupEvent ev) {
     LOGGER.info("______             _");

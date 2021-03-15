@@ -33,7 +33,8 @@ import java.util.Optional;
 @Transactional(Transactional.TxType.REQUIRED)
 public class BookService {
 
-  private static final Logger LOGGER = Logger.getLogger(BookService.class);
+  @Inject
+  Logger LOGGER;
 
   @Inject
   EntityManager em;
