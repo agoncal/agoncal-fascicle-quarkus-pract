@@ -100,7 +100,7 @@ public class NumberResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/metrics/application").
+      .get("/q/metrics/application").
     then()
       .statusCode(OK.getStatusCode());
   }

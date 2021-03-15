@@ -137,7 +137,7 @@ public class BookResourceTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/metrics/application").
+      .get("/q/metrics/application").
     then()
       .statusCode(OK.getStatusCode());
   }
