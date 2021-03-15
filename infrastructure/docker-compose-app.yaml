@@ -40,7 +40,7 @@ services:
       timeout: 5s
       retries: 5
   monitoring:
-    image: "prom/prometheus:v2.22.0"
+    image: "prom/prometheus:v2.25.1"
     container_name: "vintage_store_monitoring"
     ports:
       - 9090:9090
