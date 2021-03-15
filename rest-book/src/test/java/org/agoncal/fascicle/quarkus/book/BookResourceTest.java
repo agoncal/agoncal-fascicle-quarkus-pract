@@ -115,7 +115,7 @@ public class BookResourceTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/health/live").
+      .get("/q/health/live").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -125,7 +125,7 @@ public class BookResourceTest {
     given()
       .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/health/ready").
+      .get("/q/health/ready").
     then()
       .statusCode(OK.getStatusCode());
   }
