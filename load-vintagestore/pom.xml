@@ -43,10 +43,11 @@
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-client</artifactId>
     </dependency>
-<!-- TODO   <dependency>-->
-<!--      <groupId>javax.annotation</groupId>-->
-<!--      <artifactId>javax.annotation-api</artifactId>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.2</version>
+    </dependency>
     <dependency>
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
