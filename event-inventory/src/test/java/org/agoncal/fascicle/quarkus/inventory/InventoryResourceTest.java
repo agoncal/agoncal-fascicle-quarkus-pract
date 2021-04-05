@@ -15,7 +15,7 @@ public class InventoryResourceTest {
           .when().get("/api/inventory")
           .then()
              .statusCode(200)
-             .body(is("hello"));
+             .body(is("Hello RESTEasy"));
     }
 
 }
