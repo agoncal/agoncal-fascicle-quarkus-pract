@@ -1,16 +1,24 @@
+# tag::adocSnippet[]
 version: "3"
+# tag::adocPostgres[]
 services:
   database:
     image: "postgres:12.1"
-    container_name: "books-database"
+    container_name: "vintage_store_books_database"
     ports:
       - "5432:5432"
-    volumes:
-      - ./db-init/initialize-databases.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_DB=books_database
+      - POSTGRES_USER=book
+      - POSTGRES_PASSWORD=book
+# end::adocPostgres[]
+# tag::adocPrometheus[]
   monitoring:
-    image: "prom/prometheus:v2.21.0"
-    container_name: "books-monitoring"
+    image: "prom/prometheus:v2.25.1"
+    container_name: "vintage_store_monitoring"
     ports:
       - 9090:9090
     volumes:
       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+# end::adocPrometheus[]
+# end::adocSnippet[]

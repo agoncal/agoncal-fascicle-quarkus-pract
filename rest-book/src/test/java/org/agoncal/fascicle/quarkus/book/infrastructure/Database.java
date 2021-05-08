@@ -1,7 +1,9 @@
 package org.agoncal.fascicle.quarkus.book.infrastructure;
 
+// tag::adocImport[]
 import io.quarkus.test.common.QuarkusTestResourceLifecycleManager;
 import org.testcontainers.containers.PostgreSQLContainer;
+// end::adocImport[]
 
 import java.util.Collections;
 import java.util.Map;

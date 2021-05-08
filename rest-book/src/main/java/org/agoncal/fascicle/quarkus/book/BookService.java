@@ -2,16 +2,26 @@ package org.agoncal.fascicle.quarkus.book;
 
 import org.agoncal.fascicle.quarkus.book.client.IsbnNumbers;
 import org.agoncal.fascicle.quarkus.book.client.NumberProxy;
+// tag::adocFallbackImport[]
 import org.eclipse.microprofile.faulttolerance.Fallback;
+// end::adocFallbackImport[]
+// tag::adocImportRestClient[]
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+// end::adocImportRestClient[]
+// tag::adocImportInit[]
 import org.jboss.logging.Logger;
+// end::adocImportInit[]
 
+// tag::adocImportInit[]
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+// end::adocImportInit[]
 import javax.json.bind.JsonbBuilder;
+// tag::adocImportInit[]
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+// end::adocImportInit[]
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.Instant;
@@ -23,30 +33,31 @@ import java.util.Optional;
 @Transactional(Transactional.TxType.REQUIRED)
 public class BookService {
 
-  private static final Logger LOGGER = Logger.getLogger(BookService.class);
+  @Inject
+  Logger LOGGER;
 
   @Inject
   EntityManager em;
 
-  // tag::adocFaultTolerance[]
+  // tag::adocRestClientAttr[]
   @Inject
   @RestClient
   NumberProxy numberProxy;
+  // end::adocRestClientAttr[]
 
-  // end::adocFaultTolerance[]
   // tag::adocFallback[]
   @Fallback(fallbackMethod = "fallbackPersistBook")
   // end::adocFallback[]
   // tag::adocPersistBook[]
   // tag::adocBeanValidation[]
   public Book persistBook(@Valid Book book) {
-    // tag::adocFaultTolerance[]
+    // tag::adocRestClient[]
     // The Book microservice invokes the Number microservice
-    IsbnNumbers isbnNumbers = numberProxy.generateIsbnNumbers();
-    book.isbn13 = isbnNumbers.getIsbn13();
-    book.isbn10 = isbnNumbers.getIsbn10();
+    IsbnNumbers isbnNumbers = numberProxy.generateNumbers();
+    book.isbn13 = isbnNumbers.isbn13;
+    book.isbn10 = isbnNumbers.isbn10;
 
-    // end::adocFaultTolerance[]
+    // end::adocRestClient[]
     Book.persist(book);
     return book;
   }
@@ -57,6 +68,9 @@ public class BookService {
 
   private Book fallbackPersistBook(Book book) throws FileNotFoundException {
     LOGGER.warn("Falling back on persisting a book");
+    book.id = 0L;
+    book.isbn13 = "to be fixed";
+    book.isbn10 = "to be fixed";
     String bookJson = JsonbBuilder.create().toJson(book);
     try (PrintWriter out = new PrintWriter("book-" + Instant.now().toEpochMilli() + ".json")) {
       out.println(bookJson);

@@ -3,6 +3,7 @@ package org.agoncal.fascicle.quarkus.book;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
+// tag::adocImportInit[]
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -28,11 +29,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
+// end::adocImportInit[]
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+// tag::adocImportInit[]
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
+// end::adocImportInit[]
 
 // tag::adocInjection[]
 // tag::adocSnippet[]
@@ -47,7 +51,8 @@ public class BookResource {
   BookService service;
   // end::adocInjection[]
 
-  private static final Logger LOGGER = Logger.getLogger(BookResource.class);
+  @Inject
+  Logger LOGGER;
 
   @Operation(summary = "Returns a random book")
   @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
@@ -151,8 +156,8 @@ public class BookResource {
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   @Path("/ping")
-  public String ping() {
-    return "ping";
+  public String hello() {
+    return "hello";
   }
   // end::adocPing[]
 }

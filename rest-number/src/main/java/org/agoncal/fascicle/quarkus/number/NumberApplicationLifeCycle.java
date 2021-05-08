@@ -1,20 +1,21 @@
 package org.agoncal.fascicle.quarkus.number;
+//@formatter:off
 
+// tag::adocImports[]
+import org.jboss.logging.Logger;
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import io.quarkus.runtime.configuration.ProfileManager;
-// tag::adocSnippet[]
-import org.jboss.logging.Logger;
-
-// end::adocSnippet[]
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
+import javax.enterprise.event.Observes;import javax.inject.Inject;
+// end::adocImports[]
 
 // tag::adocSnippet[]
 @ApplicationScoped
 class NumberApplicationLifeCycle {
 
-  private static final Logger LOGGER = Logger.getLogger(NumberApplicationLifeCycle.class);
+  @Inject
+  Logger LOGGER;
 
   void onStart(@Observes StartupEvent ev) {
     LOGGER.info(" _   _                 _               ");

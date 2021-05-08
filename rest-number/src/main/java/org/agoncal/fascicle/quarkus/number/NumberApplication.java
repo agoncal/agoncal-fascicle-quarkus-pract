@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.quarkus.number;
 
+// tag::adocImports[]
 import org.eclipse.microprofile.openapi.annotations.ExternalDocumentation;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Contact;
@@ -8,6 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+// end::adocImports[]
 
 // tag::adocSnippet[]
 @ApplicationPath("/")

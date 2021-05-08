@@ -1,0 +1,17 @@
+<h1>{{book?.title | slice:0:50}}</h1>
+
+<h2>{{book?.author}}</h2>
+<img [src]="book?.mediumImageUrl" style="width: 100px">
+<p>
+  {{book?.description}}
+</p>
+
+<div>
+  <button type="button" [routerLink]="['/book-list']" class="btn btn-secondary" data-dismiss="modal">
+    <span class="fa fa-chevron-left"></span>&nbsp;<span>Back</span>
+  </button>
+  <button class="btn btn-primary" (click)="load()">
+    <span class="fa fa-refresh"></span>
+    <span>Next</span>
+  </button>
+</div>

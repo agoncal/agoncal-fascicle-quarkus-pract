@@ -1,9 +1,11 @@
 package org.agoncal.fascicle.quarkus.number.health;
 
 import org.agoncal.fascicle.quarkus.number.NumberResource;
+// tag::adocImports[]
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.Liveness;
+// end::adocImports[]
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -18,7 +20,7 @@ public class PingNumberResourceHealthCheck implements HealthCheck {
 
   @Override
   public HealthCheckResponse call() {
-    numberResource.ping();
+    numberResource.hello();
     return HealthCheckResponse.named("Ping Number REST Endpoint").up().build();
   }
 }

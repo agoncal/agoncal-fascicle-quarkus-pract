@@ -9,6 +9,14 @@
 
   <fileSets>
     <fileSet>
+      <directory>first-step</directory>
+      <useDefaultExcludes>true</useDefaultExcludes>
+      <excludes>
+        <exclude>**/target/**</exclude>
+        <exclude>*.iml</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet>
       <directory>infrastructure</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
@@ -17,7 +25,7 @@
       </excludes>
     </fileSet>
     <fileSet>
-      <directory>load-bookstore</directory>
+      <directory>load-vintagestore</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>**/target/**</exclude>
@@ -25,43 +33,13 @@
       </excludes>
     </fileSet>
     <fileSet>
-      <directory>rest-book</directory>
-      <useDefaultExcludes>true</useDefaultExcludes>
-      <excludes>
-        <exclude>pom_temp.xml</exclude>
-        <exclude>pom_to_be_renamed.xml</exclude>
-        <exclude>*.json</exclude>
-        <exclude>*.yaml</exclude>
-        <exclude>*.iml</exclude>
-        <exclude>*.txt</exclude>
-        <exclude>**/application.properties</exclude>
-        <exclude>**/*.java</exclude>
-        <exclude>**/target/**</exclude>
-      </excludes>
-    </fileSet>
-    <fileSet>
-      <directory>rest-number</directory>
-      <useDefaultExcludes>true</useDefaultExcludes>
-      <excludes>
-        <exclude>pom_temp.xml</exclude>
-        <exclude>pom_to_be_renamed.xml</exclude>
-        <exclude>*.json</exclude>
-        <exclude>*.yaml</exclude>
-        <exclude>*.iml</exclude>
-        <exclude>*.txt</exclude>
-        <exclude>**/application.properties</exclude>
-        <exclude>**/*.java</exclude>
-        <exclude>**/target/**</exclude>
-      </excludes>
-    </fileSet>
-    <fileSet>
-      <directory>ui-bookstore</directory>
+      <directory>ui-vintagestore</directory>
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>*.iml</exclude>
         <exclude>package-lock.json</exclude>
         <exclude>README.md</exclude>
-        <exclude>**/main/resources/**</exclude>
+        <exclude>**/main/resources/META-INF/resources/ui-vintagestore/**</exclude>
         <exclude>**/dist/**</exclude>
         <exclude>**/target/**</exclude>
         <exclude>**/node/**</exclude>
@@ -70,7 +48,7 @@
     </fileSet>
     <fileSet>
       <directory>${basedir}</directory>
-      <useDefaultExcludes>true</useDefaultExcludes>
+      <useDefaultExcludes>false</useDefaultExcludes>
       <includes>
         <include>.dockerignore</include>
         <include>.editorconfig</include>

@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" [routerLink]="['']">Vintage Store</a>
+
+  <div class="collapse navbar-collapse" id="navbars">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown-number" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">Number</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-number">
+          <li>
+            <a class="dropdown-item" [routerLink]="['/number-generate']">
+              <i class="fa fa-fw fa-refresh" aria-hidden="true"></i>
+              <span>Generate</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown-book" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">Book</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-book">
+          <li>
+            <a class="dropdown-item" [routerLink]="['/book-list']">
+              <i class="fa fa-fw fa-list" aria-hidden="true"></i>
+              <span>List</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/book-random']">
+              <i class="fa fa-fw fa-random" aria-hidden="true"></i>
+              <span>Random</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown-admin" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">Admin</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-admin">
+          <li>
+            <a class="dropdown-item" href="http://localhost:8701/q/swagger-ui" target="_blank">
+              <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+              <span>Number Swagger-UI</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="http://localhost:8701/q/dev" target="_blank">
+              <i class="fa fa-fw laptop" aria-hidden="true"></i>
+              <span>Number Dev</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="http://localhost:8702/q/swagger-ui" target="_blank">
+              <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+              <span>Book Swagger-UI</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="http://localhost:8702/q/dev" target="_blank">
+              <i class="fa fa-fw laptop" aria-hidden="true"></i>
+              <span>Book Dev</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="http://localhost:9090" target="_blank">
+              <i class="fa fa-fw fa-line-chart" aria-hidden="true"></i>
+              <span>Prometheus</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main">
+  <div class="jumbotron">
+    <h1 class="display-4">Vintage Store</h1>
+    <p class="lead">You can buy Books for a cheap price. Browse our catalog and do not hesitate to shop online.</p>
+  </div>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+    <hr>
+  </div>
+</main>

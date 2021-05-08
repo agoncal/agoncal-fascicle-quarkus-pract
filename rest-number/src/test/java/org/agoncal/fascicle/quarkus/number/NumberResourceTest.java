@@ -4,30 +4,31 @@ import io.quarkus.test.junit.DisabledOnNativeImage;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
+// tag::adocImports[]
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
 import static io.restassured.RestAssured.given;
+import static javax.ws.rs.core.HttpHeaders.ACCEPT;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.not;
+// end::adocImports[]
 
 //@formatter:off
 // tag::adocSnippet[]
 @QuarkusTest
 public class NumberResourceTest {
 
-  // tag::adocNative[]
-  @DisabledOnNativeImage
-  // end::adocNative[]
   @Test
   void shouldGenerateBookNumber() {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/api/numbers/book").
+      .get("/api/numbers").
     then()
       .statusCode(OK.getStatusCode())
       .body("$", hasKey("isbn_10"))
@@ -41,11 +42,12 @@ public class NumberResourceTest {
   @Test
   void shouldSayPing() {
     given()
-      .header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN)
-      .when().get("/api/numbers/book/ping")
-      .then()
+      .header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN).
+    when()
+      .get("/api/numbers/ping").
+    then()
       .statusCode(OK.getStatusCode())
-      .body(is("ping"));
+      .body(is("hello"));
   }
   // end::adocPing[]
   // tag::adocOpenAPI[]
@@ -54,7 +56,7 @@ public class NumberResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/openapi").
+      .get("/q/openapi").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -66,7 +68,7 @@ public class NumberResourceTest {
   void shouldPingSwaggerUI() {
     given().
     when()
-      .get("/swagger-ui").
+      .get("/q/swagger-ui").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -74,18 +76,20 @@ public class NumberResourceTest {
   // tag::adocHealth[]
   @Test
   void shouldPingLiveness() {
-    given().
+    given()
+      .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/health/live").
+      .get("/q/health/live").
     then()
       .statusCode(OK.getStatusCode());
   }
 
   @Test
   void shouldPingReadiness() {
-    given().
+    given()
+      .header(ACCEPT, APPLICATION_JSON).
     when()
-      .get("/health/ready").
+      .get("/q/health/ready").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -96,7 +100,7 @@ public class NumberResourceTest {
     given()
       .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
     when()
-      .get("/metrics/application").
+      .get("/q/metrics/application").
     then()
       .statusCode(OK.getStatusCode());
   }
@@ -105,8 +109,10 @@ public class NumberResourceTest {
   @Test
   void shouldNotFindDummy() {
     given()
-      .when().get("/api/numbers/book/dummy")
-      .then()
+      .header(ACCEPT, APPLICATION_JSON).
+    when()
+      .get("/api/numbers/dummy").
+    then()
       .statusCode(NOT_FOUND.getStatusCode());
   }
   // end::adocSkip[]

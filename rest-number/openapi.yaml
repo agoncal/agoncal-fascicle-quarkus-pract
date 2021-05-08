@@ -9,23 +9,21 @@ info:
 externalDocs:
   description: All the Practising Quarkus code
   url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract
-servers:
-  - url: http://localhost:8081
 tags:
   - name: api
     description: Public API that can be used by anybody
   - name: numbers
     description: Anybody interested in numbers
-  - name: Book Numbers generator service
+  - name: Number Endpoint
 paths:
-  /api/numbers/book:
+  /api/numbers:
     get:
       tags:
-        - Book Numbers generator service
+        - Number Endpoint
       summary: Generates book numbers
-      description: 'These book numbers have several formats: ISBN, ASIN and EAN'
+      description: "These book numbers have several formats: ISBN, ASIN and EAN"
       responses:
-        200:
+        "200":
           description: OK
           content:
             application/json:
@@ -36,17 +34,17 @@ components:
     BookNumbers:
       description: Several formats of book numbers
       required:
-        - isbn-10
-        - isbn-13
+        - isbn_10
+        - isbn_13
       type: object
       properties:
         asin:
           type: string
-        ean-13:
+        ean_13:
           type: string
-        ean-8:
+        ean_8:
           type: string
-        isbn-10:
+        isbn_10:
           type: string
-        isbn-13:
+        isbn_13:
           type: string

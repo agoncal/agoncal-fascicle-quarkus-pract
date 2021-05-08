@@ -18,7 +18,7 @@ public class PingBookResourceHealthCheck implements HealthCheck {
 
   @Override
   public HealthCheckResponse call() {
-    bookResource.ping();
+    bookResource.hello();
     return HealthCheckResponse.named("Ping Book REST Endpoint").up().build();
   }
 }

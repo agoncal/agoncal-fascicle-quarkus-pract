@@ -1,8 +1,8 @@
 # AGoncal Fascicle: Practising Quarkus Fascicle
 
-Code of my future Practising Quarkus Fascicle
+Code of my [Practising Quarkus Fascicle](https://agoncal.teachable.com/p/ebook-practising-quarkus)
 
-![Travis](https://travis-ci.org/agoncal/agoncal-fascicle-quarkus-pract.svg?branch=1.x)
+![Travis](https://travis-ci.org/agoncal/agoncal-fascicle-quarkus-pract.svg?branch=1.1)
 
 Microservices is an architectural style that structures an application as a collection of distributed services.
 Microservices are certainly appealing but there are many questions that should be asked prior to diving into this architectural style:
@@ -11,17 +11,17 @@ How do I test my services?
 How do I monitor them?
 How do I package and execute them?
 
-That's when [Quarkus](https://quarkus.io/) comes into play.
+That's when [Quarkus](https://quarkus.io) comes into play.
 
-In this [fascicle](https://www.amazon.com/author/agoncal) you will develop an entire microservice application using Quarkus as well as MicroProfile.
+In this [fascicle](https://agoncal.teachable.com) you will develop an entire microservice application using Quarkus as well as MicroProfile.
 You will expose REST endpoints using JAX-RS and OpenAPI, customise the JSON output thanks to JSON-B and deal with persistence and transaction with Hibernate ORM with Panache and JTA.
 Having distributed microservices, you will implement health checks and add some metrics so you can monitor your microservice architecture.
 Finally, thanks to GraalVM you will build native executables, and package and execute them with Docker.
 
 This fascicle is very practical.
-It is the companion book of the more theoretical [Understanding Quarkus](https://github.com/agoncal/agoncal-fascicle-quarkus) where you’ll learn more about Quarkus, MicroProfile, REST and reactive microservices, as well as Cloud Native and GraalVM.
+It is the companion book of the more theoretical [Understanding Quarkus](https://agoncal.teachable.com/p/ebook-understanding-quarkus) where you’ll learn more about Quarkus, MicroProfile, REST and reactive microservices, as well as Cloud Native and GraalVM.
 
-![Quarkus](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-quarkus-pract/master/cover.jpg)
+[![Practising Quarkus](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-quarkus-pract/master/cover.jpg)](https://agoncal.teachable.com/p/ebook-practising-quarkus)
 
 Foreword by [Clement Escoffier](https://twitter.com/clementplop)
 
@@ -57,4 +57,9 @@ And thanks to my proof-reader team:
 * [Clement Escoffier](https://twitter.com/thjanssen123)
 * [Youness Teimouri](https://twitter.com/clementplop)
 * [Mike François](https://twitter.com/mike_francois)
+
+## References
+
+* [agoncal fascicles e-book format](https://agoncal.teachable.com)
+* [agoncal fascicles paper book format](https://www.amazon.com/author/agoncal)
 

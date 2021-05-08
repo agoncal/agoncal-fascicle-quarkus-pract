@@ -1,16 +1,22 @@
 package org.agoncal.fascicle.quarkus.book;
 
+// tag::adocImportORM[]
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+// end::adocImportORM[]
+// tag::adocImportBV[]
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+// end::adocImportBV[]
 import java.math.BigDecimal;
+// tag::adocImportORM[]
 import java.net.URL;
+// end::adocImportORM[]
 import java.util.Random;
 
 // tag::adocSnippet[]
