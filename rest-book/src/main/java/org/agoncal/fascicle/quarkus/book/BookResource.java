@@ -147,6 +147,7 @@ public class BookResource {
   @Path("/{id}")
   public Response deleteBook(@Parameter(description = "Book identifier", required = true) @PathParam("id") Long id) {
     service.deleteBook(id);
+
     LOGGER.debug("Book deleted with " + id);
     return Response.noContent().build();
   }
