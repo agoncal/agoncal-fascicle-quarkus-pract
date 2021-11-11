@@ -122,7 +122,7 @@ public class BookResource {
     return Response.created(builder.build()).build();
   }
 
-  @Operation(summary = "Updates an existing  book")
+  @Operation(summary = "Updates an existing book")
   @APIResponse(responseCode = "200", description = "The updated book", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
   // tag::adocMetrics[]
   @Counted(name = "countUpdateBook", description = "Counts how many times the updateBook method has been invoked")

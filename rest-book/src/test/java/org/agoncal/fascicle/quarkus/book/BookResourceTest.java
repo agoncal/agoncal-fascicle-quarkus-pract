@@ -2,17 +2,14 @@ package org.agoncal.fascicle.quarkus.book;
 //@formatter:off
 
 // tag::adocImports[]
-import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.DisabledOnNativeImage;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
-import org.agoncal.fascicle.quarkus.book.infrastructure.Database;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-// end::adocImports[]
 
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
@@ -20,7 +17,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.Random;
 
-// tag::adocImportStatic[]
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
@@ -39,7 +35,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // tag::adocHeader[]
 @QuarkusTest
-@QuarkusTestResource(Database.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookResourceTest {
 

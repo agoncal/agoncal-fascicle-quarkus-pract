@@ -25,8 +25,10 @@ import javax.validation.Valid;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.Instant;
+// tag::adocImportInit[]
 import java.util.List;
 import java.util.Optional;
+// end::adocImportInit[]
 
 // tag::adocSnippet[]
 @ApplicationScoped
