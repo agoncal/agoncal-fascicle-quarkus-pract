@@ -7,7 +7,8 @@ import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import io.quarkus.runtime.configuration.ProfileManager;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;import javax.inject.Inject;
+import javax.enterprise.event.Observes;
+import javax.inject.Inject;
 // end::adocImports[]
 
 // tag::adocSnippet[]
