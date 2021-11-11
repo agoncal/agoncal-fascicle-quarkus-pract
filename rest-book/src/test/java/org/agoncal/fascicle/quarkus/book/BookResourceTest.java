@@ -10,6 +10,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+// end::adocImports[]
 
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
@@ -17,6 +18,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Random;
 
+// tag::adocImportStatic[]
 import static io.restassured.RestAssured.given;
 import static javax.ws.rs.core.HttpHeaders.ACCEPT;
 import static javax.ws.rs.core.HttpHeaders.CONTENT_TYPE;
