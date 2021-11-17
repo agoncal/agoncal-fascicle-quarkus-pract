@@ -108,8 +108,10 @@ public class BookResource {
   // end::adocGetBook[]
 
   // tag::adocCreateBook[]
+  // tag::adocOpenAPI[]
   @Operation(summary = "Creates a valid book")
   @APIResponse(responseCode = "201", description = "The URI of the created book", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = URI.class)))
+  // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countCreateBook", description = "Counts how many times the createBook method has been invoked")
   @Timed(name = "timeCreateBook", description = "Times how long it takes to invoke the createBook method", unit = MetricUnits.MILLISECONDS)
@@ -122,8 +124,10 @@ public class BookResource {
     return Response.created(builder.build()).build();
   }
 
+  // tag::adocOpenAPI[]
   @Operation(summary = "Updates an existing book")
   @APIResponse(responseCode = "200", description = "The updated book", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Book.class)))
+  // end::adocOpenAPI[]
   // tag::adocMetrics[]
   @Counted(name = "countUpdateBook", description = "Counts how many times the updateBook method has been invoked")
   @Timed(name = "timeUpdateBook", description = "Times how long it takes to invoke the updateBook method", unit = MetricUnits.MILLISECONDS)
