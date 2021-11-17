@@ -1,5 +1,5 @@
-# tag::adocSnippet[]
 version: "3"
+# tag::adocSnippet[]
 services:
   ui:
     image: "agoncal/ui-vintagestore:1.1-SNAPSHOT"
