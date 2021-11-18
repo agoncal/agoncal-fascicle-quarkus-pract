@@ -1,8 +1,8 @@
 version: "3"
 # tag::adocSnippet[]
 services:
-  ui:
-    image: "agoncal/ui-vintagestore:1.1-SNAPSHOT"
+  ui-vintagestore:
+    image: "agoncal/ui-vintagestore:2.0.0-SNAPSHOT"
     container_name: "vintage_store_ui"
     ports:
       - "8700:8700"
@@ -10,12 +10,12 @@ services:
       - rest-number
       - rest-book
   rest-number:
-    image: "agoncal/rest-number:1.1-SNAPSHOT"
+    image: "agoncal/rest-number:2.0.0-SNAPSHOT"
     container_name: "vintage_store_rest_number"
     ports:
       - "8701:8701"
   rest-book:
-    image: "agoncal/rest-book:1.1-SNAPSHOT"
+    image: "agoncal/rest-book:2.0.0-SNAPSHOT"
     container_name: "vintage_store_rest_book"
     ports:
       - "8702:8702"
