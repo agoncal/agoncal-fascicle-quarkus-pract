@@ -7,4 +7,4 @@ mvn assembly:single
 mv pom.xml pom_to_be_renamed.xml
 cp dummy.pom.xml pom.xml
 
-mv dist/agoncal-fascicle-quarkus-practising-1.1-SNAPSHOT.zip dist/agoncal-fascicle-quarkus-practising-1.1.zip
+mv dist/agoncal-fascicle-quarkus-practising-2.0.0-SNAPSHOT.zip dist/agoncal-fascicle-quarkus-practising-2.0.zip
