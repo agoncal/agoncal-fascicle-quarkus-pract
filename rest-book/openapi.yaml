@@ -6,7 +6,7 @@ info:
   contact:
     name: '@agoncal'
     url: https://twitter.com/agoncal
-  version: "1.0"
+  version: "2.0"
 externalDocs:
   description: All the Practising Quarkus code
   url: https://github.com/agoncal/agoncal-fascicle-quarkus-pract

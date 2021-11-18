@@ -1,0 +1,13 @@
+version: "3"
+# tag::adocSnippet[]
+services:
+  database:
+    image: "postgres:14.1"
+    container_name: "vintage_store_books_database"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=books_database
+      - POSTGRES_USER=book
+      - POSTGRES_PASSWORD=book
+# end::adocSnippet[]

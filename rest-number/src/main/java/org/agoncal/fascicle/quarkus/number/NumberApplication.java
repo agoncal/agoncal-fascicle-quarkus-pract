@@ -16,7 +16,7 @@ import javax.ws.rs.core.Application;
 @OpenAPIDefinition(
   info = @Info(title = "Number API",
     description = "This API allows to generate all sorts of numbers",
-    version = "1.0",
+    version = "2.0",
     contact = @Contact(name = "@agoncal", url = "https://twitter.com/agoncal")),
   externalDocs = @ExternalDocumentation(url = "https://github.com/agoncal/agoncal-fascicle-quarkus-pract", description = "All the Practising Quarkus code"),
   tags = {

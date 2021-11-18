@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # tag::adocBootstrap[]
-mvn -U io.quarkus:quarkus-maven-plugin:create \
+mvn io.quarkus:quarkus-maven-plugin:2.4.1.Final:create \
     -DprojectGroupId=org.agoncal.fascicle.quarkus-practising \
     -DprojectArtifactId=event-inventory \
-    -DprojectVersion=1.1-SNAPSHOT \
+    -DprojectVersion=2.0.0-SNAPSHOT \
     -DclassName="org.agoncal.fascicle.quarkus.inventory.InventoryResource" \
     -Dpath="/api/inventory" \
     -Dextensions="resteasy, resteasy-jsonb, mongodb-panache, smallrye-openapi, kafka"

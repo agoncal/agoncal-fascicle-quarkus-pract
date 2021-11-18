@@ -1,0 +1,11 @@
+version: "3"
+# tag::adocSnippet[]
+services:
+  monitoring:
+    image: "prom/prometheus:v2.31.1"
+    container_name: "vintage_store_monitoring"
+    ports:
+      - 9090:9090
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+# end::adocSnippet[]

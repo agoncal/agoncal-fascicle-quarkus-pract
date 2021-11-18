@@ -96,12 +96,12 @@
       padding-left: 0;
     }
 
-        .example-code {
+        .provided-code {
             border-left: 0.3rem solid #71aeef;
             padding-left: 10px;
         }
 
-        .example-code h3 {
+        .provided-code h3 {
             font-weight: 200;
         }
   </style>
@@ -120,10 +120,11 @@
 
     <p>Click on the following links to get some technical information about the application:</p>
     <ul>
-      <li><a href="openapi" type="application/json">Open API</a>: Open API contract of the REST Endpoint</li>
-      <li><a href="swagger-ui">Swagger UI</a>: Swagger UI version of the Open API contract of the REST Endpoint</li>
-      <li><a href="health">Health Check</a>: Liveness and readiness of the application</li>
-      <li><a href="metrics/application" type="application/json">Metrics</a>: Metrics of the application</li>
+      <li><a href="q/dev">Dev UI</a>: Development console</li>
+      <li><a href="q/openapi" type="application/json">Open API</a>: Open API contract of the REST Endpoint</li>
+      <li><a href="q/swagger-ui">Swagger UI</a>: Swagger UI version of the Open API contract of the REST Endpoint</li>
+      <li><a href="q/health">Health Check</a>: Liveness and readiness of the application</li>
+      <li><a href="q/metrics/application" type="application/json">Metrics</a>: Metrics of the application</li>
       </li>
     </ul>
 
@@ -148,11 +149,11 @@
             <li>Your static assets are located in <code>src/main/resources/META-INF/resources</code>.</li>
             <li>Configure your application in <code>src/main/resources/application.properties</code>.</li>
             <li>Quarkus now ships with a <a href="/q/dev/">Dev UI</a> (available in dev mode only)</li>
-            <li>Play with the getting started example code located in <code>src/main/java</code>:</li>
+            <li>Play with the provided code located in <code>src/main/java</code>:</li>
         </ul>
-                <div class="example-code">
-            <h3>RESTEasy JAX-RS example</h3>
-            <p>REST is easy peasy with this Hello World RESTEasy resource.</p>
+                <div class="provided-code">
+            <h3>RESTEasy JAX-RS</h3>
+            <p>Easily start your RESTful Web Services</p>
             <p><code>@Path: <a href="/api/numbers" class="path-link" target="_blank">/api/numbers</a></code></p>
             <p><a href="https://quarkus.io/guides/getting-started#the-jax-rs-resources" class="guide-link" target="_blank">Related guide section...</a></p>
         </div>
@@ -164,8 +165,8 @@
       <ul>
                 <li>GroupId: <code>org.agoncal.fascicle.quarkus-practising</code></li>
                 <li>ArtifactId: <code>rest-number</code></li>
-                <li>Version: <code>1.1-SNAPSHOT</code></li>
-                <li>Quarkus Version: <code>1.13.0.Final</code></li>
+                <li>Version: <code>2.0.0-SNAPSHOT</code></li>
+                <li>Quarkus Version: <code>2.4.1.Final</code></li>
             </ul>
         </div>
         <div class="right-section">

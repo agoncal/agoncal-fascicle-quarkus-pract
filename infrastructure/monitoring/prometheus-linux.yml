@@ -7,9 +7,11 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
   - job_name: 'number'
+    metrics_path: '/q/metrics'
     static_configs:
       - targets: ['localhost:8701']
   - job_name: 'book'
+    metrics_path: '/q/metrics'
     static_configs:
       - targets: ['localhost:8702']
 # end::adocPrometheus[]

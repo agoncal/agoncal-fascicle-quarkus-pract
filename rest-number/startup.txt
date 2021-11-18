@@ -5,9 +5,13 @@ INFO  | . ` | | | | '_ ` _ \| '_ \ / _ \ '__|
 INFO  | |\  | |_| | | | | | | |_) |  __/ |
 INFO  \_| \_/\__,_|_| |_| |_|_.__/ \___|_|
 INFO                           Powered by Quarkus
-INFO  Quarkus started in 1.137s. Listening on: http://0.0.0.0:8080
+INFO  rest-number 2.0.0-SNAPSHOT on JVM started in 1.466s. Listening on: http://localhost:8080
 INFO  Profile dev activated. Live Coding activated.
 INFO  Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-openapi, swagger-ui]
+
+--
+Tests paused
+Press [r] to resume testing, [o] Toggle test output, [h] for more options>
 (...)
 INFO  The application Number is stopping...
 INFO  Quarkus stopped in 0.002s

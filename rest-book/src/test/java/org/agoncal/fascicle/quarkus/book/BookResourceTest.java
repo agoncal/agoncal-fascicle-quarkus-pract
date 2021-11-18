@@ -2,11 +2,9 @@ package org.agoncal.fascicle.quarkus.book;
 //@formatter:off
 
 // tag::adocImports[]
-import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.DisabledOnNativeImage;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
-import org.agoncal.fascicle.quarkus.book.infrastructure.Database;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -39,7 +37,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // tag::adocHeader[]
 @QuarkusTest
-@QuarkusTestResource(Database.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookResourceTest {
 

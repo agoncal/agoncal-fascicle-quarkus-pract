@@ -2,8 +2,10 @@ __  ____  __  _____   ___  __ ____  ______
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
 --\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-INFO rest-number 1.1 started in 1.417s. Listening on: http://0.0.0.0:8080
-INFO Profile dev activated. Live Coding activated.
-INFO Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-openapi, swagger-ui]
-(...)
-INFO  Quarkus stopped in 0.002s
+INFO  rest-number 2.0.0-SNAPSHOT on JVM started in 1.466s. Listening on: http://localhost:8080
+INFO  Profile dev activated. Live Coding activated.
+INFO  Installed features: [cdi, resteasy, resteasy-jsonb, smallrye-openapi, swagger-ui]
+
+--
+Tests paused
+Press [r] to resume testing, [o] Toggle test output, [h] for more options>

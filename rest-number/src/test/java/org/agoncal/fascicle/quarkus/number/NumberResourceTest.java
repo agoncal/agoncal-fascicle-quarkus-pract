@@ -5,7 +5,6 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 // tag::adocImports[]
-import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
 import static io.restassured.RestAssured.given;
@@ -26,7 +25,7 @@ public class NumberResourceTest {
   @Test
   void shouldGenerateBookNumber() {
     given()
-      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+      .header(ACCEPT, MediaType.APPLICATION_JSON).
     when()
       .get("/api/numbers").
     then()
@@ -42,7 +41,7 @@ public class NumberResourceTest {
   @Test
   void shouldSayPing() {
     given()
-      .header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN).
+      .header(ACCEPT, MediaType.TEXT_PLAIN).
     when()
       .get("/api/numbers/ping").
     then()
@@ -54,7 +53,7 @@ public class NumberResourceTest {
   @Test
   void shouldPingOpenAPI() {
     given()
-      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+      .header(ACCEPT, MediaType.APPLICATION_JSON).
     when()
       .get("/q/openapi").
     then()
@@ -98,7 +97,7 @@ public class NumberResourceTest {
   @Test
   void shouldPingMetrics() {
     given()
-      .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).
+      .header(ACCEPT, MediaType.APPLICATION_JSON).
     when()
       .get("/q/metrics/application").
     then()
