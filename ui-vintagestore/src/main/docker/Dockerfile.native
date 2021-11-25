@@ -7,11 +7,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/rest-book .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/ui-vintagestore .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/rest-book
+# docker run -i --rm -p 8080:8080 quarkus/ui-vintagestore
 #
 ###
 # tag::adocSnippet[]
