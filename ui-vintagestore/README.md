@@ -13,7 +13,7 @@ Update the last version of NG CLI  (check https://github.com/angular/angular-cli
 
 ```
 ng --version
-npm install -g @angular/cli@v9.1.12
+npm install -g @angular/cli@v13.0.3
 ```
 
 # Creating the UI
@@ -26,12 +26,12 @@ From the root directory
 ng new ui-vintagestore --minimal=true --inline-style=true --inline-template=false --prefix=bs --routing=true --skip-git=true --skip-install=true --strict=true --style=scss --force=true --package-manager=npm
 ```
 
-## Installing Material Design
-
-Install the Material Design dependencies: 
+## Installing BootStrap
 
 ```
 cd ui-vintagestore
+
+ng add @ng-bootstrap/ng-bootstrap@bootstrap5
 
 ng add @ng-bootstrap/ng-bootstrap --defaults=true --interactive=false
 ng add font-awesome --defaults=true --interactive=false
@@ -84,16 +84,14 @@ In `angular.json`:
 
 ## Template
 
-
-
-
 ## Business modules
 
 ```
+cd ui-vintagestore
+
 ng generate module book/book --flat=true --module=app.module.ts --routing=true --route=book
 ng generate module number/number --flat=true --module=app.module.ts --routing=true --route=number
 ng generate module inventory/inventory --flat=true --module=app.module.ts --routing=true --route=inventory
-ng generate module admin/admin --flat=true --module=app.module.ts --routing=true --route=admin
 ```
 
 ## Components
@@ -125,4 +123,12 @@ To generate the code from the Number and Book REST endpoint.
 ```
 swagger-codegen generate --lang typescript-angular --output src/app/shared --input-spec http://127.0.0.1:8701/openapi
 swagger-codegen generate --lang typescript-angular --output src/app/shared --input-spec http://127.0.0.1:8702/openapi
+```
+
+## Run 
+
+```
+npm install
+ng serve
+open http://localhost:4200
 ```
