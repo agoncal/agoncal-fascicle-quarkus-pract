@@ -9,7 +9,7 @@
   <name>Practising Quarkus</name>
 
   <modules>
-    <module>first-step</module>
+    <module>first-look</module>
     <module>infrastructure</module>
     <module>load-vintagestore</module>
     <module>ui-vintagestore</module>

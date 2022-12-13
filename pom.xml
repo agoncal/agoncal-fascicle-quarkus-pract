@@ -14,7 +14,7 @@
     <!-- tag::adocSkipInventory[] -->
     <module>event-inventory</module>
     <!-- end::adocSkipInventory[] -->
-    <module>first-step</module>
+    <module>first-look</module>
     <module>infrastructure</module>
     <module>load-vintagestore</module>
     <!-- tag::adocSkipBook[] -->
