@@ -1,11 +1,13 @@
-package org.agoncal.fascicle.quarkus.firststep;
+package org.agoncal.fascicle.quarkus.firstlook;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+// tag::adocSnippet[]
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
+// end::adocSnippet[]
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org

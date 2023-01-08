@@ -5,7 +5,7 @@
 
   <groupId>org.agoncal.fascicle</groupId>
   <artifactId>quarkus-practising</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Practising Quarkus</name>
 
@@ -14,7 +14,7 @@
     <!-- tag::adocSkipInventory[] -->
     <module>event-inventory</module>
     <!-- end::adocSkipInventory[] -->
-    <module>first-step</module>
+    <module>first-look</module>
     <module>infrastructure</module>
     <module>load-vintagestore</module>
     <!-- tag::adocSkipBook[] -->
