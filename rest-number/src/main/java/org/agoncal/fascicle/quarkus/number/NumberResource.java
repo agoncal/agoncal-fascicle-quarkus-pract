@@ -2,37 +2,28 @@ package org.agoncal.fascicle.quarkus.number;
 //@formatter:off
 
 // tag::adocImportFaker[]
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 // end::adocImportFaker[]
 // tag::adocConfigPropertyImport[]
-import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-// end::adocConfigPropertyImport[]
-// tag::adocImportFault[]
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.faulttolerance.Timeout;
-// end::adocImportFault[]
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
-// tag::adocImportOpenAPI[]
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-// end::adocImportOpenAPI[]
-// tag::adocImportLogger[]
 import org.jboss.logging.Logger;
-// end::adocImportLogger[]
 
-// tag::adocImportJAXRS[]
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-// end::adocImportJAXRS[]
 import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
