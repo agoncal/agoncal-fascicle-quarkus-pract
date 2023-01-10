@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.quarkus.book.client;
 
-import javax.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbProperty;
 
 // tag::adocSnippet[]
 public class IsbnNumbers {

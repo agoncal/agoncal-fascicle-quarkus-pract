@@ -13,14 +13,14 @@ import org.jboss.logging.Logger;
 // end::adocImportInit[]
 
 // tag::adocImportInit[]
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 // end::adocImportInit[]
-import javax.json.bind.JsonbBuilder;
+import jakarta.json.bind.JsonbBuilder;
 // tag::adocImportInit[]
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
-import javax.validation.Valid;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 // end::adocImportInit[]
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
