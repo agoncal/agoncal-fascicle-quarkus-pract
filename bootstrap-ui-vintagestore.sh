@@ -4,4 +4,4 @@ mvn io.quarkus:quarkus-maven-plugin:3.0.0.Alpha2:create \
     -DprojectGroupId=org.agoncal.fascicle.quarkus-practising \
     -DprojectArtifactId=ui-vintagestore \
     -DprojectVersion=3.0.0-SNAPSHOT \
-    -Dextensions="undertow"
+    -Dextensions="undertow, docker"
